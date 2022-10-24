@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {computed, useColorMode} from "#imports";
+import {ColorScheme} from "#components";
 
 const colorMode = useColorMode()
 const logoSrc = computed(() => {
@@ -14,5 +15,7 @@ const logoSrc = computed(() => {
 })
 </script>
 <template>
-    <img width="50" height="50" alt="Overflow Logo" :src="logoSrc"/>
+    <ColorScheme>
+        <img width="50" height="50" alt="Overflow Logo" :src="logoSrc"/>
+    </ColorScheme>
 </template>

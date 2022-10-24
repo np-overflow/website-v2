@@ -6,7 +6,7 @@ const {data: meta} = await useAsyncData('meta', () => queryContent('/meta').find
 </script>
 <template>
     <div class="font-poppins">
-        <div class="nsticky top-0 z-50 navbar font-cubano backdrop-blur-glass shadow-glass">
+        <div class="sticky top-0 z-10 navbar font-cubano backdrop-blur-glass shadow-glass">
             <div class="navbar-start">
                 <div class="dropdown">
                     <label tabindex="0" class="btn btn-ghost rounded lg:hidden">

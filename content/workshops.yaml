@@ -1,0 +1,21 @@
+workshops:
+  - name: UI/UX Fundamentals
+    start_date: 28 October 2022 19:00:00
+    end_date: 28 October 2022 21:00:00
+    meeting_url: https://np-overflow.club
+  - name: Vue \#1
+    start_date: 28 October 2022 19:00:00
+    end_date: 28 October 2022 21:00:00
+    meeting_url: https://np-overflow.club
+  - name: Vue \#2
+    start_date: 28 October 2022 19:00:00
+    end_date: 28 October 2022 21:00:00
+    meeting_url: https://np-overflow.club
+  - name: Flutter \#1
+    start_date: 28 October 2022 19:00:00
+    end_date: 28 October 2022 21:00:00
+    meeting_url: https://np-overflow.club
+  - name: Flutter \#2
+    start_date: 28 October 2022 19:00:00
+    end_date: 28 October 2022 21:00:00
+    meeting_url: https://np-overflow.club
