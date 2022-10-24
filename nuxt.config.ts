@@ -7,4 +7,11 @@ export default defineNuxtConfig({
     dataValue: 'theme', // activate data-theme in <html> tag
     classSuffix: '',
   },
+  nitro: {
+    routeRules: {
+      "/_content/**": {
+        swr: true
+      }
+    }
+  }
 })
