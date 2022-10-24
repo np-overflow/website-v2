@@ -5,7 +5,7 @@ import {queryContent} from '#imports'
 const {data: meta} = await useAsyncData('meta', () => queryContent('/meta').findOne())
 </script>
 <template>
-    <div class="navbar bg-primary">
+    <div class="navbar bg-primary-100 font-cubano text-white">
         <div class="navbar-start">
             <div class="dropdown">
                 <label tabindex="0" class="btn btn-ghost rounded lg:hidden">
@@ -41,6 +41,25 @@ const {data: meta} = await useAsyncData('meta', () => queryContent('/meta').find
             <NuxtLink :to="meta.join_url" class="btn btn-ghost rounded">
                 Join Us!
             </NuxtLink>
+        </div>
+    </div>
+    <div class="hero">
+        <div class="hero-content p-6 flex-col lg:flex-row-reverse">
+            <div class="card rounded-md w-1/2 bg-primary-100">
+                <div class="card-body">
+                    <h1 class="text-2xl font-cubano">Inspiring <span class="text-transparent bg-clip-text bg-gradient-to-tr from-orange-500 to-pink-500">Tech</span> talent everyday</h1>
+                    <p class="whitespace-pre-line mt-4">
+                        Overflow is a breeding ground for creators. 
+                        We provide opportunities to pick up skills & 
+                        an outlet to exhibit <span class="font-bold">your very own creations</span> 
+                    </p>
+                    <div class="card-action mt-8">
+                        <div class="btn btn-sm btn-outline btn-accent font-bold border-3 rounded">
+                            <span class="text-white">Join Us</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>

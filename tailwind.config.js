@@ -3,6 +3,9 @@ module.exports = {
         extend: {
             fontFamily: {
                 cubano: ['Cubano']
+            },
+            colors: {
+                "primary-100": "#14171A",
             }
         }
     },
