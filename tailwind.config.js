@@ -1,39 +1,43 @@
 module.exports = {
+    plugins: [require('daisyui')],
     theme: {
         extend: {
             fontFamily: {
-                cubano: ['Cubano']
+                cubano: ['Cubano', 'sans-serif'],
+                poppins: ['Poppins', 'sans-serif']
             },
-            colors: {
-                "primary-100": "#14171A",
-                "base": "hsl(0 0% 80%)"
-            }
         }
     },
     daisyui: {
         themes: [
-        {
-            mytheme: {
-                "primary": "#292E34",
-
-                "secondary": "#FF6600",
-
-                "accent": "#09BB6F",
-
-                "neutral": "#12171B",
-
-                "base-100": "#000",
-
-                "info": "#0ea5e9",
-
-                "success": "#22c55e",
-
-                "warning": "#f59e0b",
-
-                "error": "#be123c",
+            {
+                dark: {
+                    "primary": "#292E34",
+                    "secondary": "#FF6600",
+                    "accent": "#09BB6F",
+                    "neutral": "#12171B",
+                    "base-100": "#000212",
+                    "base-content": "#f8fafc",
+                    "info": "#0ea5e9",
+                    "success": "#22c55e",
+                    "warning": "#f59e0b",
+                    "error": "#be123c",
+                },
             },
-        },
+            {
+                light: {
+                    "primary": "#d6d1cb",
+                    "secondary": "#FF6600",
+                    "accent": "#09BB6F",
+                    "neutral": "#ede8e4",
+                    "accent-content": "#ede8e4",
+                    "base-100": "#fff",
+                    "info": "#0ea5e9",
+                    "success": "#22c55e",
+                    "warning": "#f59e0b",
+                    "error": "#be123c",
+                },
+            },
         ],
     },
-    plugins: [require('daisyui')]
 }
