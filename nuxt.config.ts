@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   },
   nitro: {
     routeRules: {
-      "/_content/**": {
+      "/api/**": {
         swr: true
       }
     }
