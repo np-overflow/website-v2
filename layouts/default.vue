@@ -5,7 +5,8 @@ import {queryContent} from '#imports'
 const {data: meta} = await useAsyncData('meta', () => queryContent('/meta').findOne())
 </script>
 <template>
-    <div class="navbar bg-primary-100 font-cubano">
+    <div 
+        class="sticky top-0 z-50 navbar font-cubano backdrop-blur-glass shadow-glass">
         <div class="navbar-start">
             <div class="dropdown">
                 <label tabindex="0" class="btn btn-ghost rounded lg:hidden">

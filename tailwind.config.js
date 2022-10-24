@@ -7,6 +7,15 @@ module.exports = {
             colors: {
                 "primary-100": "#14171A",
                 "base": "hsl(0 0% 80%)"
+            },
+            boxShadow: {
+                'glass': 'inset 0 -1px 0 0 hsla(0, 0%, 100%, 0.1)'
+            },
+            backdropBlur: {
+                'glass': '12px'
+            },
+            content: {
+                'default': '""'
             }
         }
     },
@@ -22,7 +31,7 @@ module.exports = {
 
                 "neutral": "#12171B",
 
-                "base-100": "#000",
+                "base-100": "#222",
 
                 "info": "#0ea5e9",
 
