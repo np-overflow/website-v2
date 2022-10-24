@@ -10,9 +10,9 @@ const {data: workshops} = await useAsyncData('workshops', () => queryContent('/w
     <div>
         <div class="hero">
             <div class="hero-content p-6 grid grid-cols-1 md:grid-cols-2">
-                <div class="card rounded-md">
+                <div class="card card-compact md:card-normal rounded-md">
                     <div class="card-body">
-                        <h1 class="text-2xl font-cubano">
+                        <h1 class="text-5xl font-cubano">
                             Inspiring
                             <span
                                 class="text-transparent bg-clip-text bg-gradient-to-tr from-amber-500 to-pink-500">
