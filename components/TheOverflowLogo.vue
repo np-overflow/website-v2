@@ -14,5 +14,5 @@ const logoSrc = computed(() => {
 })
 </script>
 <template>
-    <NuxtImg width="50" height="50" alt="Overflow Logo" :src="logoSrc"/>
+    <img width="50" height="50" alt="Overflow Logo" :src="logoSrc"/>
 </template>

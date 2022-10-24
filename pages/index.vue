@@ -37,7 +37,7 @@ const {data: landing} = await useAsyncData('landing', () => queryContent('/landi
                 </div>
             </div>
 
-            <NuxtImg class="w-2/3 md:w-full mx-auto" :src="landing.hero.img_url"/>
+            <img class="w-2/3 md:w-full mx-auto" :src="landing.hero.img_url"/>
         </div>
     </div>
 </template>
