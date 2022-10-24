@@ -1,1 +1,12 @@
-joinUrl: https://np-overflow.club
+title: Overflow
+logo_url: /icon.svg
+
+menu_items:
+  - name: Workshops
+    to: /
+  - name: Bootcamps
+    to: /
+  - name: Team
+    to: /
+
+join_url: https://np-overflow.club
