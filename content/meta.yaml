@@ -4,9 +4,12 @@ logo_url: /icon.svg
 menu_items:
   - name: Workshops
     to: /
+    icon: heroicons:book-open-20-solid
   - name: Bootcamps
     to: /
+    icon: fluent:tent-16-filled
   - name: Team
     to: /
+    icon: heroicons:user-group-20-solid
 
 join_url: https://np-overflow.club
