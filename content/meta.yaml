@@ -1,8 +1,8 @@
 title: Overflow
 logos: 
-  light: /local/logos/light.png
-  dark: /local/logos/dark.png
-  default: /local/logos/light.png
+  light: /logos/light.png
+  dark: /logos/dark.png
+  default: /logos/light.png
 
 menu_items:
   - name: Workshops

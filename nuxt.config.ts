@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
     '@nuxt/content',
-    // '@nuxt/image-edge',
+    '@nuxt/image-edge',
     'nuxt-icon',
   ],
   content: {},
@@ -14,15 +14,7 @@ export default defineNuxtConfig({
     classSuffix: '',
   },
   image: {
-    provider: 'proxy',
-    providers: {
-      proxy: {
-        provider: 'ipx',
-        options: {
-          baseURL: `/ipx`,
-        },
-      },
-    },
+    provider: 'static',
   },
   app: {
     head: {
