@@ -39,7 +39,7 @@ const {data: workshops} = await useAsyncData('workshops', () => queryContent('/w
                     </div>
                 </div>
 
-                <NuxtImg format="webp" class="w-full md:w-2/3 mx-auto" :src="landing.hero.img_url"/>
+                <img format="webp" class="w-full md:w-2/3 mx-auto" :src="landing.hero.img_url"/>
             </div>
         </div>
 
