@@ -11,6 +11,6 @@ const props = defineProps({
 </script>
 <template>
     <ColorScheme>
-        <img format="webp" width="50" height="50" alt="Overflow Logo" :src="props.urls[colorMode.value]" />
+        <NuxtImg format="webp" width="50" height="50" alt="Overflow Logo" :src="props.urls[colorMode.value]" />
     </ColorScheme>
 </template>
