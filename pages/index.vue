@@ -16,8 +16,8 @@ const {data: workshops} = await useAsyncData('workshops', () => queryContent('/w
                             Inspiring
                             <span
                                 class="text-transparent bg-clip-text bg-gradient-to-tr from-amber-500 to-pink-500">
-                                Tech
-                            </span>
+                            Tech
+                        </span>
                             talent everyday
                         </h1>
                         <p class="whitespace-pre-line mt-4">
@@ -26,20 +26,23 @@ const {data: workshops} = await useAsyncData('workshops', () => queryContent('/w
                             an outlet to exhibit
                             <span class="font-bold">
                             your very own creations
-                            </span>
-                        </p>    
+                        </span>
+                        </p>
                         <div class="card-action mt-8">
                             <NuxtLink
                                 :to="meta.join_url"
-                                class="btn btn-sm btn-outline btn-accent font-bold border-3 rounded">
+                                class="btn btn-sm btn-outline btn-accent font-bold border-3 rounded"
+                            >
                                 Join Us!
                             </NuxtLink>
                         </div>
                     </div>
                 </div>
-                <NuxtImg format="webp" class="w-full md:w-2/3 mx-auto" :src="landing.hero.img_url"/>
+
+                <img class="w-full md:w-2/3 mx-auto" :src="landing.hero.img_url"/>
             </div>
         </div>
+
         <div class="h-[1000px]">
         </div>
     </div>

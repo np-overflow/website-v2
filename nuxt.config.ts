@@ -4,7 +4,6 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
     '@nuxt/content',
-    '@nuxt/image-edge',
     'nuxt-icon',
   ],
   content: {},
@@ -12,9 +11,6 @@ export default defineNuxtConfig({
     preference: 'system', // default theme
     dataValue: 'theme', // activate data-theme in <html> tag
     classSuffix: '',
-  },
-  image: {
-    provider: 'static',
   },
   app: {
     head: {

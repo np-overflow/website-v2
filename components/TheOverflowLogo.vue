@@ -1,16 +1,21 @@
 <script setup lang="ts">
-import { PropType } from "vue";
-
-import { useColorMode } from "#imports";
-import { ColorScheme } from "#components";
+import {computed, useColorMode} from "#imports";
+import {ColorScheme} from "#components";
 
 const colorMode = useColorMode()
-const props = defineProps({
-    urls: Object as PropType<Record<string, string>>,
+const logoSrc = computed(() => {
+    switch (colorMode.value) {
+        case "light":
+            return '/logos/light.png'
+        case "dark":
+            return '/logos/dark.png'
+        default:
+            return '/logos/light.png'
+    }
 })
 </script>
 <template>
     <ColorScheme>
-        <NuxtImg format="webp" width="50" height="50" alt="Overflow Logo" :src="props.urls[colorMode.value]" />
+        <img width="50" height="50" alt="Overflow Logo" :src="logoSrc"/>
     </ColorScheme>
 </template>
