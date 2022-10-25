@@ -13,6 +13,17 @@ export default defineNuxtConfig({
     dataValue: 'theme', // activate data-theme in <html> tag
     classSuffix: '',
   },
+  image: {
+    provider: 'proxy',
+    providers: {
+      proxy: {
+        provider: 'ipx',
+        options: {
+          baseURL: `/ipx`,
+        },
+      },
+    },
+  },
   app: {
     head: {
       link: [
