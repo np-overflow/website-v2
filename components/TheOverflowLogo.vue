@@ -1,21 +1,14 @@
 <script setup lang="ts">
-import {computed, useColorMode} from "#imports";
-import {ColorScheme} from "#components";
+import { PropType } from "vue";
+import { useColorMode } from "#imports";
 
 const colorMode = useColorMode()
-const logoSrc = computed(() => {
-    switch (colorMode.value) {
-        case "light":
-            return '/logos/light.png'
-        case "dark":
-            return '/logos/dark.png'
-        default:
-            return '/logos/light.png'
-    }
+const props = defineProps({
+    urls: Object as PropType<Record<string, string>>,
 })
 </script>
 <template>
     <ColorScheme>
-        <img width="50" height="50" alt="Overflow Logo" :src="logoSrc"/>
+        <img width="50" height="50" alt="Overflow Logo" :src="props.urls[colorMode.value]" />
     </ColorScheme>
 </template>
