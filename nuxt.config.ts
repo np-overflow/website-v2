@@ -14,6 +14,13 @@ export default defineNuxtConfig({
 	},
 	app: {
 		head: {
+			titleTemplate: 'NP Overflow - %s',
+			htmlAttrs: {
+				lang: 'en-US',
+			},
+			meta: [
+				{ name: 'description', content: 'NP Overflow' },
+			],
 			link: [
 				{
 					rel: 'preconnect',

@@ -1,4 +1,8 @@
 <script setup lang="ts">
+definePageMeta({
+	title: 'Team',
+})
+
 const { data: team } = await useAsyncData('team', () => queryContent('/team').findOne())
 </script>
 

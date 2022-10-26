@@ -19,7 +19,7 @@ function change() {
 </script>
 
 <template>
-	<button class="btn btn-ghost" @click="change">
+	<button class="btn btn-ghost" name="Theme toggle" @click="change">
 		<Icon :name="iconName" />
 	</button>
 </template>
