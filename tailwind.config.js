@@ -19,6 +19,9 @@ module.exports = {
 			content: {
 				default: '""',
 			},
+			inset: {
+				'card-offset': 'calc(50% - 8px)'
+			}
 		},
 	},
 	daisyui: {

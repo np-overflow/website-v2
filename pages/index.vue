@@ -8,7 +8,7 @@ const { data: workshops } = await useAsyncData('workshops', () => queryContent('
 </script>
 
 <template>
-	<div>
+	<div class="max-w-7xl m-auto">
 		<div class="hero">
 			<div class="hero-content p-6 grid grid-cols-1 md:grid-cols-2">
 				<div class="card card-compact md:card-normal rounded-md">

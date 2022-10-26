@@ -8,7 +8,7 @@
 
 <template>
     <div class="flex">
-        <div class="hidden sm:flex justify-center w-1/2 p-4">        
+        <div class="hidden sm:flex justify-center w-1/2 p-6">        
             <div class="card card-compact bg-neutral rounded-md">
                 <div class="card-body">
                     <img class="w-full mx-auto rounded" :src="'/landing/hero.webp'">
@@ -26,7 +26,12 @@
             </div>
         </div>
         <div class="flex flex-col justify-center relative right-card gap-4 border-l-2 border-base-content sm:w-1/2">
-            <div class="ml-6 space-y-4">
+            <div class="pl-6 pb-6 space-y-4">
+                <div class="">
+                    <time class="mb-1 text-2xl font-cubano font-semibold">28/10</time>
+                    <h3 class="text-lg font-cubano">UI/UX Fundamentals</h3>
+                    <p class="mb-4 text-base-content/60">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias cumque neque nam enim similique sapiente voluptate.</p>
+                </div>
                 <div class="card card-compact bg-neutral rounded-md sm:hidden">
                     <div class="card-body">
                         <img class="w-full mx-auto rounded" :src="'/landing/hero.webp'">
@@ -42,11 +47,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="">
-                    <time class="mb-1 text-2xl font-cubano font-semibold">28/10</time>
-                    <h3 class="text-lg font-cubano">UI/UX Fundamentals</h3>
-                    <p class="mb-4 text-base-content/60">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias cumque neque nam enim similique sapiente voluptate.</p>
-                </div>
             </div>
         </div>
     </div>
@@ -54,8 +54,7 @@
 
 <style scoped>
     .right-card::after {
-        @apply content-default rounded-full w-4 h-4 bg-base-100 border-2 border-base-content absolute;
+        @apply content-default rounded-full w-4 h-4 bg-base-100 border-2 border-base-content absolute top-2 sm:top-card-offset;
         left: -9px;
-        top: calc(50% - 8px);
     }
 </style>       
