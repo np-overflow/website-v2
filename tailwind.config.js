@@ -14,14 +14,14 @@ module.exports = {
 				glass: 'inset 0 -1px 0 0 hsla(0, 0%, 100%, 0.1)',
 			},
 			backdropBlur: {
-				glass: '12px',
+				glass: '10px',
 			},
 			content: {
 				default: '""',
 			},
 			inset: {
-				'card-offset': 'calc(50% - 8px)'
-			}
+				'card-offset': 'calc(50% - 8px)',
+			},
 		},
 	},
 	daisyui: {

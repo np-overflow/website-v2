@@ -3,19 +3,19 @@ workshops:
     start_date: 28 October 2022 19:00:00
     end_date: 28 October 2022 21:00:00
     meeting_url: https://np-overflow.club
-  - name: "Vue #1"
+  - name: 'Vue #1'
     start_date: 28 October 2022 19:00:00
     end_date: 28 October 2022 21:00:00
     meeting_url: https://np-overflow.club
-  - name: "Vue #2"
+  - name: 'Vue #2'
     start_date: 28 October 2022 19:00:00
     end_date: 28 October 2022 21:00:00
     meeting_url: https://np-overflow.club
-  - name: "Flutter #1"
+  - name: 'Flutter #1'
     start_date: 28 October 2022 19:00:00
     end_date: 28 October 2022 21:00:00
     meeting_url: https://np-overflow.club
-  - name: "Flutter #2"
+  - name: 'Flutter #2'
     start_date: 28 October 2022 19:00:00
     end_date: 28 October 2022 21:00:00
     meeting_url: https://np-overflow.club

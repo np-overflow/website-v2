@@ -45,14 +45,26 @@ const { data: workshops } = await useAsyncData('workshops', () => queryContent('
 			</div>
 		</div>
 		<div>
-            <Timeline>
-                <TimelineCard v-for="{name, start_date} in workshops.workshops" :title="name" :date="start_date"/>
-            </Timeline>
-            <!-- <Timeline>
-                <TimelineCard />
-                <TimelineCard />
-                <TimelineCard />
-            </Timeline> -->
-        </div>
+			<Timeline title="New Workshops" subtitle="New Workshops & Updates every week">
+				<template #icon>
+					<span class="flex items-center justify-center rounded-full w-9 h-9 bg-gradient-to-t from-amber-500 to-pink-500">
+						<Icon name="heroicons:megaphone-20-solid" size="24" class="-rotate-45 text-white" />
+					</span>
+				</template>
+				<template #content>
+					<TimelineCard v-for="{ name, start_date } in workshops.workshops" :key="name" :title="name" :date="start_date" />
+				</template>
+			</Timeline>
+			<Timeline title="Upcoming Bootcamps" subtitle="send help">
+				<template #icon>
+					<span class="flex items-center justify-center rounded-full w-9 h-9 bg-gradient-to-t from-purple-500 to-pink-500">
+						<Icon name="fluent:tent-16-filled" size="24" class="text-white" />
+					</span>
+				</template>
+				<template #content>
+					<TimelineCard v-for="{ name, start_date } in workshops.workshops" :key="name" :title="name" :date="start_date" />
+				</template>
+			</Timeline>
+		</div>
 	</div>
 </template>
