@@ -50,6 +50,11 @@ const { data: workshops } = await useAsyncData('workshops', () => queryContent('
                 <TimelineCard />
                 <TimelineCard />
             </Timeline>
+            <Timeline>
+                <TimelineCard />
+                <TimelineCard />
+                <TimelineCard />
+            </Timeline>
         </div>
 	</div>
 </template>
