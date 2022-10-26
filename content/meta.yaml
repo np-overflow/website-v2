@@ -1,5 +1,5 @@
 title: Overflow
-logos: 
+logos:
   light: /logos/light.webp
   dark: /logos/dark.webp
   system: /logos/light.webp
@@ -16,3 +16,4 @@ menu_items:
     icon: heroicons:user-group-20-solid
 
 join_url: https://np-overflow.club
+
