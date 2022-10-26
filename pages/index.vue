@@ -46,15 +46,13 @@ const { data: workshops } = await useAsyncData('workshops', () => queryContent('
 		</div>
 		<div>
             <Timeline>
-                <TimelineCard />
-                <TimelineCard />
-                <TimelineCard />
+                <TimelineCard v-for="{name, start_date} in workshops.workshops" :title="name" :date="start_date"/>
             </Timeline>
-            <Timeline>
+            <!-- <Timeline>
                 <TimelineCard />
                 <TimelineCard />
                 <TimelineCard />
-            </Timeline>
+            </Timeline> -->
         </div>
 	</div>
 </template>
