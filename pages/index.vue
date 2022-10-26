@@ -44,6 +44,12 @@ const { data: workshops } = await useAsyncData('workshops', () => queryContent('
 				<img class="w-full md:w-2/3 mx-auto" :src="landing.hero.img_url">
 			</div>
 		</div>
-		<div class="h-[1000px]" />
+		<div>
+            <Timeline>
+                <TimelineCard />
+                <TimelineCard />
+                <TimelineCard />
+            </Timeline>
+        </div>
 	</div>
 </template>
