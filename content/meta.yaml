@@ -12,7 +12,7 @@ menu_items:
     to: /
     icon: fluent:tent-16-filled
   - name: Team
-    to: /
+    to: /team
     icon: heroicons:user-group-20-solid
 
 join_url: https://np-overflow.club
