@@ -9,6 +9,8 @@ module.exports = {
 			colors: {
 				'primary-100': '#14171A',
 				'base': 'hsl(0 0% 80%)',
+				'salmon': '#ef646d',
+				'goldenrod': '#f4972a',
 			},
 			boxShadow: {
 				glass: 'inset 0 -1px 0 0 hsla(0, 0%, 100%, 0.1)',
@@ -21,6 +23,7 @@ module.exports = {
 			},
 			inset: {
 				'card-offset': 'calc(50% - 8px)',
+				'0.25': '1px',
 			},
 		},
 	},
@@ -32,7 +35,7 @@ module.exports = {
 					'secondary': '#FF6600',
 					'accent': '#09BB6F',
 					'neutral': '#12171B',
-					'base-100': '#1c2324',
+					'base-100': '#000315', // #1c2324
 					'base-content': '#f8fafc',
 					'info': '#0ea5e9',
 					'success': '#22c55e',

@@ -22,7 +22,7 @@ const day = dateObj.getUTCDate()
 
 <template>
 	<div class="flex">
-		<div class="hidden sm:flex justify-center w-1/2 p-3 sm:p-6">
+		<div class="hidden sm:flex justify-center w-1/2 pr-3 py-3 sm:py-6 sm:pr-6">
 			<div class="card card-compact bg-neutral rounded-md">
 				<div class="card-body">
 					<img class="w-full mx-auto rounded" :src="imageUrl">
@@ -56,7 +56,7 @@ const day = dateObj.getUTCDate()
 				</div>
 			</div>
 		</div>
-		<div class="flex flex-col justify-center relative right-card gap-4 border-l-2 border-base-content p-3 sm:w-1/2 sm:p-6">
+		<div class="flex flex-col justify-center relative right-card gap-4 border-l-2 border-base-content pl-3 py-3 sm:py-6 sm:pl-6 sm:w-1/2">
 			<div class="space-y-4">
 				<div class="">
 					<time class="mb-1 text-2xl font-cubano font-semibold">{{ day }}/{{ month }}</time>
