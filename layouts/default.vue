@@ -9,7 +9,7 @@ const { data: meta } = await useAsyncData('meta', () => queryContent('/meta').fi
 	<div class="font-poppins">
 		<div class="sticky top-0 z-10 font-cubano h-12">
 			<div class="nav-glass" />
-			<div class="navbar relative m-auto max-w-7xl shadow-glass">
+			<div class="navbar relative m-auto max-w-7xl shadow-glass dark:shadow-glass-dark">
 				<div class="navbar-start">
 					<div class="dropdown">
 						<label tabindex="0" class="btn btn-ghost rounded lg:hidden">

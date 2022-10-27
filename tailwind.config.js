@@ -14,10 +14,11 @@ module.exports = {
 				'goldenrod': '#f4972a',
 			},
 			boxShadow: {
-				glass: 'inset 0 -1px 0 0 hsla(0, 0%, 100%, 0.1)',
+				'glass': 'inset 0 -1px 0 0 hsla(0, 0%, 50%, 0.1)',
+				'glass-dark': 'inset 0 -1px 0 0 hsla(0, 0%, 100%, 0.1)',
 			},
 			backdropBlur: {
-				glass: '10px',
+				glass: '12px',
 			},
 			content: {
 				default: '""',
