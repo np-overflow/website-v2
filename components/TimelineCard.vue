@@ -22,7 +22,7 @@ const day = dateObj.getUTCDate()
 
 <template>
 	<div class="flex">
-		<div class="hidden sm:flex justify-center w-1/2 p-6">
+		<div class="hidden sm:flex justify-center w-1/2 p-3 sm:p-6">
 			<div class="card card-compact bg-neutral rounded-md">
 				<div class="card-body">
 					<img class="w-full mx-auto rounded" :src="imageUrl">
@@ -56,8 +56,8 @@ const day = dateObj.getUTCDate()
 				</div>
 			</div>
 		</div>
-		<div class="flex flex-col justify-center relative right-card gap-4 border-l-2 border-base-content sm:w-1/2">
-			<div class="pl-6 pb-6 space-y-4">
+		<div class="flex flex-col justify-center relative right-card gap-4 border-l-2 border-base-content p-3 sm:w-1/2 sm:p-6">
+			<div class="space-y-4">
 				<div class="">
 					<time class="mb-1 text-2xl font-cubano font-semibold">{{ day }}/{{ month }}</time>
 					<h3 class="text-lg font-cubano">
@@ -79,20 +79,20 @@ const day = dateObj.getUTCDate()
 									Learn more
 								</NuxtLink>
 							</div>
-							<div class="inline-flex w-1/2 justify-evenly">
+							<div class="flex w-1/2 justify-evenly">
 								<NuxtLink
 									:to="meta.discord_url"
-									class="btn btn-ghost"
+									class="btn btn-ghost px-0"
 								>
 									<Icon size="24" name="akar-icons:discord-fill" />
 								</NuxtLink>
 								<NuxtLink
 									:to="meta.instagram_url"
-									class="btn btn-ghost"
+									class="btn btn-ghost px-0"
 								>
 									<Icon size="24" name="ant-design:instagram-filled" />
 								</NuxtLink>
-								<div class="btn btn-ghost">
+								<div class="btn btn-ghost px-0">
 									<Icon size="24" name="heroicons:share-20-solid" />
 								</div>
 							</div>

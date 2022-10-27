@@ -17,7 +17,7 @@ const { title, subtitle } = withDefaults(defineProps<{
 		<h3 class="text-xs text-base-content/60">
 			{{ subtitle }}
 		</h3>
-		<div class="flex flex-col w-full p-6">
+		<div class="flex flex-col w-full mb-10 p-3 sm:p-0">
 			<slot name="content" />
 		</div>
 	</div>
