@@ -1,5 +1,6 @@
 module.exports = {
 	plugins: [require('daisyui')],
+	darkMode: 'class',
 	theme: {
 		extend: {
 			fontFamily: {
