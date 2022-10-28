@@ -1,24 +1,30 @@
 <script setup lang="ts">
-const { title, subtitle } = withDefaults(defineProps<{
-	title?: string
-	subtitle?: string
-}>(), {
-	title: 'Timeline title',
-	subtitle: 'Timeline subtitle',
+const props = defineProps({
+	title: {
+		type: String,
+		default: 'Timeline title',
+	},
+	subtitle: {
+		type: String,
+		default: 'Timeline subtitle',
+	},
 })
 </script>
 
 <template>
-	<div class="flex flex-col items-center gap-4 font-poppins">
+	<section class="flex flex-col items-center gap-4 font-poppins">
 		<slot name="icon" />
+
 		<h1 class="font-cubano text-2xl">
 			{{ title }}
 		</h1>
-		<h3 class="text-xs text-base-content/60">
+
+		<span class="text-md text-base-content/60">
 			{{ subtitle }}
-		</h3>
+		</span>
+
 		<div class="flex flex-col w-full mb-10 p-3 sm:p-0">
-			<slot name="content" />
+			<slot />
 		</div>
-	</div>
+	</section>
 </template>

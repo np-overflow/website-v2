@@ -2,9 +2,9 @@
 import { useAsyncData } from '#app'
 import { queryContent } from '#imports'
 
-const { data: meta } = await useAsyncData('meta', () => queryContent('/meta').findOne())
-const { data: landing } = await useAsyncData('landing', () => queryContent('/landing').findOne())
-const { data: workshops } = await useAsyncData('workshops', () => queryContent('/workshops').findOne())
+const { data: meta } = await useAsyncData('meta', () => queryContent('meta').findOne())
+const { data: landing } = await useAsyncData('landing', () => queryContent('landing').findOne())
+const { data: workshops } = await useAsyncData('workshops', () => queryContent('workshops').findOne())
 </script>
 
 <template>
@@ -15,9 +15,7 @@ const { data: workshops } = await useAsyncData('workshops', () => queryContent('
 					<div class="card-body">
 						<h1 class="text-5xl font-cubano">
 							Inspiring
-							<span
-								class="text-transparent bg-clip-text bg-gradient-to-tr from-amber-500 to-pink-500"
-							>
+							<span class="text-transparent bg-clip-text bg-gradient-to-tr from-amber-500 to-pink-500">
 								Tech
 							</span>
 							talent everyday
@@ -31,10 +29,7 @@ const { data: workshops } = await useAsyncData('workshops', () => queryContent('
 							</span>
 						</p>
 						<div class="card-action mt-8">
-							<NuxtLink
-								:to="meta.join_url"
-								class="btn btn-sm btn-outline btn-accent font-bold border-3 rounded"
-							>
+							<NuxtLink :to="meta.join_url" class="btn btn-sm btn-outline btn-accent font-bold border-3 rounded">
 								Join Us!
 							</NuxtLink>
 						</div>
@@ -45,25 +40,36 @@ const { data: workshops } = await useAsyncData('workshops', () => queryContent('
 			</div>
 		</div>
 		<div>
-			<Timeline title="New Workshops" subtitle="New Workshops & Updates every week">
+			<Timeline title="New Workshops" subtitle="New workshops & updates every week!">
 				<template #icon>
 					<span class="flex items-center justify-center rounded-full w-9 h-9 bg-gradient-to-t from-salmon to-goldenrod">
 						<Icon name="heroicons:megaphone-20-solid" size="24" class="-rotate-45 text-white" />
 					</span>
 				</template>
-				<template #content>
-					<TimelineCard v-for="{ name, start_date } in workshops.workshops" :key="name" :title="name" :date="start_date" />
-				</template>
+
+				<TimelineCard
+					v-for="workshop in workshops.workshops"
+					:key="workshop.name"
+					v-bind="workshop"
+					:date="workshop.start_date"
+				/>
 			</Timeline>
-			<Timeline title="Upcoming Bootcamps" subtitle="send help">
+
+			<Timeline title="Upcoming Bootcamps" subtitle="Join our multi-day bootcamps and have fun!">
 				<template #icon>
-					<span class="flex items-center justify-center rounded-full w-9 h-9 bg-gradient-to-t from-purple-500 to-pink-500">
+					<span
+						class="flex items-center justify-center rounded-full w-9 h-9 bg-gradient-to-t from-purple-500 to-pink-500"
+					>
 						<Icon name="fluent:tent-16-filled" size="24" class="text-white" />
 					</span>
 				</template>
-				<template #content>
-					<TimelineCard v-for="{ name, start_date } in workshops.workshops" :key="name" :title="name" :date="start_date" />
-				</template>
+
+				<TimelineCard
+					v-for="workshop in workshops.workshops"
+					:key="workshop.name"
+					v-bind="workshop"
+					:date="workshop.start_date"
+				/>
 			</Timeline>
 		</div>
 	</div>

@@ -45,9 +45,7 @@ export default defineNuxtConfig({
 	nitro: {
 		routeRules: {
 			'/api/**': {
-				cache: {
-					maxAge: 3600,
-				},
+				swr: true,
 			},
 		},
 	},

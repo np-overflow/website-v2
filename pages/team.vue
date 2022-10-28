@@ -3,7 +3,7 @@ definePageMeta({
 	title: 'Team',
 })
 
-const { data: team } = await useAsyncData('team', () => queryContent('/team').findOne())
+const { data: team } = await useAsyncData('team', () => queryContent('team').findOne())
 </script>
 
 <template>

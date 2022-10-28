@@ -1,23 +1,35 @@
 <script setup lang="ts">
-const { imageUrl, classUrl, date, title, description } = withDefaults(defineProps<{
-	imageUrl?: string
-	classUrl?: string
-	date?: string
-	title?: string
-	description?: string
-}>(), {
-	imageUrl: '/landing/hero.svg',
-	classUrl: 'https://np-overflow.club',
-	date: '1 January 1970 00:00:00',
-	title: 'Workshop Title',
-	description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias cumque neque nam enim similique sapiente voluptate.',
+const props = defineProps({
+	imageUrl: {
+		type: String,
+		default: '/landing/hero.svg',
+	},
+	classUrl: {
+		type: String,
+		default: 'https://np-overflow.club',
+	},
+	date: {
+		type: String,
+		default: new Date().toUTCString(),
+	},
+	name: {
+		type: String,
+		default: 'Workshop name',
+	},
+	description: {
+		type: String,
+		default: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias cumque neque nam enim similique sapiente voluptate.',
+	},
 })
 
-const { data: meta } = await useAsyncData('meta', () => queryContent('/meta').findOne())
+const { data: meta } = await useAsyncData('meta', () => queryContent('meta').findOne())
 
-const dateObj = new Date(date)
-const month = dateObj.getUTCMonth() + 1
-const day = dateObj.getUTCDate()
+const parsedDate = computed(() => {
+	const dateObj = new Date(props.date)
+	const month = dateObj.getUTCMonth() + 1
+	const day = dateObj.getUTCDate()
+	return { month, day }
+})
 </script>
 
 <template>
@@ -25,11 +37,11 @@ const day = dateObj.getUTCDate()
 		<div class="hidden sm:flex justify-center w-1/2 pr-3 py-3 sm:py-6 sm:pr-6">
 			<div class="card card-compact bg-neutral rounded-md">
 				<div class="card-body">
-					<img class="w-full mx-auto rounded" :src="imageUrl">
+					<img class="w-full mx-auto rounded" :src="props.imageUrl">
 					<div class="card-actions items-center flex-nowrap">
 						<div class="w-1/2">
 							<NuxtLink
-								:to="classUrl"
+								:to="props.classUrl"
 								class="btn btn-accent btn-sm rounded font-cubano text-xs w-full"
 							>
 								Learn more
@@ -59,12 +71,12 @@ const day = dateObj.getUTCDate()
 		<div class="flex flex-col justify-center relative right-card gap-4 border-l-2 border-base-content pl-3 py-3 sm:py-6 sm:pl-6 sm:w-1/2">
 			<div class="space-y-4">
 				<div class="">
-					<time class="mb-1 text-2xl font-cubano font-semibold">{{ day }}/{{ month }}</time>
+					<time class="mb-1 text-2xl font-cubano font-semibold">{{ parsedDate.day }}/{{ parsedDate.month }}</time>
 					<h3 class="text-lg font-cubano">
-						{{ title }}
+						{{ props.name }}
 					</h3>
 					<p class="mb-4 text-base-content/60">
-						{{ description }}
+						{{ props.description }}
 					</p>
 				</div>
 				<div class="card card-compact bg-neutral rounded-md sm:hidden">
