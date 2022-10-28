@@ -29,9 +29,11 @@ const { data: meta } = await useAsyncData('meta', () => queryContent('meta').fin
 							</ul>
 						</div>
 
-						<TheOverflowLogo :urls="meta.logos" />
+						<div class="hidden sm:flex">
+							<TheOverflowLogo :urls="meta.logos" />
+						</div>
 
-						<NuxtLink to="/" class="btn btn-ghost rounded normal-case text-xl invisible sm:visible font-medium">
+						<NuxtLink to="/" class="btn btn-ghost rounded normal-case text-xl font-medium">
 							{{ meta.title }}
 						</NuxtLink>
 					</div>
