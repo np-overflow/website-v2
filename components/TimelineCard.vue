@@ -6,7 +6,7 @@ const { imageUrl, classUrl, date, title, description } = withDefaults(defineProp
 	title?: string
 	description?: string
 }>(), {
-	imageUrl: '/landing/hero.webp',
+	imageUrl: '/landing/hero.svg',
 	classUrl: 'https://np-overflow.club',
 	date: '1 January 1970 00:00:00',
 	title: 'Workshop Title',
@@ -69,7 +69,7 @@ const day = dateObj.getUTCDate()
 				</div>
 				<div class="card card-compact bg-neutral rounded-md sm:hidden">
 					<div class="card-body">
-						<img class="w-full mx-auto rounded" src="/landing/hero.webp">
+						<img class="w-full mx-auto rounded" src="/landing/hero.svg">
 						<div class="card-actions items-center flex-nowrap">
 							<div class="w-1/2">
 								<NuxtLink
