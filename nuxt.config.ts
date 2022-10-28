@@ -14,7 +14,7 @@ export default defineNuxtConfig({
 	},
 	app: {
 		head: {
-			titleTemplate: 'NP Overflow - %s',
+			title: 'NP Overflow',
 			htmlAttrs: {
 				lang: 'en-US',
 			},
