@@ -134,7 +134,7 @@ const parsedDate = computed(() => {
 		background: radial-gradient(ellipse at center,rgba(0, 225, 244, 0.15), rgba(255, 255, 255 ,0))
 	}
 
-	html[data-theme="light"] .card::before {
+	html[data-theme="light"] .card-body::before {
 		background: linear-gradient(#00000015, rgba(160, 160, 160, .0) 120%);
 		mask: linear-gradient(white, white) content-box content-box, linear-gradient(white, white);
 	}
