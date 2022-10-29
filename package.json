@@ -9,6 +9,9 @@
     "lint:fix": "eslint --fix .",
     "preview": "nuxt preview"
   },
+  "dependencies": {
+    "satori": "^0.0.43"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^0.27.0",
     "@nuxt/content": "^2.2.0",
