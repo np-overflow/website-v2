@@ -23,7 +23,7 @@ const props = defineProps({
 			{{ subtitle }}
 		</span>
 
-		<div class="flex flex-col w-full mb-10 p-3 sm:p-0">
+		<div class="mb-10 flex w-full flex-col p-3 sm:p-0">
 			<slot />
 		</div>
 	</section>

@@ -1,5 +1,8 @@
 lockfileVersion: 5.4
 
+overrides:
+  tailwindcss: ~3.1.8
+
 specifiers:
   '@antfu/eslint-config': ^0.27.0
   '@nuxt/content': ^2.2.0
@@ -7,17 +10,23 @@ specifiers:
   '@nuxtjs/tailwindcss': ^6.1.0
   daisyui: ^2.33.0
   eslint: ^8.26.0
+  eslint-plugin-tailwindcss: ^3.6.2
   nuxt: 3.0.0-rc.12
   nuxt-icon: ^0.1.7
+  satori: ^0.0.43
   typescript: ^4.8.4
+
+dependencies:
+  satori: 0.0.43
 
 devDependencies:
   '@antfu/eslint-config': 0.27.0_wyqvi574yv7oiwfeinomdzmc3m
   '@nuxt/content': 2.2.0
   '@nuxtjs/color-mode': 3.1.8
-  '@nuxtjs/tailwindcss': 6.1.0
+  '@nuxtjs/tailwindcss': 6.1.2
   daisyui: 2.33.0
   eslint: 8.26.0
+  eslint-plugin-tailwindcss: 3.6.2
   nuxt: 3.0.0-rc.12_wyqvi574yv7oiwfeinomdzmc3m
   nuxt-icon: 0.1.7
   typescript: 4.8.4
@@ -811,8 +820,8 @@ packages:
       - supports-color
     dev: true
 
-  /@nuxtjs/tailwindcss/6.1.0:
-    resolution: {integrity: sha512-B5CkSVLb5w7KeJLB2U+TW3MrKAfWIBykrCq+pnhymQhrNp1aLCBzZLYP2glyqwWETq9AS9UlCigKZ1bcUIvXCA==}
+  /@nuxtjs/tailwindcss/6.1.2:
+    resolution: {integrity: sha512-cIyqbyvceZS9DGiDYwwBlUS7vB6gOlBnvQ2QAAvrL2VzK0MA4AH2yaqCLJuHrzvLUp1v3uRw22KLvY6w2t8pCQ==}
     dependencies:
       '@nuxt/kit': 3.0.0-rc.12
       '@nuxt/postcss8': 1.1.3
@@ -825,8 +834,8 @@ packages:
       postcss: 8.4.18
       postcss-custom-properties: 12.1.10_postcss@8.4.18
       postcss-nesting: 10.2.0_postcss@8.4.18
-      tailwind-config-viewer: 1.7.2_tailwindcss@3.2.1
-      tailwindcss: 3.2.1
+      tailwind-config-viewer: 1.7.2_tailwindcss@3.1.8
+      tailwindcss: 3.1.8
       ufo: 0.8.6
     transitivePeerDependencies:
       - supports-color
@@ -960,6 +969,15 @@ packages:
       rollup: 2.79.1
     dev: true
 
+  /@shuding/opentype.js/1.4.0-beta.0:
+    resolution: {integrity: sha512-3NgmNyH3l/Hv6EvsWJbsvpcpUba6R8IREQ83nH83cyakCw7uM1arZKNfHwv1Wz6jgqrF/j4x5ELvR6PnK9nTcA==}
+    engines: {node: '>= 8.0.0'}
+    hasBin: true
+    dependencies:
+      fflate: 0.7.4
+      string.prototype.codepointat: 0.2.1
+    dev: false
+
   /@socket.io/component-emitter/3.1.0:
     resolution: {integrity: sha512-+9jVqKhRSpsc591z5vX+X5Yyw+he/HCB4iQ/RYxw35CEPaY1gnsNE43nf9n9AaYjAQrTiI/mOwKUKdUs9vf7Xg==}
     dev: true
@@ -1030,6 +1048,10 @@ packages:
   /@types/unist/2.0.6:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
     dev: true
+
+  /@types/yoga-layout/1.9.2:
+    resolution: {integrity: sha512-S9q47ByT2pPvD65IvrWp7qppVMpk9WGMbVq9wbWZOHg6tnXSD4vyhao6nOSBwwfDdV2p3Kx9evA9vI+XWTfDvw==}
+    dev: false
 
   /@typescript-eslint/eslint-plugin/5.41.0_huremdigmcnkianavgfk3x6iou:
     resolution: {integrity: sha512-DXUS22Y57/LAFSg3x7Vi6RNAuLpTXwxB9S2nIA7msBb/Zt8p7XqMwdpdc1IU7CkOQUPgAqR5fWvxuKCbneKGmA==}
@@ -1750,6 +1772,10 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
+  /camelize/1.0.1:
+    resolution: {integrity: sha512-dU+Tx2fsypxTgtLoE36npi3UqcjSSMNYfkqgmoEhtZrraP5VWq0K7FkWVTYa8eMPtnU/G2txVsfdCJTn9uzpuQ==}
+    dev: false
+
   /caniuse-api/3.0.0:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
     dependencies:
@@ -2082,6 +2108,19 @@ packages:
       which: 2.0.2
     dev: true
 
+  /css-background-parser/0.1.0:
+    resolution: {integrity: sha512-2EZLisiZQ+7m4wwur/qiYJRniHX4K5Tc9w93MT3AS0WS1u5kaZ4FKXlOTBhOjc+CgEgPiGY+fX1yWD8UwpEqUA==}
+    dev: false
+
+  /css-box-shadow/1.0.0-3:
+    resolution: {integrity: sha512-9jaqR6e7Ohds+aWwmhe6wILJ99xYQbfmK9QQB9CcMjDbTxPZjwEmUQpU91OG05Xgm8BahT5fW+svbsQGjS/zPg==}
+    dev: false
+
+  /css-color-keywords/1.0.0:
+    resolution: {integrity: sha512-FyyrDHZKEjXDpNJYvVsV960FiqQyXc/LlYmsxl2BcdMb2WPx0OGRVgTg55rPSyLSNMqP52R9r8geSp7apN3Ofg==}
+    engines: {node: '>=4'}
+    dev: false
+
   /css-declaration-sorter/6.3.1_postcss@8.4.18:
     resolution: {integrity: sha512-fBffmak0bPAnyqc/HO8C3n2sHrp9wcqQz6ES9koRF2/mLOVAx9zIQ3Y7R29sYCteTPqMCwns4WYQoCX91Xl3+w==}
     engines: {node: ^10 || ^12 || >=14}
@@ -2125,6 +2164,14 @@ packages:
       cssesc: 3.0.0
       fastparse: 1.1.2
     dev: true
+
+  /css-to-react-native/3.0.0:
+    resolution: {integrity: sha512-Ro1yETZA813eoyUp2GDBhG2j+YggidUmzO1/v9eYBKR2EHVEniE2MI/NqpTQ954BMpTPZFsGNPm46qFB9dpaPQ==}
+    dependencies:
+      camelize: 1.0.1
+      css-color-keywords: 1.0.0
+      postcss-value-parser: 4.2.0
+    dev: false
 
   /css-tree/1.1.3:
     resolution: {integrity: sha512-tRpdppF7TRazZrjJ6v3stzv93qxRcSsFmW6cX0Zm2NVKpxE1WV1HblnghVv9TreireHkqI/VDEsfolRF1p6y7Q==}
@@ -2228,7 +2275,7 @@ packages:
       color: 4.2.3
       css-selector-tokenizer: 0.8.0
       postcss-js: 4.0.0
-      tailwindcss: 3.2.1
+      tailwindcss: 3.1.8
     transitivePeerDependencies:
       - ts-node
     dev: true
@@ -2485,6 +2532,10 @@ packages:
   /electron-to-chromium/1.4.284:
     resolution: {integrity: sha512-M8WEXFuKXMYMVr45fo8mq0wUrrJHheiKZf6BArTKk9ZBYCKJEOU5H8cdWgDT+qCVZf7Na4lVUaZsA+h6uA9+PA==}
     dev: true
+
+  /emoji-regex/10.2.1:
+    resolution: {integrity: sha512-97g6QgOk8zlDRdgq1WxwgTMgEWGVAQvB5Fdpgc1MkNy56la5SKP9GsMXKDOdqwn90/41a8yPwIGk1Y6WVbeMQA==}
+    dev: false
 
   /emoji-regex/8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -3008,6 +3059,17 @@ packages:
       eslint: 8.26.0
     dev: true
 
+  /eslint-plugin-tailwindcss/3.6.2:
+    resolution: {integrity: sha512-C9Ka3w6W9F5l/3ZDLnkdbqmeujc1vE+p5drjP1Z1UyxgoE1Nh4/f8oQ4XC45PrZsS0Nyv0YKXNH8/dn/FJZKsQ==}
+    engines: {node: '>=12.13.0'}
+    dependencies:
+      fast-glob: 3.2.12
+      postcss: 8.4.18
+      tailwindcss: 3.1.8
+    transitivePeerDependencies:
+      - ts-node
+    dev: true
+
   /eslint-plugin-unicorn/43.0.2_eslint@8.26.0:
     resolution: {integrity: sha512-DtqZ5mf/GMlfWoz1abIjq5jZfaFuHzGBZYIeuJfEoKKGWRHr2JiJR+ea+BF7Wx2N1PPRoT/2fwgiK1NnmNE3Hg==}
     engines: {node: '>=14.18'}
@@ -3296,6 +3358,10 @@ packages:
       node-domexception: 1.0.0
       web-streams-polyfill: 3.2.1
     dev: true
+
+  /fflate/0.7.4:
+    resolution: {integrity: sha512-5u2V/CDW15QM1XbbgS+0DfPxVB+jUKhWEKuuFuHncbk3tEEqzmoXL+2KyOFuKGqOnmdIy0/davWF1CkuwtibCw==}
+    dev: false
 
   /figures/5.0.0:
     resolution: {integrity: sha512-ej8ksPF4x6e5wvK9yevct0UCXh8TTFlWGVLlgjZuoBH1HwjIfKE/IdL5mq89sFA7zELi1VhKpmtDnrs7zWyeyg==}
@@ -6031,8 +6097,8 @@ packages:
       postcss: 8.4.18
     dev: true
 
-  /postcss-nested/6.0.0_postcss@8.4.18:
-    resolution: {integrity: sha512-0DkamqrPcmkBDsLn+vQDIrtkSbNkv5AD/M322ySo9kqFkCIYklym2xEmWkwo+Y3/qZo34tzEPNUw4y7yMCdv5w==}
+  /postcss-nested/5.0.6_postcss@8.4.18:
+    resolution: {integrity: sha512-rKqm2Fk0KbA8Vt3AdGN0FB9OBOMDVajMG6ZCf/GoHgdxUJ4sBFp0A/uMIRm+MJUdo33YXEtjqIz8u7DAp8B7DA==}
     engines: {node: '>=12.0'}
     peerDependencies:
       postcss: ^8.2.14
@@ -6219,7 +6285,6 @@ packages:
 
   /postcss-value-parser/4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
-    dev: true
 
   /postcss/8.4.18:
     resolution: {integrity: sha512-Wi8mWhncLJm11GATDaQKobXSNEYGUHeQLiQqDFG1qQ5UTDPTEvKw0Xt5NsTpktGTwLps3ByrWsBrG0rB8YQ9oA==}
@@ -6665,6 +6730,19 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: true
 
+  /satori/0.0.43:
+    resolution: {integrity: sha512-SzYwr+LsELWRJU9KMviEOE9TdShry+R5AdS54YQvgAVKFDN4yniAIzwQk1/z2TtIx0ceUT9zTeosWAoWvJBEtQ==}
+    engines: {node: '>=16'}
+    dependencies:
+      '@shuding/opentype.js': 1.4.0-beta.0
+      css-background-parser: 0.1.0
+      css-box-shadow: 1.0.0-3
+      css-to-react-native: 3.0.0
+      emoji-regex: 10.2.1
+      postcss-value-parser: 4.2.0
+      yoga-layout-prebuilt: 1.10.0
+    dev: false
+
   /schema-utils/3.1.1:
     resolution: {integrity: sha512-Y5PQxS4ITlC+EahLuXaY86TXfR7Dc5lw294alXOq86JAHCihAIZfqv8nNCWvaEJvaC51uN9hbLGeV0cFBdH+Fw==}
     engines: {node: '>= 10.13.0'}
@@ -6928,6 +7006,10 @@ packages:
       strip-ansi: 7.0.1
     dev: true
 
+  /string.prototype.codepointat/0.2.1:
+    resolution: {integrity: sha512-2cBVCj6I4IOvEnjgO/hWqXjqBGsY+zwPmHl12Srk9IXSZ56Jwwmy+66XO5Iut/oQVR7t5ihYdLB0GMa4alEUcg==}
+    dev: false
+
   /string.prototype.trimend/1.0.5:
     resolution: {integrity: sha512-I7RGvmjV4pJ7O3kdf+LXFpVfdNOxtCW/2C8f6jNiW4+PQchwxkCDzlk1/7p+Wl4bqFIZeF47qAHXLuHHWKAxog==}
     dependencies:
@@ -7059,7 +7141,7 @@ packages:
       stable: 0.1.8
     dev: true
 
-  /tailwind-config-viewer/1.7.2_tailwindcss@3.2.1:
+  /tailwind-config-viewer/1.7.2_tailwindcss@3.1.8:
     resolution: {integrity: sha512-3JJCeAAlvG+i/EBj+tQb0x4weo30QjdSAo4hlcnVbtD+CkpzHi/UwU9InbPMcYH+ESActoa2kCyjpLEyjEkn0Q==}
     engines: {node: '>=8'}
     hasBin: true
@@ -7074,13 +7156,13 @@ packages:
       open: 7.4.2
       portfinder: 1.0.32
       replace-in-file: 6.3.5
-      tailwindcss: 3.2.1
+      tailwindcss: 3.1.8
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /tailwindcss/3.2.1:
-    resolution: {integrity: sha512-Uw+GVSxp5CM48krnjHObqoOwlCt5Qo6nw1jlCRwfGy68dSYb/LwS9ZFidYGRiM+w6rMawkZiu1mEMAsHYAfoLg==}
+  /tailwindcss/3.1.8:
+    resolution: {integrity: sha512-YSneUCZSFDYMwk+TGq8qYFdCA3yfBRdBlS7txSq0LUmzyeqRe3a8fBQzbz9M3WS/iFT4BNf/nmw9mEzrnSaC0g==}
     engines: {node: '>=12.13.0'}
     hasBin: true
     dependencies:
@@ -7094,7 +7176,6 @@ packages:
       glob-parent: 6.0.2
       is-glob: 4.0.3
       lilconfig: 2.0.6
-      micromatch: 4.0.5
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.0.0
@@ -7102,7 +7183,7 @@ packages:
       postcss-import: 14.1.0_postcss@8.4.18
       postcss-js: 4.0.0_postcss@8.4.18
       postcss-load-config: 3.1.4_postcss@8.4.18
-      postcss-nested: 6.0.0_postcss@8.4.18
+      postcss-nested: 5.0.6_postcss@8.4.18
       postcss-selector-parser: 6.0.10
       postcss-value-parser: 4.2.0
       quick-lru: 5.1.1
@@ -7921,6 +8002,13 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  /yoga-layout-prebuilt/1.10.0:
+    resolution: {integrity: sha512-YnOmtSbv4MTf7RGJMK0FvZ+KD8OEe/J5BNnR0GHhD8J/XcG/Qvxgszm0Un6FTHWW4uHlTgP0IztiXQnGyIR45g==}
+    engines: {node: '>=8'}
+    dependencies:
+      '@types/yoga-layout': 1.9.2
+    dev: false
 
   /zip-stream/4.1.0:
     resolution: {integrity: sha512-zshzwQW7gG7hjpBlgeQP9RuyPGNxvJdzR8SUM3QhxCnLjWN2E7j3dOvpeDcQoETfHx0urRS7EtmVToql7YpU4A==}
