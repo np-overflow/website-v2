@@ -38,11 +38,11 @@ const parsedDate = computed(() => {
 			<div class="card card-compact rounded-xl">
 				<div class="card-body">
 					<img class="w-full mx-auto rounded" :src="props.imageUrl">
-					<div class="card-actions items-center flex-nowrap">
+					<div class="card-actions items-center flex-nowrap relative">
 						<div class="w-1/2">
 							<NuxtLink
 								:to="props.classUrl"
-								class="btn btn-accent btn-sm rounded font-cubano text-xs w-full"
+								class="btn btn-accent btn-sm rounded font-cubano text-xs text-white w-full"
 							>
 								Learn more
 							</NuxtLink>
@@ -82,11 +82,11 @@ const parsedDate = computed(() => {
 				<div class="card card-compact rounded-xl sm:hidden">
 					<div class="card-body">
 						<img class="w-full mx-auto rounded" :src="props.imageUrl">
-						<div class="card-actions items-center flex-nowrap">
+						<div class="card-actions items-center flex-nowrap relative">
 							<div class="w-1/2">
 								<NuxtLink
 									:to="classUrl"
-									class="btn btn-accent btn-sm rounded font-cubano text-xs w-full"
+									class="btn btn-accent btn-sm rounded font-cubano text-xs text-white w-full"
 								>
 									Learn more
 								</NuxtLink>
@@ -122,7 +122,7 @@ const parsedDate = computed(() => {
         left: -9px;
     }
 
-	.card::before {
+	.card-body::before {
 		@apply content-default p-px absolute inset-0;
 		border-radius: inherit;
 		background: linear-gradient(#ffffff15, rgba(255, 255, 255, .0) 120%);
