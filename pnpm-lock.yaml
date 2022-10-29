@@ -1,5 +1,8 @@
 lockfileVersion: 5.4
 
+overrides:
+  tailwindcss: ~3.1.8
+
 specifiers:
   '@antfu/eslint-config': ^0.27.0
   '@nuxt/content': ^2.2.0
@@ -7,6 +10,7 @@ specifiers:
   '@nuxtjs/tailwindcss': ^6.1.0
   daisyui: ^2.33.0
   eslint: ^8.26.0
+  eslint-plugin-tailwindcss: ^3.6.2
   nuxt: 3.0.0-rc.12
   nuxt-icon: ^0.1.7
   typescript: ^4.8.4
@@ -15,9 +19,10 @@ devDependencies:
   '@antfu/eslint-config': 0.27.0_wyqvi574yv7oiwfeinomdzmc3m
   '@nuxt/content': 2.2.0
   '@nuxtjs/color-mode': 3.1.8
-  '@nuxtjs/tailwindcss': 6.1.0
+  '@nuxtjs/tailwindcss': 6.1.2
   daisyui: 2.33.0
   eslint: 8.26.0
+  eslint-plugin-tailwindcss: 3.6.2
   nuxt: 3.0.0-rc.12_wyqvi574yv7oiwfeinomdzmc3m
   nuxt-icon: 0.1.7
   typescript: 4.8.4
@@ -811,8 +816,8 @@ packages:
       - supports-color
     dev: true
 
-  /@nuxtjs/tailwindcss/6.1.0:
-    resolution: {integrity: sha512-B5CkSVLb5w7KeJLB2U+TW3MrKAfWIBykrCq+pnhymQhrNp1aLCBzZLYP2glyqwWETq9AS9UlCigKZ1bcUIvXCA==}
+  /@nuxtjs/tailwindcss/6.1.2:
+    resolution: {integrity: sha512-cIyqbyvceZS9DGiDYwwBlUS7vB6gOlBnvQ2QAAvrL2VzK0MA4AH2yaqCLJuHrzvLUp1v3uRw22KLvY6w2t8pCQ==}
     dependencies:
       '@nuxt/kit': 3.0.0-rc.12
       '@nuxt/postcss8': 1.1.3
@@ -825,8 +830,8 @@ packages:
       postcss: 8.4.18
       postcss-custom-properties: 12.1.10_postcss@8.4.18
       postcss-nesting: 10.2.0_postcss@8.4.18
-      tailwind-config-viewer: 1.7.2_tailwindcss@3.2.1
-      tailwindcss: 3.2.1
+      tailwind-config-viewer: 1.7.2_tailwindcss@3.1.8
+      tailwindcss: 3.1.8
       ufo: 0.8.6
     transitivePeerDependencies:
       - supports-color
@@ -2228,7 +2233,7 @@ packages:
       color: 4.2.3
       css-selector-tokenizer: 0.8.0
       postcss-js: 4.0.0
-      tailwindcss: 3.2.1
+      tailwindcss: 3.1.8
     transitivePeerDependencies:
       - ts-node
     dev: true
@@ -3006,6 +3011,17 @@ packages:
       eslint: ^7.0.0 || ^8.0.0
     dependencies:
       eslint: 8.26.0
+    dev: true
+
+  /eslint-plugin-tailwindcss/3.6.2:
+    resolution: {integrity: sha512-C9Ka3w6W9F5l/3ZDLnkdbqmeujc1vE+p5drjP1Z1UyxgoE1Nh4/f8oQ4XC45PrZsS0Nyv0YKXNH8/dn/FJZKsQ==}
+    engines: {node: '>=12.13.0'}
+    dependencies:
+      fast-glob: 3.2.12
+      postcss: 8.4.18
+      tailwindcss: 3.1.8
+    transitivePeerDependencies:
+      - ts-node
     dev: true
 
   /eslint-plugin-unicorn/43.0.2_eslint@8.26.0:
@@ -6031,8 +6047,8 @@ packages:
       postcss: 8.4.18
     dev: true
 
-  /postcss-nested/6.0.0_postcss@8.4.18:
-    resolution: {integrity: sha512-0DkamqrPcmkBDsLn+vQDIrtkSbNkv5AD/M322ySo9kqFkCIYklym2xEmWkwo+Y3/qZo34tzEPNUw4y7yMCdv5w==}
+  /postcss-nested/5.0.6_postcss@8.4.18:
+    resolution: {integrity: sha512-rKqm2Fk0KbA8Vt3AdGN0FB9OBOMDVajMG6ZCf/GoHgdxUJ4sBFp0A/uMIRm+MJUdo33YXEtjqIz8u7DAp8B7DA==}
     engines: {node: '>=12.0'}
     peerDependencies:
       postcss: ^8.2.14
@@ -7059,7 +7075,7 @@ packages:
       stable: 0.1.8
     dev: true
 
-  /tailwind-config-viewer/1.7.2_tailwindcss@3.2.1:
+  /tailwind-config-viewer/1.7.2_tailwindcss@3.1.8:
     resolution: {integrity: sha512-3JJCeAAlvG+i/EBj+tQb0x4weo30QjdSAo4hlcnVbtD+CkpzHi/UwU9InbPMcYH+ESActoa2kCyjpLEyjEkn0Q==}
     engines: {node: '>=8'}
     hasBin: true
@@ -7074,13 +7090,13 @@ packages:
       open: 7.4.2
       portfinder: 1.0.32
       replace-in-file: 6.3.5
-      tailwindcss: 3.2.1
+      tailwindcss: 3.1.8
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /tailwindcss/3.2.1:
-    resolution: {integrity: sha512-Uw+GVSxp5CM48krnjHObqoOwlCt5Qo6nw1jlCRwfGy68dSYb/LwS9ZFidYGRiM+w6rMawkZiu1mEMAsHYAfoLg==}
+  /tailwindcss/3.1.8:
+    resolution: {integrity: sha512-YSneUCZSFDYMwk+TGq8qYFdCA3yfBRdBlS7txSq0LUmzyeqRe3a8fBQzbz9M3WS/iFT4BNf/nmw9mEzrnSaC0g==}
     engines: {node: '>=12.13.0'}
     hasBin: true
     dependencies:
@@ -7094,7 +7110,6 @@ packages:
       glob-parent: 6.0.2
       is-glob: 4.0.3
       lilconfig: 2.0.6
-      micromatch: 4.0.5
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.0.0
@@ -7102,7 +7117,7 @@ packages:
       postcss-import: 14.1.0_postcss@8.4.18
       postcss-js: 4.0.0_postcss@8.4.18
       postcss-load-config: 3.1.4_postcss@8.4.18
-      postcss-nested: 6.0.0_postcss@8.4.18
+      postcss-nested: 5.0.6_postcss@8.4.18
       postcss-selector-parser: 6.0.10
       postcss-value-parser: 4.2.0
       quick-lru: 5.1.1

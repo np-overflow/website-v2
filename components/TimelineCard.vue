@@ -34,33 +34,27 @@ const parsedDate = computed(() => {
 
 <template>
 	<div class="flex">
-		<div class="hidden sm:flex justify-center w-1/2 pr-3 py-3 sm:py-6 sm:pr-6">
+		<div class="hidden w-1/2 justify-center py-3 pr-3 sm:flex sm:py-6 sm:pr-6">
 			<div class="card card-compact rounded-xl">
 				<div class="card-body">
-					<img class="w-full mx-auto rounded" :src="props.imageUrl">
-					<div class="card-actions items-center flex-nowrap relative">
+					<img class="mx-auto w-full rounded" :src="props.imageUrl">
+					<div class="card-actions relative flex-nowrap items-center">
 						<div class="w-1/2">
 							<NuxtLink
 								:to="props.classUrl"
-								class="btn btn-accent btn-sm rounded font-cubano text-xs text-white w-full"
+								class="btn-accent btn-sm btn w-full rounded font-cubano text-xs text-white"
 							>
 								Learn more
 							</NuxtLink>
 						</div>
 						<div class="inline-flex w-1/2 justify-evenly">
-							<NuxtLink
-								:to="meta.discord_url"
-								class="btn btn-ghost"
-							>
+							<NuxtLink :to="meta.discord_url" class="btn-ghost btn">
 								<Icon size="24" name="akar-icons:discord-fill" />
 							</NuxtLink>
-							<NuxtLink
-								:to="meta.instagram_url"
-								class="btn btn-ghost"
-							>
+							<NuxtLink :to="meta.instagram_url" class="btn-ghost btn">
 								<Icon size="24" name="ant-design:instagram-filled" />
 							</NuxtLink>
-							<div class="btn btn-ghost">
+							<div class="btn-ghost btn">
 								<Icon size="24" name="heroicons:share-20-solid" />
 							</div>
 						</div>
@@ -68,11 +62,13 @@ const parsedDate = computed(() => {
 				</div>
 			</div>
 		</div>
-		<div class="flex flex-col justify-center relative right-card gap-4 border-l-2 border-base-content pl-3 py-3 sm:py-6 sm:pl-6 sm:w-1/2">
+		<div
+			class="right-card relative flex flex-col justify-center gap-4 border-l-2 border-base-content py-3 pl-3 sm:w-1/2 sm:py-6 sm:pl-6"
+		>
 			<div class="space-y-4">
 				<div class="">
-					<time class="mb-1 text-2xl font-cubano font-semibold">{{ parsedDate.day }}/{{ parsedDate.month }}</time>
-					<h3 class="mb-2 text-lg font-cubano">
+					<time class="mb-1 font-cubano text-2xl font-semibold">{{ parsedDate.day }}/{{ parsedDate.month }}</time>
+					<h3 class="mb-2 font-cubano text-lg">
 						{{ props.name }}
 					</h3>
 					<p class="mb-4 text-base-content/60">
@@ -81,30 +77,24 @@ const parsedDate = computed(() => {
 				</div>
 				<div class="card card-compact rounded-xl sm:hidden">
 					<div class="card-body">
-						<img class="w-full mx-auto rounded" :src="props.imageUrl">
-						<div class="card-actions items-center flex-nowrap relative">
+						<img class="mx-auto w-full rounded" :src="props.imageUrl">
+						<div class="card-actions relative flex-nowrap items-center">
 							<div class="w-1/2">
 								<NuxtLink
 									:to="classUrl"
-									class="btn btn-accent btn-sm rounded font-cubano text-xs text-white w-full"
+									class="btn-accent btn-sm btn w-full rounded font-cubano text-xs text-white"
 								>
 									Learn more
 								</NuxtLink>
 							</div>
 							<div class="flex w-1/2 justify-evenly">
-								<NuxtLink
-									:to="meta.discord_url"
-									class="btn btn-ghost px-0"
-								>
+								<NuxtLink :to="meta.discord_url" class="btn-ghost btn px-0">
 									<Icon size="24" name="akar-icons:discord-fill" />
 								</NuxtLink>
-								<NuxtLink
-									:to="meta.instagram_url"
-									class="btn btn-ghost px-0"
-								>
+								<NuxtLink :to="meta.instagram_url" class="btn-ghost btn px-0">
 									<Icon size="24" name="ant-design:instagram-filled" />
 								</NuxtLink>
-								<div class="btn btn-ghost px-0">
+								<div class="btn-ghost btn px-0">
 									<Icon size="24" name="heroicons:share-20-solid" />
 								</div>
 							</div>

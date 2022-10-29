@@ -9,16 +9,16 @@ const { data: meta } = await useAsyncData('meta', () => queryContent('meta').fin
 	<div class="font-poppins">
 		<div class="sticky top-0 z-10 font-cubano">
 			<div class="nav-glass" />
-			<div class="relative m-auto max-w-7xl nav-border w-full flex flex-col">
+			<div class="nav-border relative m-auto flex w-full max-w-7xl flex-col">
 				<div class="navbar h-12">
 					<div class="navbar-start">
 						<div class="dropdown">
-							<label tabindex="0" class="btn btn-ghost rounded lg:hidden">
+							<label tabindex="0" class="btn-ghost btn rounded lg:hidden">
 								<Icon size="26" name="heroicons:bars-3-bottom-left" />
 							</label>
 							<ul
 								tabindex="0"
-								class="menu menu-compact bg-base-100 dropdown-content mt-3 p-2 shadow-md rounded-md w-52"
+								class="dropdown-content menu menu-compact mt-3 w-52 rounded-md bg-base-100 p-2 shadow-md"
 							>
 								<li v-for="{ name, to, icon } in meta.menu_items" :key="to">
 									<NuxtLink :to="to" class="!rounded">
@@ -29,17 +29,19 @@ const { data: meta } = await useAsyncData('meta', () => queryContent('meta').fin
 							</ul>
 						</div>
 
+						<div class="m-4 flex h-24 border-2 border-gray-300 p-3 lg:m-4 lg:p-4" />
+
 						<div class="hidden sm:flex">
 							<TheOverflowLogo :urls="meta.logos" />
 						</div>
 
-						<NuxtLink to="/" class="btn btn-ghost rounded normal-case text-xl font-medium">
+						<NuxtLink to="/" class="btn-ghost btn rounded text-xl font-medium normal-case">
 							{{ meta.title }}
 						</NuxtLink>
 					</div>
 
 					<div class="navbar-center hidden lg:flex">
-						<ul class="menu menu-horizontal p-0">
+						<ul class="menu menu-horizontal m-0 p-0">
 							<li v-for="{ name, to, icon } in meta.menu_items" :key="to">
 								<NuxtLink :to="to" class="!rounded">
 									<Icon size="16" :name="icon" />
@@ -52,7 +54,7 @@ const { data: meta } = await useAsyncData('meta', () => queryContent('meta').fin
 					<div class="navbar-end">
 						<TheThemeToggle />
 
-						<NuxtLink :to="meta.join_url" class="btn btn-ghost rounded">
+						<NuxtLink :to="meta.join_url" class="btn-ghost btn rounded ">
 							<Icon size="16" name="heroicons:user-plus-solid" class="mr-2" />
 							Join Us!
 						</NuxtLink>
@@ -61,7 +63,7 @@ const { data: meta } = await useAsyncData('meta', () => queryContent('meta').fin
 			</div>
 		</div>
 
-		<div class="max-w-7xl m-auto">
+		<div class="m-auto max-w-7xl">
 			<slot />
 		</div>
 	</div>
