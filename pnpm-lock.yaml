@@ -15,6 +15,7 @@ specifiers:
   nuxt-icon: ^0.1.7
   satori: ^0.0.43
   typescript: ^4.8.4
+  yoga-wasm-web: ^0.1.2
 
 dependencies:
   satori: 0.0.43
@@ -30,6 +31,7 @@ devDependencies:
   nuxt: 3.0.0-rc.12_wyqvi574yv7oiwfeinomdzmc3m
   nuxt-icon: 0.1.7
   typescript: 4.8.4
+  yoga-wasm-web: 0.1.2
 
 packages:
 
@@ -8009,6 +8011,10 @@ packages:
     dependencies:
       '@types/yoga-layout': 1.9.2
     dev: false
+
+  /yoga-wasm-web/0.1.2:
+    resolution: {integrity: sha512-8SkgawHcA0RUbMrnhxbaQkZDBi8rMed8pQHixkFF9w32zGhAwZ9/cOHWlpYfr6RCx42Yp3siV45/jPEkJxsk6w==}
+    dev: true
 
   /zip-stream/4.1.0:
     resolution: {integrity: sha512-zshzwQW7gG7hjpBlgeQP9RuyPGNxvJdzR8SUM3QhxCnLjWN2E7j3dOvpeDcQoETfHx0urRS7EtmVToql7YpU4A==}
