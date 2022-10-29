@@ -77,6 +77,6 @@ const { data: meta } = await useAsyncData('meta', () => queryContent('meta').fin
 	}
 
 	.nav-border::after {
-		@apply content-default inset-x-0 bottom-0 h-px bg-[#5b5b5b14] dark:bg-[#ffffff25] w-full;
+		@apply content-default inset-x-0 bottom-0 h-px bg-[#00000015] dark:bg-[#ffffff15] w-full;
 	}
 </style>

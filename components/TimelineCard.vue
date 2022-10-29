@@ -35,7 +35,7 @@ const parsedDate = computed(() => {
 <template>
 	<div class="flex">
 		<div class="hidden sm:flex justify-center w-1/2 pr-3 py-3 sm:py-6 sm:pr-6">
-			<div class="card card-compact bg-neutral rounded-md">
+			<div class="card card-compact rounded-xl">
 				<div class="card-body">
 					<img class="w-full mx-auto rounded" :src="props.imageUrl">
 					<div class="card-actions items-center flex-nowrap">
@@ -72,16 +72,16 @@ const parsedDate = computed(() => {
 			<div class="space-y-4">
 				<div class="">
 					<time class="mb-1 text-2xl font-cubano font-semibold">{{ parsedDate.day }}/{{ parsedDate.month }}</time>
-					<h3 class="text-lg font-cubano">
+					<h3 class="mb-2 text-lg font-cubano">
 						{{ props.name }}
 					</h3>
 					<p class="mb-4 text-base-content/60">
 						{{ props.description }}
 					</p>
 				</div>
-				<div class="card card-compact bg-neutral rounded-md sm:hidden">
+				<div class="card card-compact rounded-xl sm:hidden">
 					<div class="card-body">
-						<img class="w-full mx-auto rounded" src="/landing/hero.svg">
+						<img class="w-full mx-auto rounded" :src="props.imageUrl">
 						<div class="card-actions items-center flex-nowrap">
 							<div class="w-1/2">
 								<NuxtLink
@@ -118,7 +118,27 @@ const parsedDate = computed(() => {
 
 <style scoped>
     .right-card::after {
-        @apply content-default rounded-full w-4 h-4 bg-base-100 border-2 border-base-content absolute top-2 sm:top-card-offset;
+        @apply content-default rounded-full w-4 h-4 bg-base-100 border-2 border-base-content absolute top-5 sm:top-card-offset;
         left: -9px;
     }
+
+	.card::before {
+		@apply content-default p-px absolute inset-0;
+		border-radius: inherit;
+		background: linear-gradient(#ffffff15, rgba(255, 255, 255, .0) 120%);
+		mask: linear-gradient(black, black) content-box content-box, linear-gradient(black, black);
+		-webkit-mask-composite: xor;
+	}
+
+	.card-body {
+		background: radial-gradient(ellipse at center,rgba(0, 225, 244, 0.15), rgba(255, 255, 255 ,0))
+	}
+
+	html[data-theme="light"] .card::before {
+		background: linear-gradient(#00000015, rgba(160, 160, 160, .0) 120%);
+		mask: linear-gradient(white, white) content-box content-box, linear-gradient(white, white);
+	}
+	html[data-theme="light"] .card-body {
+		background: radial-gradient(ellipse at center,rgba(211, 105, 53, 0.3), rgba(0, 0, 0 ,0))
+	}
 </style>
