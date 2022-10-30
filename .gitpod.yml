@@ -1,5 +1,5 @@
 tasks:
-  - init: corepack enablea && pnpm i 
+  - init: corepack enable && pnpm i 
     command: pnpm dev
 
 ports:
