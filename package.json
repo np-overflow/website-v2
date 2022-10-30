@@ -9,9 +9,6 @@
     "lint:fix": "eslint --fix .",
     "preview": "nuxt preview"
   },
-  "dependencies": {
-    "satori": "^0.0.43"
-  },
   "devDependencies": {
     "@antfu/eslint-config": "^0.27.0",
     "@nuxt/content": "^2.2.0",
@@ -22,8 +19,7 @@
     "eslint-plugin-tailwindcss": "^3.6.2",
     "nuxt": "3.0.0-rc.12",
     "nuxt-icon": "^0.1.7",
-    "typescript": "^4.8.4",
-    "yoga-wasm-web": "^0.1.2"
+    "typescript": "^4.8.4"
   },
   "pnpm": {
     "overrides": {
