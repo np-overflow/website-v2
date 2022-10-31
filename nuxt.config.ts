@@ -19,6 +19,7 @@ export default defineNuxtConfig({
 			},
 			meta: [
 				{ name: 'description', content: 'NP Overflow' },
+				{ name: 'twitter:card', content: 'summary_large_image' },
 			],
 			link: [
 				{

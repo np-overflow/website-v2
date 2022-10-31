@@ -13,6 +13,9 @@ useHead({
 		{
 			property: 'og:image', content: 'https://og.np-overflow.club/api/landing',
 		},
+		{
+			property: 'twitter:image', content: 'https://og.np-overflow.club/api/landing',
+		},
 	],
 })
 
