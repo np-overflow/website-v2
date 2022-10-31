@@ -5,13 +5,13 @@ import { queryContent } from '#imports'
 useHead({
 	meta: [
 		{
-			name: 'og:title', content: 'Overflow SIG',
+			property: 'og:title', content: 'Overflow SIG',
 		},
 		{
-			name: 'og:description', content: 'The Programming and Technology Special Interest Group of Ngee Ann Polytechnic.',
+			property: 'og:description', content: 'The Programming and Technology Special Interest Group of Ngee Ann Polytechnic.',
 		},
 		{
-			name: 'og:image', content: 'https://og.np-overflow.club/api/landing',
+			property: 'og:image', content: 'https://og.np-overflow.club/api/landing',
 		},
 	],
 })
