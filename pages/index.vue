@@ -2,6 +2,20 @@
 import { useAsyncData } from '#app'
 import { queryContent } from '#imports'
 
+useHead({
+	meta: [
+		{
+			name: 'og:title', content: 'Overflow SIG',
+		},
+		{
+			name: 'og:description', content: 'The Programming and Technology Special Interest Group of Ngee Ann Polytechnic.',
+		},
+		{
+			name: 'og:image', content: 'https://og.np-overflow.club/api/landing',
+		},
+	],
+})
+
 const { data: meta } = await useAsyncData('meta', () => queryContent('meta').findOne())
 const { data: landing } = await useAsyncData('landing', () => queryContent('landing').findOne())
 const { data: workshops } = await useAsyncData('workshops', () => queryContent('workshops').findOne())
@@ -48,9 +62,7 @@ const { data: workshops } = await useAsyncData('workshops', () => queryContent('
 				</template>
 
 				<TimelineCard
-					v-for="workshop in workshops.workshops"
-					:key="workshop.name"
-					v-bind="workshop"
+					v-for="workshop in workshops.workshops" :key="workshop.name" v-bind="workshop"
 					:date="workshop.start_date"
 				/>
 			</Timeline>
@@ -65,9 +77,7 @@ const { data: workshops } = await useAsyncData('workshops', () => queryContent('
 				</template>
 
 				<TimelineCard
-					v-for="workshop in workshops.workshops"
-					:key="workshop.name"
-					v-bind="workshop"
+					v-for="workshop in workshops.workshops" :key="workshop.name" v-bind="workshop"
 					:date="workshop.start_date"
 				/>
 			</Timeline>
