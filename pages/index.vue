@@ -46,7 +46,7 @@ const { data: workshops } = await useAsyncData('workshops', () => queryContent('
 							</span>
 						</p>
 						<div class="card-action mt-8">
-							<NuxtLink :to="meta.join_url" class="border-3 btn-accent btn rounded text-lg font-bold">
+							<NuxtLink :to="meta.join_url" class="border-3 btn-accent btn rounded text-lg font-bold text-white">
 								Join Us!
 							</NuxtLink>
 						</div>
