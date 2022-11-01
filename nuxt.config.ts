@@ -44,14 +44,11 @@ export default defineNuxtConfig({
 	},
 	nitro: {
 		routeRules: {
-			'/': {
-				swr: true,
-			},
-			'/team': {
-				swr: true,
-			},
 			'/api/**': {
-				swr: true,
+				// swr: true,
+			},
+			'/**': {
+				static: true,
 			},
 		},
 	},
