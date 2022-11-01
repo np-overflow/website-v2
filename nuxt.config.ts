@@ -45,7 +45,7 @@ export default defineNuxtConfig({
 	nitro: {
 		routeRules: {
 			'/api/**': {
-				// swr: true,
+				swr: true,
 			},
 			'/**': {
 				static: true,
