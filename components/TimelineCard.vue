@@ -82,7 +82,7 @@ const parsedDate = computed(() => {
 							<div class="w-1/2">
 								<NuxtLink
 									:to="classUrl"
-									class="btn-accent btn-sm btn w-full rounded font-cubano text-xs text-white"
+									class="btn-accent btn-sm btn w-full rounded font-cubano text-xs font-medium text-white"
 								>
 									Learn more
 								</NuxtLink>
