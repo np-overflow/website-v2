@@ -26,7 +26,6 @@ const { data: workshops } = await useAsyncData('workshops', () => queryContent('
 
 <template>
 	<div>
-		test
 		<div class="hero">
 			<div class="hero-content grid grid-cols-1 p-6 md:grid-cols-2">
 				<div class="card card-compact rounded-md md:card-normal">
