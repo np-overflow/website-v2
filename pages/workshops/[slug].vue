@@ -5,26 +5,24 @@ const { data: workshop } = await useAsyncData(`workshops-${route.params.slug}`, 
 	return workshops.find(workshop => workshop.slug === route.params.slug)
 })
 
-if (workshop.value) {
-	useHead({
-		meta: [
-			{
-				property: 'og:title', content: `${workshop.value.name} - NP Overflow`,
-			},
-			{
-				property: 'og:description', content: 'The Programming and Technology Special Interest Group of Ngee Ann Polytechnic.',
-			},
-			{
-				property: 'og:image', content: `https://og.np-overflow.club/api/workshops?slug=${workshop.value.slug}`,
-			},
-			{
-				property: 'twitter:image', content: 'https://og.np-overflow.club/api/landing',
-			},
-		],
-	})
-}
+useHead({
+	meta: [
+		{
+			property: 'og:title', content: workshop.value.name ? `${workshop.value.name} - NP Overflow` : 'NP Overflow',
+		},
+		{
+			property: 'og:description', content: workshop.value.description ?? 'The Programming and Technology Special Interest Group of Ngee Ann Polytechnic.',
+		},
+		{
+			property: 'og:image', content: `https://og.np-overflow.club/api/workshops/${workshop.value.slug}`,
+		},
+		{
+			property: 'twitter:image', content: `https://og.np-overflow.club/api/workshops/${workshop.value.slug}`,
+		},
+	],
+})
 </script>
 
 <template>
-	<div />
+	<div>hello</div>
 </template>
