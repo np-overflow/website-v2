@@ -14,10 +14,10 @@ useHead({
 			property: 'og:description', content: workshop.value.description ?? 'The Programming and Technology Special Interest Group of Ngee Ann Polytechnic.',
 		},
 		{
-			property: 'og:image', content: `https://og.np-overflow.club/api/workshops/${workshop.value.slug}`,
+			property: 'og:image', content: `https://og.np-overflow.club/api/workshops?slug=${workshop.value.slug}`,
 		},
 		{
-			property: 'twitter:image', content: `https://og.np-overflow.club/api/workshops/${workshop.value.slug}`,
+			property: 'og:image', content: `https://og.np-overflow.club/api/workshops?slug=${workshop.value.slug}`,
 		},
 	],
 })
