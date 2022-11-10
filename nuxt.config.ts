@@ -27,12 +27,6 @@ export default defineNuxtConfig({
 				{ name: 'description', content: 'NP Overflow' },
 				{ property: 'twitter:card', content: 'summary_large_image' },
 			],
-			link: [
-				{
-					rel: 'stylesheet',
-					href: 'https://use.typekit.net/opk3ujt.css',
-				},
-			],
 		},
 	},
 	nitro: {
