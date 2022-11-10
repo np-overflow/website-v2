@@ -3,9 +3,15 @@ export default defineNuxtConfig({
 	modules: [
 		'@nuxtjs/tailwindcss',
 		'@nuxtjs/color-mode',
+		'@nuxtjs/google-fonts',
 		'@nuxt/content',
 		'nuxt-icon',
 	],
+	googleFonts: {
+		families: {
+			Poppins: [400, 700],
+		},
+	},
 	content: {},
 	colorMode: {
 		preference: 'system', // default theme
@@ -22,19 +28,6 @@ export default defineNuxtConfig({
 				{ property: 'twitter:card', content: 'summary_large_image' },
 			],
 			link: [
-				{
-					rel: 'preconnect',
-					href: 'https://fonts.googleapis.com',
-				},
-				{
-					rel: 'preconnect',
-					href: 'https://fonts.gstatic.com',
-					crossorigin: 'anonymous',
-				},
-				{
-					rel: 'stylesheet',
-					href: 'https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap',
-				},
 				{
 					rel: 'stylesheet',
 					href: 'https://use.typekit.net/opk3ujt.css',
