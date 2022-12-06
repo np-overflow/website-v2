@@ -24,8 +24,14 @@ export default defineNuxtConfig({
 				lang: 'en-US',
 			},
 			meta: [
-				{ name: 'description', content: 'NP Overflow' },
-				{ property: 'twitter:card', content: 'summary_large_image' },
+				{
+					name: 'description',
+					content: 'NP Overflow',
+				},
+				{
+					property: 'twitter:card',
+					content: 'summary_large_image',
+				},
 			],
 		},
 	},
