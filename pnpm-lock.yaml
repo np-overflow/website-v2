@@ -1,5 +1,8 @@
 lockfileVersion: 5.4
 
+overrides:
+  micromark: ^3
+
 specifiers:
   '@antfu/eslint-config': ^0.33.1
   '@nuxt/content': ^2.2.2
@@ -4863,7 +4866,7 @@ packages:
     dependencies:
       '@types/mdast': 3.0.10
       mdast-util-to-string: 2.0.0
-      micromark: 2.11.4
+      micromark: 3.1.0
       parse-entities: 2.0.0
       unist-util-stringify-position: 2.0.3
     transitivePeerDependencies:
@@ -5237,15 +5240,6 @@ packages:
 
   /micromark-util-types/1.0.2:
     resolution: {integrity: sha512-DCfg/T8fcrhrRKTPjRrw/5LLvdGV7BHySf/1LOZx7TzWZdYRjogNtyNq885z3nNallwr3QUKARjqvHqX1/7t+w==}
-    dev: true
-
-  /micromark/2.11.4:
-    resolution: {integrity: sha512-+WoovN/ppKolQOFIAajxi7Lu9kInbPxFuTBVEavFcL8eAfVstoc5MocPmqBeAdBOJV00uaVjegzH4+MA0DN/uA==}
-    dependencies:
-      debug: 4.3.4
-      parse-entities: 2.0.0
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   /micromark/3.1.0:
