@@ -24,7 +24,7 @@
   },
   "pnpm": {
     "overrides": {
-      "micromark": "^3"
+      "micromark": "^2"
     }
   }
 }
