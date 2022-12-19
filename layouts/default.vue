@@ -2,7 +2,7 @@
 import { useAsyncData } from '#app'
 import { queryContent } from '#imports'
 
-const { data: meta } = await useAsyncData('meta2', () => queryContent('meta').findOne())
+const { data: meta } = await useAsyncData('meta', () => queryContent('meta').findOne())
 </script>
 
 <template>
