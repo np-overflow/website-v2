@@ -1,23 +1,20 @@
 <script setup lang="ts">
-import { useAsyncData } from '#app'
-import { queryContent } from '#imports'
-
-useHead({
-	meta: [
-		{
-			property: 'og:title', content: 'Overflow SIG',
-		},
-		{
-			property: 'og:description', content: 'The Programming and Technology Special Interest Group of Ngee Ann Polytechnic.',
-		},
-		{
-			property: 'og:image', content: 'https://og.np-overflow.club/api/landing',
-		},
-		{
-			property: 'twitter:image', content: 'https://og.np-overflow.club/api/landing',
-		},
-	],
-})
+// useHead({
+// 	meta: [
+// 		{
+// 			property: 'og:title', content: 'Overflow SIG',
+// 		},
+// 		{
+// 			property: 'og:description', content: 'The Programming and Technology Special Interest Group of Ngee Ann Polytechnic.',
+// 		},
+// 		{
+// 			property: 'og:image', content: 'https://og.np-overflow.club/api/landing',
+// 		},
+// 		{
+// 			property: 'twitter:image', content: 'https://og.np-overflow.club/api/landing',
+// 		},
+// 	],
+// })
 
 const { data: meta } = await useAsyncData('meta', () => queryContent('meta').findOne())
 const { data: landing } = await useAsyncData('landing', () => queryContent('landing').findOne())

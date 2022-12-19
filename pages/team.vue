@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useHead({
-	title: 'Team',
-})
+// useHead({
+// 	title: 'Team',
+// })
 
 const { data: team } = await useAsyncData('team', () => queryContent('team').findOne())
 </script>
