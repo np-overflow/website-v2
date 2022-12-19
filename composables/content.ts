@@ -1,3 +1,5 @@
+import { useQuery } from "@tanstack/vue-query"
+
 export interface Meta {
   title: string
   logos: {
@@ -15,7 +17,7 @@ export interface Meta {
 }
 
 export function useMeta() {
-  return useAsyncData('meta', () => {
+  return useQuery(['meta'], () => {
     return queryContent<Meta>('meta').findOne()
   })
 }
@@ -27,7 +29,9 @@ export interface Landing {
 }
 
 export function useLanding() {
-  return useAsyncData('landing', () => queryContent<Landing>('landing').findOne())
+  return useQuery(['landing'], () => {
+    return queryContent<Landing>('landing').findOne()
+  })
 }
 
 export interface Workshops {
@@ -42,7 +46,9 @@ export interface Workshops {
 }
 
 export function useWorkshops() {
-  return useAsyncData('workshops', () => queryContent('workshops').findOne())
+  return useQuery(['workshops'], () => {
+    return queryContent('workshops').findOne()
+  })
 }
 
 export interface Team {
@@ -53,5 +59,7 @@ export interface Team {
 }
 
 export function useTeam() {
-  return useAsyncData('team', () => queryContent<Team>('team').findOne())
+  return useQuery(['team'], () => {
+    return queryContent<Team>('team').findOne()
+  })
 }
