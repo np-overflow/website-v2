@@ -1,5 +1,34 @@
 <script setup lang="ts">
-const { data: meta } = useMeta()
+const { data: meta } = {
+	data: {
+		"title": "Overflow",
+		"logos": {
+			"light": "/logos/light.webp",
+			"dark": "/logos/dark.webp",
+			"system": "/logos/light.webp"
+		},
+		"menu_items": [
+			{
+				"name": "Workshops",
+				"to": "/",
+				"icon": "heroicons:book-open-20-solid"
+			},
+			{
+				"name": "Bootcamps",
+				"to": "/",
+				"icon": "fluent:tent-16-filled"
+			},
+			{
+				"name": "Team",
+				"to": "/team",
+				"icon": "heroicons:user-group-20-solid"
+			}
+		],
+		"join_url": "https://np-overflow.club",
+		"discord_url": "https://discord.gg/gUzY5FrvbM",
+		"instagram_url": "https://www.instagram.com/npoverflow/"
+	}
+}
 </script>
 
 <template>
@@ -13,10 +42,8 @@ const { data: meta } = useMeta()
 							<label tabindex="0" class="btn-ghost btn rounded lg:hidden">
 								<Icon size="26" name="heroicons:bars-3-bottom-left" />
 							</label>
-							<ul
-								tabindex="0"
-								class="dropdown-content menu menu-compact mt-3 w-52 rounded-md bg-base-100 p-2 shadow-md"
-							>
+							<ul tabindex="0"
+								class="dropdown-content menu menu-compact mt-3 w-52 rounded-md bg-base-100 p-2 shadow-md">
 								<li v-for="{ name, to, icon } in meta?.menu_items" :key="to">
 									<NuxtLink :to="to" class="!rounded">
 										<Icon size="16" :name="icon" />
@@ -65,15 +92,17 @@ const { data: meta } = useMeta()
 </template>
 
 <style scoped>
-	.nav-glass::before, .nav-glass::after {
-		@apply content-default absolute top-[-1px] inset-x-0 -bottom-1/2;
-	}
-	.nav-glass::before {
-		@apply backdrop-blur-glass;
-		mask-image: linear-gradient(to bottom,black 48px,transparent)
-	}
+.nav-glass::before,
+.nav-glass::after {
+	@apply content-default absolute top-[-1px] inset-x-0 -bottom-1/2;
+}
 
-	.nav-border::after {
-		@apply content-default inset-x-0 bottom-0 h-px bg-[#00000015] dark:bg-[#ffffff15] w-full;
-	}
+.nav-glass::before {
+	@apply backdrop-blur-glass;
+	mask-image: linear-gradient(to bottom, black 48px, transparent)
+}
+
+.nav-border::after {
+	@apply content-default inset-x-0 bottom-0 h-px bg-[#00000015] dark:bg-[#ffffff15] w-full;
+}
 </style>
