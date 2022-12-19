@@ -22,7 +22,7 @@ const props = defineProps({
 	},
 })
 
-const { data: meta } = await useAsyncData('meta', () => queryContent('meta').findOne())
+const { data: meta } = useMeta()
 
 const parsedDate = computed(() => {
 	const dateObj = new Date(props.date)
@@ -48,10 +48,10 @@ const parsedDate = computed(() => {
 							</NuxtLink>
 						</div>
 						<div class="inline-flex w-1/2 justify-evenly">
-							<NuxtLink :to="meta.discord_url" class="btn-ghost btn">
+							<NuxtLink :to="meta?.discord_url" class="btn-ghost btn">
 								<Icon size="24" name="akar-icons:discord-fill" />
 							</NuxtLink>
-							<NuxtLink :to="meta.instagram_url" class="btn-ghost btn">
+							<NuxtLink :to="meta?.instagram_url" class="btn-ghost btn">
 								<Icon size="24" name="ant-design:instagram-filled" />
 							</NuxtLink>
 							<div class="btn-ghost btn">
@@ -88,10 +88,10 @@ const parsedDate = computed(() => {
 								</NuxtLink>
 							</div>
 							<div class="flex w-1/2 justify-evenly">
-								<NuxtLink :to="meta.discord_url" class="btn-ghost btn px-0">
+								<NuxtLink :to="meta?.discord_url" class="btn-ghost btn px-0">
 									<Icon size="24" name="akar-icons:discord-fill" />
 								</NuxtLink>
-								<NuxtLink :to="meta.instagram_url" class="btn-ghost btn px-0">
+								<NuxtLink :to="meta?.instagram_url" class="btn-ghost btn px-0">
 									<Icon size="24" name="ant-design:instagram-filled" />
 								</NuxtLink>
 								<div class="btn-ghost btn px-0">

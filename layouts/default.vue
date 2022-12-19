@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import { useAsyncData } from '#app'
-import { queryContent } from '#imports'
-
-const { data: meta } = await useAsyncData('meta', () => queryContent('meta').findOne())
+const { data: meta } = useMeta()
 </script>
 
 <template>
@@ -20,7 +17,7 @@ const { data: meta } = await useAsyncData('meta', () => queryContent('meta').fin
 								tabindex="0"
 								class="dropdown-content menu menu-compact mt-3 w-52 rounded-md bg-base-100 p-2 shadow-md"
 							>
-								<li v-for="{ name, to, icon } in meta.menu_items" :key="to">
+								<li v-for="{ name, to, icon } in meta?.menu_items" :key="to">
 									<NuxtLink :to="to" class="!rounded">
 										<Icon size="16" :name="icon" />
 										{{ name }}
@@ -30,17 +27,17 @@ const { data: meta } = await useAsyncData('meta', () => queryContent('meta').fin
 						</div>
 
 						<div class="hidden sm:flex">
-							<TheOverflowLogo :urls="meta.logos" />
+							<TheOverflowLogo :urls="meta?.logos" />
 						</div>
 
 						<NuxtLink to="/" class="btn-ghost btn rounded text-xl font-medium normal-case">
-							{{ meta.title }}
+							{{ meta?.title }}
 						</NuxtLink>
 					</div>
 
 					<div class="navbar-center hidden lg:flex">
 						<ul class="menu menu-horizontal m-0 p-0">
-							<li v-for="{ name, to, icon } in meta.menu_items" :key="to">
+							<li v-for="{ name, to, icon } in meta?.menu_items" :key="to">
 								<NuxtLink :to="to" class="!rounded">
 									<Icon size="16" :name="icon" />
 									{{ name }}
@@ -52,7 +49,7 @@ const { data: meta } = await useAsyncData('meta', () => queryContent('meta').fin
 					<div class="navbar-end">
 						<TheThemeToggle />
 
-						<NuxtLink :to="meta.join_url" class="btn-ghost btn rounded ">
+						<NuxtLink :to="meta?.join_url" class="btn-ghost btn rounded ">
 							<Icon size="16" name="heroicons:user-plus-solid" class="mr-2" />
 							Join Us!
 						</NuxtLink>

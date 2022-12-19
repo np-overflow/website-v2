@@ -3,7 +3,7 @@ useHead({
 	title: 'Team',
 })
 
-const { data: team } = await useAsyncData('team', () => queryContent('team').findOne())
+const { data: team } = useTeam()
 </script>
 
 <template>
@@ -16,7 +16,7 @@ const { data: team } = await useAsyncData('team', () => queryContent('team').fin
 		</h1>
 
 		<div class="mt-4 grid grid-cols-1 md:grid-cols-3">
-			<div v-for="{ name, role } in team.exco" :key="name" class="mt-5">
+			<div v-for="{ name, role } in team?.exco" :key="name" class="mt-5">
 				<span>
 					<b class="font-cubano text-xl font-medium">{{ name }}</b>
 					<br>

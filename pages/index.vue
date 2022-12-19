@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { useAsyncData } from '#app'
-import { queryContent } from '#imports'
-
 useHead({
 	meta: [
 		{
@@ -19,9 +16,9 @@ useHead({
 	],
 })
 
-const { data: meta } = await useAsyncData('meta', () => queryContent('meta').findOne())
-const { data: landing } = await useAsyncData('landing', () => queryContent('landing').findOne())
-const { data: workshops } = await useAsyncData('workshops', () => queryContent('workshops').findOne())
+const { data: meta } = useMeta()
+const { data: landing } = useLanding()
+const { data: workshops } = useWorkshops()
 </script>
 
 <template>
@@ -46,14 +43,14 @@ const { data: workshops } = await useAsyncData('workshops', () => queryContent('
 							</span>
 						</p>
 						<div class="card-action mt-8">
-							<NuxtLink :to="meta.join_url" class="border-3 btn-accent btn rounded text-lg font-bold text-white">
+							<NuxtLink :to="meta?.join_url" class="border-3 btn-accent btn rounded text-lg font-bold text-white">
 								Join Us!
 							</NuxtLink>
 						</div>
 					</div>
 				</div>
 
-				<img class="mx-auto w-full md:w-2/3" :src="landing.hero.img_url">
+				<img class="mx-auto w-full md:w-2/3" :src="landing?.hero.img_url">
 			</div>
 		</div>
 		<div>
@@ -64,25 +61,20 @@ const { data: workshops } = await useAsyncData('workshops', () => queryContent('
 					</span>
 				</template>
 
-				<TimelineCard
-					v-for="workshop in workshops.workshops" :key="workshop.name" v-bind="workshop"
-					:date="workshop.start_date"
-				/>
+				<TimelineCard v-for="workshop in workshops?.workshops" :key="workshop.name" v-bind="workshop"
+					:date="workshop.start_date" />
 			</Timeline>
 
 			<Timeline title="Upcoming Bootcamps" subtitle="Join our multi-day bootcamps and have fun!">
 				<template #icon>
 					<span
-						class="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-t from-purple-500 to-pink-500"
-					>
+						class="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-t from-purple-500 to-pink-500">
 						<Icon name="fluent:tent-16-filled" size="24" class="text-white" />
 					</span>
 				</template>
 
-				<TimelineCard
-					v-for="workshop in workshops.workshops" :key="workshop.name" v-bind="workshop"
-					:date="workshop.start_date"
-				/>
+				<TimelineCard v-for="workshop in workshops?.workshops" :key="workshop.name" v-bind="workshop"
+					:date="workshop.start_date" />
 			</Timeline>
 		</div>
 	</div>

@@ -2,7 +2,7 @@
 const route = useRoute()
 const { data: workshop } = await useAsyncData(`workshops-${route.params.slug}`, async () => {
 	const { workshops } = await queryContent('workshops').findOne()
-	return workshops.find(workshop => workshop.slug === route.params.slug)
+	return workshops.find((workshop: { slug: string }) => workshop.slug === route.params.slug)
 })
 
 useHead({
