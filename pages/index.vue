@@ -12,6 +12,6 @@ const { data: workshops } = await useAsyncData('workshops', () => queryContent('
     {{ meta }}
     {{ landing }}
     {{ workshops }}
-    <NuxtLink to="/app">button</NuxtLink>
+    <NuxtLink to="/team">button</NuxtLink>
   </div>
 </template>
