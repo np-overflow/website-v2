@@ -1,6 +1,7 @@
 workshops:
   - name: UI/UX Fundamentals
     slug: ui-ux-fundamentals
+    image: /workshops/ui-ux-fundamentals.jpeg
     start_date: 29 October 2022 19:00:00
     end_date: 28 October 2022 21:00:00
     meeting_url: https://np-overflow.club
@@ -9,6 +10,7 @@ workshops:
 
   - name: "Vue #1"
     slug: vue-1
+    image: /workshops/vue-1.jpeg
     start_date: 28 October 2022 19:00:00
     end_date: 28 October 2022 21:00:00
     meeting_url: https://np-overflow.club
@@ -17,6 +19,7 @@ workshops:
 
   - name: "Vue #2"
     slug: vue-2
+    image: /workshops/vue-2.jpeg
     start_date: 28 October 2022 19:00:00
     end_date: 28 October 2022 21:00:00
     meeting_url: https://np-overflow.club
@@ -25,6 +28,7 @@ workshops:
 
   - name: "Flutter #1"
     slug: flutter-1
+    image: /workshops/flutter-1.jpeg
     start_date: 28 October 2022 19:00:00
     end_date: 28 October 2022 21:00:00
     meeting_url: https://np-overflow.club
@@ -33,6 +37,7 @@ workshops:
 
   - name: "Flutter #2"
     slug: flutter-2
+    image: /workshops/flutter-2.jpeg
     start_date: 28 October 2022 19:00:00
     end_date: 28 October 2022 21:00:00
     meeting_url: https://np-overflow.club

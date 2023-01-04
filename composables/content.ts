@@ -1,5 +1,3 @@
-import { useQuery } from "@tanstack/vue-query"
-
 export interface Meta {
   title: string
   logos: {
@@ -17,7 +15,7 @@ export interface Meta {
 }
 
 export function useMeta() {
-  return useQuery(['meta'], () => {
+  return useAsyncData('meta', () => {
     return queryContent<Meta>('meta').findOne()
   })
 }
@@ -29,7 +27,7 @@ export interface Landing {
 }
 
 export function useLanding() {
-  return useQuery(['landing'], () => {
+  return useAsyncData('landing', () => {
     return queryContent<Landing>('landing').findOne()
   })
 }
@@ -38,6 +36,7 @@ export interface Workshops {
   workshops: {
     name: string
     slug: string
+    image: string
     start_date: string
     end_date: string
     meeting_url: string
@@ -46,7 +45,7 @@ export interface Workshops {
 }
 
 export function useWorkshops() {
-  return useQuery(['workshops'], () => {
+  return useAsyncData('workshops', () => {
     return queryContent('workshops').findOne()
   })
 }
@@ -59,7 +58,7 @@ export interface Team {
 }
 
 export function useTeam() {
-  return useQuery(['team'], () => {
+  return useAsyncData('team', () => {
     return queryContent<Team>('team').findOne()
   })
 }

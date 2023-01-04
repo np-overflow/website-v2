@@ -35,7 +35,7 @@ const parsedDate = computed(() => {
 <template>
 	<div class="flex">
 		<div class="hidden w-1/2 justify-center py-3 pr-3 sm:flex sm:py-6 sm:pr-6">
-			<div class="card card-compact rounded-xl">
+			<div class="card max-w-md card-compact rounded-xl">
 				<div class="card-body">
 					<img class="mx-auto w-full rounded" :src="props.imageUrl">
 					<div class="card-actions relative flex-nowrap items-center">
@@ -75,7 +75,7 @@ const parsedDate = computed(() => {
 						{{ props.description }}
 					</p>
 				</div>
-				<div class="card card-compact rounded-xl sm:hidden">
+				<div class="card max-w-sm card-compact rounded-xl sm:hidden">
 					<div class="card-body">
 						<img class="mx-auto w-full rounded" :src="props.imageUrl">
 						<div class="card-actions relative flex-nowrap items-center">

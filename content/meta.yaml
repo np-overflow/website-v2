@@ -6,11 +6,11 @@ logos:
 
 menu_items:
   - name: Workshops
-    to: /
+    to: "#workshops"
     icon: heroicons:book-open-20-solid
-  - name: Bootcamps
-    to: /
-    icon: fluent:tent-16-filled
+#  - name: Bootcamps
+#    to: /
+#    icon: fluent:tent-16-filled
   - name: Team
     to: /team
     icon: heroicons:user-group-20-solid

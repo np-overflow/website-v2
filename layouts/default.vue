@@ -1,34 +1,5 @@
 <script setup lang="ts">
-const { data: meta } = {
-	data: {
-		"title": "Overflow",
-		"logos": {
-			"light": "/logos/light.webp",
-			"dark": "/logos/dark.webp",
-			"system": "/logos/light.webp"
-		},
-		"menu_items": [
-			{
-				"name": "Workshops",
-				"to": "/",
-				"icon": "heroicons:book-open-20-solid"
-			},
-			{
-				"name": "Bootcamps",
-				"to": "/",
-				"icon": "fluent:tent-16-filled"
-			},
-			{
-				"name": "Team",
-				"to": "/team",
-				"icon": "heroicons:user-group-20-solid"
-			}
-		],
-		"join_url": "https://np-overflow.club",
-		"discord_url": "https://discord.gg/gUzY5FrvbM",
-		"instagram_url": "https://www.instagram.com/npoverflow/"
-	}
-}
+const { data: meta } = useMeta()
 </script>
 
 <template>
