@@ -1,16 +1,17 @@
 {
   "name": "website-v2",
-  "type": "module",
   "version": "0.0.1",
   "private": false,
+  "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
+    "astro": "astro",
     "build": "astro build",
+    "dev": "astro dev",
     "preview": "astro preview",
-    "astro": "astro"
+    "start": "astro dev"
   },
   "devDependencies": {
+    "@astrojs/image": "^0.15.1",
     "@astrojs/tailwind": "^3.0.1",
     "@types/js-yaml": "^4.0.5",
     "astro": "^2.0.15",

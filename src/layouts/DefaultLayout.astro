@@ -4,6 +4,9 @@ import { getMeta } from '../lib/api'
 
 import RootLayout from './RootLayout.astro'
 
+import TheOverflowLogo from '../components/TheOverflowLogo/TheOverflowLogo.astro'
+import ThemeToggle from '../components/ThemeToggle.astro'
+
 export interface Props {
   title: string
 }
@@ -29,7 +32,7 @@ const meta = getMeta()
                   meta.menu_items.map(({ name, to, icon }) => {
                     return (
                       <li>
-                        <a href="to" class="!rounded">
+                        <a href={to} class="!rounded">
                           <Icon size="16" name={icon} />
                           {name}
                         </a>
@@ -41,7 +44,7 @@ const meta = getMeta()
             </div>
 
             <div class="hidden sm:flex">
-              <!-- <TheOverflowLogo :urls="meta?.logos" /> -->
+              <TheOverflowLogo />
             </div>
 
             <a href="/" class="btn-ghost btn rounded text-xl font-medium normal-case">
@@ -67,8 +70,8 @@ const meta = getMeta()
           </div>
 
           <div class="navbar-end">
-            <!-- <TheThemeToggle />
-
+            <ThemeToggle />
+            <!-- 
 						<NuxtLink :to="meta?.join_url" class="btn-ghost btn rounded ">
 							<Icon size="16" name="heroicons:user-plus-solid" class="mr-2" />
 							Join Us!
