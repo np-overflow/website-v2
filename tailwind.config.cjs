@@ -5,7 +5,7 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				cubano: ['Inter', 'sans-serif'],
+				cubano: ['Cubano', 'sans-serif'],
 				poppins: ['Inter', 'sans-serif'],
 			},
 			colors: {
