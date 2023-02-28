@@ -6,6 +6,7 @@ import RootLayout from './RootLayout.astro'
 
 import TheOverflowLogo from '../components/TheOverflowLogo.astro'
 import ThemeToggle from '../components/ThemeToggle.astro'
+import TheAnnouncementBar from '../components/TheAnnouncementBar.astro'
 
 export interface Props {
   seo?: SEOMeta
@@ -90,6 +91,13 @@ const seo = {
     </div>
 
     <div class="m-auto max-w-7xl">
+      {
+        meta.announcement.enabled ? (
+          <div class="mx-10 md:mx-14 mt-8">
+            <TheAnnouncementBar description={meta.announcement.description} url={meta.announcement.url} />
+          </div>
+        ) : null
+      }
       <slot />
     </div>
   </div>

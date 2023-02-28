@@ -5,6 +5,11 @@ import rawSEO from '../content/seo.yaml?raw'
 import rawLanding from '../content/landing.yaml?raw'
 
 export interface Meta {
+  announcement: {
+    enabled: boolean
+    description: string
+    url: string
+  }
   navbar: {
     title: string
     menu_items: {

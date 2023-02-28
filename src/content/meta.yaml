@@ -1,15 +1,21 @@
+announcement:
+  enabled: true
+  description: >-
+    Welcoming the 2023/2024 Overflow EXCO!
+  url: https://np-overflow.club
+
 navbar:
   title: Overflow
   menu_items:
-    - name: Workshops
-      to: "#workshops"
-      icon: tabler:books
-    - name: Bootcamps
-      to: /
-      icon: tabler:tent
+    - name: Events
+      to: /events
+      icon: tabler:calendar-event
     - name: Team
       to: /team
       icon: tabler:users
+    - name: Handbook
+      to: https://handbook.np-overflow.club
+      icon: tabler:book-2
 
   join_us:
     enabled: true
