@@ -1,0 +1,16 @@
+hero:
+  tagline_raw: >-
+    Inspiring
+    <span class="bg-gradient-to-tr from-amber-500 to-pink-500 bg-clip-text text-transparent">
+      Tech
+    </span>
+    talent everyday
+  description_raw: >-
+    Overflow is a breeding ground for creators. 
+    We provide opportunities to pick up skills & an 
+    outlet to exhibit <span class="font-bold"> your very own creations</span>
+  img_src: /landing/hero.svg
+  join_us:
+    enabled: true
+    text: Join Us!
+    url: https://np-overflow.club

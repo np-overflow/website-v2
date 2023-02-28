@@ -1,9 +1,42 @@
 ---
-import DefaultLayout from '../layouts/DefaultLayout.astro';
+import { Image } from '@astrojs/image/components'
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+import { Hero } from '../images/landing'
+
+import { getLanding } from '../lib/api'
+
+const landing = getLanding()
 ---
 
 <DefaultLayout>
-	<main>
+  <main>
+    <div class="hero">
+      <div class="hero-content grid grid-cols-1 p-6 md:grid-cols-2">
+        <div class="card card-compact rounded-md md:card-normal">
+          <div class="card-body">
+            <h1 class="font-cubano text-5xl">
+              <Fragment set:html={landing.hero.tagline_raw} />
+            </h1>
 
-	</main>
+            <p class="whitespace-pre-line text-lg">
+              <Fragment set:html={landing.hero.description_raw} />
+            </p>
+
+            {
+              landing.hero.join_us.enabled ? (
+                <div class="card-action mt-8">
+                  <a href={landing.hero.join_us.url} class="border-3 btn-accent btn rounded text-lg font-bold text-white">
+                    {landing.hero.join_us.text}
+                  </a>
+                </div>
+              ) : null
+            }
+          </div>
+        </div>
+
+        <Image alt="Image" src={Hero} class="mx-auto w-full md:w-2/3" />
+      </div>
+    </div>
+  </main>
 </DefaultLayout>
