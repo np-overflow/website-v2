@@ -58,7 +58,9 @@ export interface Landing {
   hero: {
     tagline_raw: string
     description_raw: string
-    img_src: string
+    // The name of the image in ./src/images/landing without extension
+    // The image must be an SVG
+    img_name: string
     img_alt: string
     join_us: {
       enabled: boolean
@@ -70,7 +72,9 @@ export interface Landing {
   sections: {
     tagline_raw: string
     description_raw: string
-    img_src: string
+    // The name of the image in ./src/images/landing without extension
+    // The image must be a JPG
+    img_name: string
     img_alt: string
     reverse: boolean
     actions: {

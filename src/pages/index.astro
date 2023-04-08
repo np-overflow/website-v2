@@ -31,7 +31,7 @@ const landing = getLanding()
           }
         </div>
 
-        <Image alt={landing.hero.img_alt} src={import(landing.hero.img_src)} class="mx-auto w-full md:w-2/3" />
+        <Image alt={landing.hero.img_alt} src={import(`../images/landing/${landing.hero.img_name}.svg`)} class="mx-auto w-full md:w-2/3" />
       </div>
     </div>
 
@@ -45,7 +45,7 @@ const landing = getLanding()
           <div class="hero">
             <div class={`hero-content flex-col ${section.reverse ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
               <div class="w-full lg:w-full flex-1">
-                <Image alt={section.img_alt} src={import(section.img_src)} class="rounded-3xl" />
+                <Image alt={section.img_alt} src={import(`../images/landing/${section.img_name}.jpg`)} class="rounded-3xl" />
               </div>
 
               <div class="flex-1 p-5 md:p-10">
@@ -81,13 +81,13 @@ const landing = getLanding()
           {landing.section_ending.tagline}
         </h3>
 
-        <br/>
+        <br />
 
         <span class="text-lg whitespace-normal max-w-3xl">
           {landing.section_ending.description}
         </span>
 
-        <br/>
+        <br />
 
         {
           landing.section_ending.actions

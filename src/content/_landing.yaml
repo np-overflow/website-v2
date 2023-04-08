@@ -9,7 +9,7 @@ hero:
     Overflow is a breeding ground for creators. 
     We provide opportunities to pick up skills & an 
     outlet to exhibit <span class="font-bold"> your very own creations</span>
-  img_src: ../images/landing/hero.svg
+  img_name: hero
   img_alt: Overflow
   join_us:
     enabled: true
@@ -25,7 +25,7 @@ sections:
       Overflow conducts workshops on Friday evenings, everyone's welcome to join us!
       Join our Discord server to stay posted!
     reverse: false
-    img_src: ../images/landing/workshop-linux.jpg
+    img_name: workshop-linux
     img_alt: Workshop on Basics of Linux
     actions:
       - text: Join Discord!
@@ -37,7 +37,7 @@ sections:
       Throughout the year, we never touch on the same thing twice. You'll learn about Web Development, Machine Learning, and so much more!
       Want to learn something new? Just reach out to our committee members, and we'll handle the rest.
     reverse: true
-    img_src: ../images/landing/workshop-linux.jpg
+    img_name: workshop-linux
     img_alt: Workshop on Basics of Linux
 
 section_ending:
