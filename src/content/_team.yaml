@@ -1,0 +1,47 @@
+title: The Team
+tagline: Building the future, one step at a time
+departments:
+  - title: Lecturers
+    members:
+      - name: Lee Ching Yun
+        title: Lecturer-in-charge
+  - title: P/VP
+    members:
+      - name: Arash Nur Iman Mohd Ali Shaifuddin
+        title: President
+      - name: Xu Jiawei
+        title: Vice-President
+  - title: Tech-Ops
+    members:
+      - name: Ang Jeyvian
+        title: Head of Technology
+      - name: Xu Jiawei
+        title: Head of Operations
+      - name: Lakshminarayanan Karthik Nagaraj
+        title: Tech-Ops Lead
+      - name: Koh Kai Chun Samuel
+        title: Tech-Ops Lead
+  - title: Publicity
+    members:
+      - name: Kee Bing Heng
+        title: Head of Publicity
+      - name: Koh Kai Chun Samuel
+        title: Publicity Lead
+  - title: Secretaries
+    members:
+      - name: Huey Ian Jay Reginald Tan
+        title: Head Secretary
+      - name: Ong Xin Yin
+        title: Assistant Secretary
+  - title: Student Advisors
+    members:
+      - name: Qin Guan
+        title: Student Advisor
+      - name: Lai Wai Hang
+        title: Student Advisor
+      - name: Jimmy Lew Kwong Yi
+        title: Student Advisor
+      - name: Yong Zong Han Ryan
+        title: Student Advisor
+      - name: Chua Jie Yi Addison
+        title: Student Advisor

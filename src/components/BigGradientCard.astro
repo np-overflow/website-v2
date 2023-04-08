@@ -1,0 +1,13 @@
+---
+export interface Props {
+  gradientClass: string
+  title: string
+  tagline: string
+}
+
+const {gradientClass, title, tagline} = Astro.props
+---
+<div class={`mb-7 px-5 py-16 md:px-14 md:py-32 ${gradientClass} rounded-3xl`}>
+  <h1 class="font-cubano text-5xl md:text-7xl mb-2">{title}</h1>
+  <span class="text-lg">{tagline}</span>
+</div>

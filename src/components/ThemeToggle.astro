@@ -1,0 +1,38 @@
+<button id="ThemeToggle__button" class="btn btn-ghost">😸</button>
+
+<script>
+  const theme = (() => {
+    const hasLocalStorage = typeof localStorage !== 'undefined'
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+
+    if (hasLocalStorage && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme') as 'dark' | 'light'
+    }
+
+    return prefersDark ? 'dark' : 'light'
+  })()
+
+  const themeToggleElement = document.getElementById('ThemeToggle__button')!
+
+  updateButton(theme)
+
+  function click() {
+    const nextTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark'
+
+    document.documentElement.classList.toggle('dark')
+    document.documentElement.dataset.theme = nextTheme
+    localStorage.setItem('theme', nextTheme)
+    
+    updateButton(nextTheme)
+  }
+
+  function updateButton(theme: 'dark' | 'light') {
+    if (theme === 'dark') {
+      themeToggleElement.innerHTML = '🌞'
+    } else {
+      themeToggleElement.innerHTML = '🌙'
+    }
+  }
+
+  themeToggleElement.addEventListener('click', click)
+</script>

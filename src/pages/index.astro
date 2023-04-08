@@ -1,0 +1,100 @@
+---
+import { Image } from '@astrojs/image/components'
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+import { getLanding } from '../lib/api'
+
+const landing = getLanding()
+---
+
+<DefaultLayout>
+  <main class="flex flex-col gap-4">
+    <div class="hero">
+      <div class="hero-content grid grid-cols-1 p-6 md:grid-cols-2">
+        <div class="flex flex-col gap-8">
+          <h1 class="font-cubano text-5xl">
+            <Fragment set:html={landing.hero.tagline_raw} />
+          </h1>
+
+          <p class="text-lg">
+            <Fragment set:html={landing.hero.description_raw} />
+          </p>
+
+          {
+            landing.hero.join_us.enabled ? (
+              <div class="card-action">
+                <a href={landing.hero.join_us.url} class="border-3 btn-accent btn rounded text-lg font-bold text-white">
+                  {landing.hero.join_us.text}
+                </a>
+              </div>
+            ) : null
+          }
+        </div>
+
+        <Image alt={landing.hero.img_alt} src={import(landing.hero.img_src)} class="mx-auto w-full md:w-2/3" />
+      </div>
+    </div>
+
+    <div class="bg-neutral py-10 mt-10 flex flex-col gap-10">
+      <h2 class="font-cubano self-center text-4xl text-center mx-10">
+        {landing.section_tagline}
+      </h2>
+
+      {
+        landing.sections.map((section) => (
+          <div class="hero">
+            <div class={`hero-content flex-col ${section.reverse ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+              <div class="w-full lg:w-full flex-1">
+                <Image alt={section.img_alt} src={import(section.img_src)} class="rounded-3xl" />
+              </div>
+
+              <div class="flex-1 p-5 md:p-10">
+                <h3 class="font-cubano text-3xl">
+                  <Fragment set:html={section.tagline_raw} />
+                </h3>
+
+                <br />
+
+                <span class="text-lg">
+                  <Fragment set:html={section.description_raw} />
+                </span>
+
+                <br />
+                <br />
+
+                <div class="flex">
+                  {section.actions
+                    ? section.actions.map((action) => (
+                        // The colors are a bit weird?
+                        <button class={`${action.primary ? 'btn-secondary' : 'btn-primary'} btn font-bold`}>{action.text}</button>
+                      ))
+                    : null}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+
+      <div class="flex flex-col items-center text-center p-10">
+        <h3 class="font-semibold font-cubano text-3xl">
+          {landing.section_ending.tagline}
+        </h3>
+
+        <br/>
+
+        <span class="text-lg whitespace-normal max-w-3xl">
+          {landing.section_ending.description}
+        </span>
+
+        <br/>
+
+        {
+          landing.section_ending.actions
+            ? landing.section_ending.actions.map((action) => <button class={`${action.primary ? 'btn-secondary' : 'btn-primary'} btn font-bold`}>{action.text}</button>)
+            : null
+        }
+      </div>
+    </div>
+  </main>
+</DefaultLayout>

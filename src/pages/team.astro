@@ -1,0 +1,35 @@
+---
+import BigGradientCard from '../components/BigGradientCard.astro'
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+import { getTeam } from '../lib/api'
+
+const team = getTeam()
+---
+
+<DefaultLayout
+  seo={{
+    title: 'Team | NP Overflow',
+    description: 'The team behind the Overflow Special Interest Group',
+  }}
+>
+  <div class="w-full p-5 lg:max-w-7xl lg:mx-auto">
+    <BigGradientCard gradientClass="bg-gradient-to-r from-red-500/90 to-orange-500/90 " title={team.title} tagline={team.tagline} />
+
+    {
+      team.departments.map((department) => (
+        <div class="mb-10">
+          <h2 class="font-cubano text-2xl mb-3">{department.title}</h2>
+          <div class="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {department.members.map((member) => (
+              <div class="bg-neutral p-5 rounded-lg">
+                <span class="font-semibold text-lg">{member.name}</span>
+                <br />
+                <span>{member.title}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</DefaultLayout>

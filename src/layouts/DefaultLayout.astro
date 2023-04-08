@@ -1,0 +1,112 @@
+---
+import { Icon } from 'astro-icon'
+import { getMeta, getSEO } from '../lib/api'
+
+import RootLayout from './RootLayout.astro'
+
+import TheOverflowLogo from '../components/TheOverflowLogo.astro'
+import TheFooter from '../components/TheFooter.astro'
+import ThemeToggle from '../components/ThemeToggle.astro'
+import TheAnnouncementBar from '../components/TheAnnouncementBar.astro'
+
+export interface Props {
+  seo?: Partial<SEOMeta>
+}
+
+const props = Astro.props
+
+const meta = getMeta()
+const seo = {
+  ...getSEO(),
+  ...props.seo,
+}
+---
+
+<RootLayout seo={seo}>
+  <div class="font-inter">
+    <!-- Navbar sticky container -->
+    <div class="sticky bg-base-100 top-0 z-10 font-cubano">
+      <!-- Navbar width limiter -->
+      <!-- w-full lg:max-w-7xl should be used throughout other content as well -->
+      <div class="flex w-full lg:max-w-7xl lg:mx-auto">
+        <!-- Navbar -->
+        <div class="navbar h-12">
+          <!-- Navbar left -->
+          <div class="navbar-start">
+            <div class="dropdown">
+              <label tabindex="0" class="btn-ghost btn rounded lg:hidden">
+                <Icon size="26" name="tabler:menu-2" />
+              </label>
+              <ul tabindex="0" class="dropdown-content menu menu-compact mt-3 w-52 rounded-md bg-base-100 p-2 shadow-md">
+                {
+                  meta.navbar.menu_items.map(({ name, to, icon }) => {
+                    return (
+                      <li>
+                        <a href={to} class="!rounded">
+                          <Icon size="16" name={icon} />
+                          {name}
+                        </a>
+                      </li>
+                    )
+                  })
+                }
+              </ul>
+            </div>
+
+            <div class="hidden sm:flex">
+              <TheOverflowLogo />
+            </div>
+
+            <a href="/" class="btn-ghost btn rounded text-xl font-medium normal-case">
+              {meta.navbar.title}
+            </a>
+          </div>
+
+          <!-- Navbar menu -->
+          <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal m-0 p-0">
+              {
+                meta.navbar.menu_items.map(({ name, to, icon }) => {
+                  return (
+                    <li>
+                      <a href={to} class="!rounded">
+                        <Icon size="16" name={icon} />
+                        {name}
+                      </a>
+                    </li>
+                  )
+                })
+              }
+            </ul>
+          </div>
+
+          <!-- Navbar right -->
+          <div class="navbar-end">
+            <ThemeToggle />
+
+            {
+              meta.navbar.join_us.enabled ? (
+                <a href={meta.navbar.join_us.url} class="btn btn-ghost rounded ml-3">
+                  {meta.navbar.join_us.text}
+                  <Icon size="24" name={meta.navbar.join_us.icon} class="ml-2" />
+                </a>
+              ) : null
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {
+      Astro.url.pathname === '/' && meta.announcement.enabled ? (
+        <div class="w-full p-5 lg:pt-5 lg:max-w-7xl lg:mx-auto">
+          <TheAnnouncementBar description={meta.announcement.description} url={meta.announcement.url} />
+        </div>
+      ) : null
+    }
+
+    <slot />
+
+    <TheFooter />
+  </div>
+</RootLayout>
