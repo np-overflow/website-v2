@@ -9,7 +9,7 @@ import ThemeToggle from '../components/ThemeToggle.astro'
 import TheAnnouncementBar from '../components/TheAnnouncementBar.astro'
 
 export interface Props {
-  seo?: SEOMeta
+  seo?: Partial<SEOMeta>
 }
 
 const props = Astro.props
@@ -22,11 +22,15 @@ const seo = {
 ---
 
 <RootLayout seo={seo}>
-  <div class="font-poppins">
-    <div class="sticky top-0 z-10 font-cubano">
-      <div class="nav-glass"></div>
-      <div class="nav-border relative m-auto flex w-full max-w-7xl flex-col">
+  <div class="font-inter">
+    <!-- Navbar sticky container -->
+    <div class="sticky bg-base-100 top-0 z-10 font-cubano">
+      <!-- Navbar width limiter -->
+      <!-- w-full lg:max-w-7xl should be used throughout other content as well -->
+      <div class="flex w-full lg:max-w-7xl lg:mx-auto">
+        <!-- Navbar -->
         <div class="navbar h-12">
+          <!-- Navbar left -->
           <div class="navbar-start">
             <div class="dropdown">
               <label tabindex="0" class="btn-ghost btn rounded lg:hidden">
@@ -57,6 +61,7 @@ const seo = {
             </a>
           </div>
 
+          <!-- Navbar menu -->
           <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal m-0 p-0">
               {
@@ -74,6 +79,7 @@ const seo = {
             </ul>
           </div>
 
+          <!-- Navbar right -->
           <div class="navbar-end">
             <ThemeToggle />
 
@@ -90,15 +96,14 @@ const seo = {
       </div>
     </div>
 
-    <div class="m-auto max-w-7xl">
-      {
-        meta.announcement.enabled ? (
-          <div class="mx-10 md:mx-14 mt-8">
-            <TheAnnouncementBar description={meta.announcement.description} url={meta.announcement.url} />
-          </div>
-        ) : null
-      }
-      <slot />
-    </div>
+    {
+      Astro.url.pathname === '/' && meta.announcement.enabled ? (
+        <div class="w-full p-5 lg:pt-5 lg:max-w-7xl lg:mx-auto">
+          <TheAnnouncementBar description={meta.announcement.description} url={meta.announcement.url} />
+        </div>
+      ) : null
+    }
+
+    <slot />
   </div>
 </RootLayout>

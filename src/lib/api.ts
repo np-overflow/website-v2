@@ -1,8 +1,8 @@
 import { load } from 'js-yaml'
 
-import rawMeta from '../content/meta.yaml?raw';
-import rawSEO from '../content/seo.yaml?raw'
-import rawLanding from '../content/landing.yaml?raw'
+import rawMeta from '../content/_meta.yaml?raw';
+import rawSEO from '../content/_seo.yaml?raw'
+import rawLanding from '../content/_landing.yaml?raw'
 
 export interface Meta {
   announcement: {
@@ -46,11 +46,32 @@ export interface Landing {
     tagline_raw: string
     description_raw: string
     img_src: string
+    img_alt: string
     join_us: {
       enabled: boolean
       text: string
       url: string
     }
+  }
+  section_tagline: string
+  sections: {
+    tagline_raw: string
+    description_raw: string
+    img_src: string
+    img_alt: string
+    reverse: boolean
+    actions: {
+      text: string
+      primary: boolean
+    }[]
+  }[]
+  section_ending: {
+    tagline: string
+    description: string
+    actions: {
+      text: string
+      primary: boolean
+    }[]
   }
 }
 

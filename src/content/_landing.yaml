@@ -1,0 +1,49 @@
+hero:
+  tagline_raw: >-
+    Inspiring
+    <span class="bg-gradient-to-tr from-amber-500 to-pink-500 bg-clip-text text-transparent">
+      Tech
+    </span>
+    talent everyday
+  description_raw: >-
+    Overflow is a breeding ground for creators. 
+    We provide opportunities to pick up skills & an 
+    outlet to exhibit <span class="font-bold"> your very own creations</span>
+  img_src: ../images/landing/hero.svg
+  img_alt: Overflow
+  join_us:
+    enabled: true
+    text: Join Us!
+    url: https://np-overflow.club
+
+section_tagline: Come join us for an event filled year!
+
+sections:
+  - tagline_raw: >-
+      Everyone's welcome!
+    description_raw: >-
+      Overflow conducts workshops on Friday evenings, everyone's welcome to join us!
+      Join our Discord server to stay posted!
+    reverse: false
+    img_src: ../images/landing/workshop-linux.jpg
+    img_alt: Workshop on Basics of Linux
+    actions:
+      - text: Join Discord!
+        primary: true
+
+  - tagline_raw: >-
+      Unlimited learning
+    description_raw: >-
+      Throughout the year, we never touch on the same thing twice. You'll learn about Web Development, Machine Learning, and so much more!
+    reverse: true
+    img_src: ../images/landing/workshop-linux.jpg
+    img_alt: Workshop on Basics of Linux
+
+section_ending:
+  tagline: Ready to jump on board?
+  description: >- 
+    Simply join one of our workshops! 
+    We accept students all year round. Find our more about our admission process below!
+  actions:
+    - text: Joining Overflow
+      primary: false

@@ -7,11 +7,9 @@ export interface Props {
 const { description, url } = Astro.props
 ---
 
-<div class="alert alert-warning shadow-sm">
-  <p class="font-bold text-warning-content">
+<div class="flex justify-between align-center flex-col gap-3 lg:flex-row bg-warning p-3 rounded-lg">
+  <p class="font-bold text-lg text-warning-content">
     {description}
   </p>
-  <div class="flex-none">
-    <a href={url} class="btn btn-sm">More Info</a>
-  </div>
+  <a href={url} class="btn btn-sm">More Info</a>
 </div>
