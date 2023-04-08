@@ -1,4 +1,5 @@
 ---
+import BigGradientCard from '../components/BigGradientCard.astro'
 import DefaultLayout from '../layouts/DefaultLayout.astro'
 import { getTeam } from '../lib/api'
 
@@ -12,10 +13,7 @@ const team = getTeam()
   }}
 >
   <div class="w-full p-5 lg:max-w-7xl lg:mx-auto">
-    <div class="mb-7">
-      <h1 class="font-cubano text-3xl mb-2">{team.title}</h1>
-      <span class="text-lg">{team.tagline}</span>
-    </div>
+    <BigGradientCard gradientClass="bg-gradient-to-r from-red-500/90 to-orange-500/90 " title={team.title} tagline={team.tagline} />
 
     {
       team.departments.map((department) => (
@@ -25,7 +23,7 @@ const team = getTeam()
             {department.members.map((member) => (
               <div class="bg-neutral p-5 rounded-lg">
                 <span class="font-semibold text-lg">{member.name}</span>
-                <br/>
+                <br />
                 <span>{member.title}</span>
               </div>
             ))}

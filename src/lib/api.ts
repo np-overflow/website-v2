@@ -4,6 +4,7 @@ import rawMeta from '../content/_meta.yaml?raw';
 import rawSEO from '../content/_seo.yaml?raw'
 import rawLanding from '../content/_landing.yaml?raw'
 import rawTeam from '../content/_team.yaml?raw'
+import rawEvents from '../content/_events.yaml?raw'
 
 export interface Meta {
   announcement: {
@@ -105,4 +106,49 @@ export interface Team {
 
 export function getTeam() {
   return load(rawTeam) as Team
+}
+
+interface GenericEvent {
+  title: string
+  time: string
+  duration_minutes: number
+  registration_link?: string
+  resources: {
+    title: string
+    url: string
+  }[]
+  format: 'online' | 'physical' | 'hybrid'
+}
+
+interface OnlineEvent extends GenericEvent {
+  format: 'online'
+  meeting_link: string
+}
+
+interface PhysicalEvent extends GenericEvent {
+  format: 'physical'
+  location: string
+  navigation_instructions?: string
+}
+
+interface HybridEvent extends GenericEvent {
+  format: 'hybrid'
+  location: string
+  navigation_instructions?: string
+  meeting_link: string
+}
+
+type Event = OnlineEvent & PhysicalEvent & HybridEvent
+
+export interface Events {
+  title: string
+  tagline: string
+  type: {
+    title: string
+    events: Event[]
+  }[]
+}
+
+export function getEvents() {
+  return load(rawEvents) as Events
 }
