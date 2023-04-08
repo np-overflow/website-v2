@@ -3,6 +3,7 @@ import { load } from 'js-yaml'
 import rawMeta from '../content/_meta.yaml?raw';
 import rawSEO from '../content/_seo.yaml?raw'
 import rawLanding from '../content/_landing.yaml?raw'
+import rawTeam from '../content/_team.yaml?raw'
 
 export interface Meta {
   announcement: {
@@ -88,4 +89,20 @@ export interface Landing {
 
 export function getLanding() {
   return load(rawLanding) as Landing
+}
+
+export interface Team {
+  title: string
+  tagline: string
+  departments: {
+    title: string
+    members: {
+      name: string
+      title: string
+    }[]
+  }[]
+}
+
+export function getTeam() {
+  return load(rawTeam) as Team
 }
