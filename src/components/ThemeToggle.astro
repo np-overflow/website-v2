@@ -21,6 +21,8 @@
 
     document.documentElement.classList.toggle('dark')
     document.documentElement.dataset.theme = nextTheme
+    localStorage.setItem('theme', nextTheme)
+    
     updateButton(nextTheme)
   }
 

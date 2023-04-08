@@ -28,6 +28,17 @@ export interface Meta {
     discord_url: string
     instagram_url: string
   }
+  footer: {
+    org_name: string
+    org_email: string
+    sections: {
+      title: string
+      items: {
+        title: string
+        to: string
+      }[]
+    }[]
+  }
 }
 
 export function getMeta() {

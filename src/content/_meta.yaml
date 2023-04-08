@@ -1,7 +1,7 @@
 announcement:
   enabled: true
   description: >-
-    Welcoming the 2023/2024 Overflow EXCO!
+    SIG Fiesta Time! Register your interest here!
   url: https://np-overflow.club
 
 navbar:
@@ -26,3 +26,25 @@ navbar:
 socials:
   discord_url: https://discord.gg/gUzY5FrvbM
   instagram_url: https://www.instagram.com/npoverflow/
+
+
+footer:
+  org_name: Overflow Special Interest Group, Ngee Ann Polytechnic
+  org_email: hello@np-overflow.club
+  sections:
+    - title: About us
+      items:
+        - title: Events
+          to: /events
+        - title: Team
+          to: /team
+        - title: GitHub
+          to: https://github.com/np-overflow
+        - title: Handbook
+          to: https://handbook.np-overflow.club
+    - title: Resources
+      items:
+        - title: Full-stack Bootcamp
+          to: https://bootcamp.np-overflow.club
+
+

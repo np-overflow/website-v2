@@ -1,0 +1,29 @@
+---
+import { getMeta } from '../lib/api'
+import TheOverflowLogo from './TheOverflowLogo.astro'
+
+const meta = getMeta()
+---
+
+<footer class="footer p-10 text-base-content max-w-7xl mx-auto">
+  <div>
+    <TheOverflowLogo />
+    <span>
+      {meta.footer.org_name}
+    </span>
+    <a class="link" href={`mailto:${meta.footer.org_email}`}>{meta.footer.org_email}</a>
+  </div>
+
+  {
+    meta.footer.sections.map((section) => (
+      <div>
+        <span class="footer-title">{section.title}</span>
+        {section.items.map((item) => (
+          <a class="link link-hover" href={item.to}>
+            {item.title}
+          </a>
+        ))}
+      </div>
+    ))
+  }
+</footer>

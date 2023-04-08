@@ -5,6 +5,7 @@ import { getMeta, getSEO } from '../lib/api'
 import RootLayout from './RootLayout.astro'
 
 import TheOverflowLogo from '../components/TheOverflowLogo.astro'
+import TheFooter from '../components/TheFooter.astro'
 import ThemeToggle from '../components/ThemeToggle.astro'
 import TheAnnouncementBar from '../components/TheAnnouncementBar.astro'
 
@@ -105,5 +106,7 @@ const seo = {
     }
 
     <slot />
+
+    <TheFooter />
   </div>
 </RootLayout>
