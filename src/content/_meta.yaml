@@ -1,5 +1,5 @@
 announcement:
-  enabled: true
+  enabled: false
   description: >-
     SIG Fiesta time! Sign up for Overflow here
   url: https://forms.office.com/r/46tigKSLzz
