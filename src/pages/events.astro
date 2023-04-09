@@ -4,6 +4,12 @@ import DefaultLayout from '../layouts/DefaultLayout.astro'
 import { getEvents } from '../lib/api'
 
 const events = getEvents()
+
+const formatBadgeClass = {
+  online: 'bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300',
+  hybrid: 'bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300',
+  physical: 'bg-purple-100 text-purple-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300',
+}
 ---
 
 <DefaultLayout
@@ -15,13 +21,56 @@ const events = getEvents()
   <div class="w-full p-5 lg:max-w-7xl lg:mx-auto">
     <BigGradientCard gradientClass="bg-gradient-to-r from-cyan-500 to-blue-500" title={events.title} tagline={events.tagline} />
 
-    <!-- TODO -->
-    <!-- {
+    {
       events.type.map((type) => (
-        <div>
-          <h2>{type.title}</h2>
+        <div class="mb-10">
+          <h2 class="text-3xl font-semibold font-cubano mb-5">{type.title}</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {type.events.map((event) => (
+              <div class="bg-neutral p-5 rounded-lg">
+                <h3 class="font-semibold text-lg">{event.title}</h3>
+                <div class="flex mt-2">
+                  <span class={formatBadgeClass[event.format]}>{event.format}</span>
+                  <span class="text-neutral-content">{new Date(event.time).toLocaleString()}</span>
+                </div>
+                <div class="flex gap-3 flex-wrap mt-7 items-center">
+                  {event.registration_link ? <a href={event.registration_link} class="font-medium text-orange-700 dark:text-orange-500 hover:underline">Register here</a> : null}
+
+                  <div class="flex-1"></div>
+
+                  {event.format === 'online' || event.format === 'hybrid' ? (
+                    <a href={event.meeting_link} class=" px-3 py-2 text-sm font-medium text-center text-white bg-orange-700 rounded-lg hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-orange-300 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800">
+                      Join meeting
+                    </a>
+                  ) : null}
+                  {event.format === 'physical' || event.format === 'hybrid' ? (
+                    <a href={'#' + event.title}
+                      class="px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    >
+                      View location
+                    </a>
+                    <div class="modal" id={event.title}>
+                      <div class="modal-box">
+                        <h3 class="font-bold text-lg">Event location</h3>
+                        <p class="py-4">
+                          {event.navigation_instructions_raw ? (
+                            <Fragment set:html={event.navigation_instructions_raw}/>
+                          ) : (
+                            <span>The event location is at {event.location}.</span>
+                          )}
+                        </p>
+                        <div class="modal-action">
+                        <a href="#" class="btn">Close</a>
+                        </div>
+                      </div>
+                    </div>
+                  ) : null}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       ))
-    } -->
+    }
   </div>
 </DefaultLayout>

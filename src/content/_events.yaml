@@ -7,7 +7,6 @@ type:
         time: 14 March 2023 19:00:00
         duration_minutes: 120
         format: online
-        registration_link: https://np-overflow.club
         meeting_link: https://np-overflow.club
   - title: Bootcamps
     events:
@@ -26,7 +25,7 @@ type:
       - title: Poly-ITE Olympiad in Infomatics
         time: 14 March 2023 19:00:00
         duration_minutes: 120
-        format: 
+        format: physical
         location: 27-05-11/12
         registration_link: https://np-overflow.club
         meeting_link: https://np-overflow.club

@@ -132,17 +132,17 @@ interface OnlineEvent extends GenericEvent {
 interface PhysicalEvent extends GenericEvent {
   format: 'physical'
   location: string
-  navigation_instructions?: string
+  navigation_instructions_raw?: string
 }
 
 interface HybridEvent extends GenericEvent {
   format: 'hybrid'
   location: string
-  navigation_instructions?: string
+  navigation_instructions_raw?: string
   meeting_link: string
 }
 
-type Event = OnlineEvent & PhysicalEvent & HybridEvent
+type Event = OnlineEvent | PhysicalEvent | HybridEvent
 
 export interface Events {
   title: string
