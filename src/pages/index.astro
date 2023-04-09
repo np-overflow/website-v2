@@ -45,7 +45,7 @@ const landing = getLanding()
           <div class="hero">
             <div class={`hero-content flex-col ${section.reverse ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
               <div class="w-full lg:w-full flex-1">
-                <Image alt={section.img_alt} src={import(`../images/landing/${section.img_name}.jpg`)} class="rounded-3xl" />
+                <Image format="webp" alt={section.img_alt} src={import(`../images/landing/${section.img_name}.jpg`)} class="rounded-3xl" />
               </div>
 
               <div class="flex-1 p-5 md:p-10">
