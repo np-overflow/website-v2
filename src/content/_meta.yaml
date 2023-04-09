@@ -1,8 +1,8 @@
 announcement:
-  enabled: true
+  enabled: false
   description: >-
-    SIG Fiesta Time! Register your interest here!
-  url: https://np-overflow.club
+    SIG Fiesta time! Sign up for Overflow here
+  url: https://forms.office.com/r/46tigKSLzz
 
 navbar:
   title: Overflow
