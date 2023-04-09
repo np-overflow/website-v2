@@ -1,6 +1,7 @@
-<button id="ThemeToggle__button" class="btn btn-ghost">😸</button>
+<button class="ThemeToggle__button btn btn-ghost">😸</button>
 
 <script>
+  // Fetch the current theme
   const theme = (() => {
     const hasLocalStorage = typeof localStorage !== 'undefined'
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -12,27 +13,34 @@
     return prefersDark ? 'dark' : 'light'
   })()
 
-  const themeToggleElement = document.getElementById('ThemeToggle__button')!
+  const themeToggleElements = document.querySelectorAll('.ThemeToggle__button')
 
   updateButton(theme)
 
   function click() {
     const nextTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark'
 
+    // Toggle Tailwind classes
     document.documentElement.classList.toggle('dark')
+    // Toggle DaisyUI theme
     document.documentElement.dataset.theme = nextTheme
+    // Save to localStorage
     localStorage.setItem('theme', nextTheme)
-    
+
     updateButton(nextTheme)
   }
 
   function updateButton(theme: 'dark' | 'light') {
-    if (theme === 'dark') {
-      themeToggleElement.innerHTML = '🌞'
-    } else {
-      themeToggleElement.innerHTML = '🌙'
-    }
+    themeToggleElements.forEach((e) => {
+      if (theme === 'dark') {
+        e.innerHTML = '🌞'
+      } else {
+        e.innerHTML = '🌙'
+      }
+    })
   }
 
-  themeToggleElement.addEventListener('click', click)
+  themeToggleElements.forEach((e) => {
+    e.addEventListener('click', click)
+  })
 </script>

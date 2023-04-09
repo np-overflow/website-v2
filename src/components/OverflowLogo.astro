@@ -1,0 +1,26 @@
+---
+import { Image } from '@astrojs/image/components'
+
+import { DarkLogo, LightLogo } from '../images/logos'
+---
+
+<Image format="webp" class="OverflowLogo__dark" src={DarkLogo} alt="Overflow logo" />
+<Image format="webp" class="OverflowLogo__light" src={LightLogo} alt="Overflow logo" />
+
+<style>
+  .OverflowLogo__dark {
+    display: none;
+  }
+
+  .OverflowLogo__light {
+    display: block;
+  }
+
+  :global(.dark) .OverflowLogo__dark {
+    display: block;
+  }
+
+  :global(.dark) .OverflowLogo__light {
+    display: none;
+  }
+</style>
