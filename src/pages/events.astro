@@ -5,6 +5,7 @@ import { getEvents } from '../lib/api'
 
 const events = getEvents()
 
+// Badge styles copied from Flowbite
 const formatBadgeClass = {
   online: 'bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300',
   hybrid: 'bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300',
@@ -43,6 +44,7 @@ const formatBadgeClass = {
                       Join meeting
                     </a>
                   ) : null}
+
                   {event.format === 'physical' || event.format === 'hybrid' ? (
                     <a href={'#' + event.title}
                       class="px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
