@@ -6,7 +6,10 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 import image from "@astrojs/image";
 
+import robotsTxt from 'astro-robots-txt'
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), image()]
+  site: 'https://np-overflow.club',
+  integrations: [tailwind(), image(), robotsTxt()]
 });
