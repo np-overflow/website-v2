@@ -1,7 +1,7 @@
 announcement:
-  enabled: false
+  enabled: true
   description: >-
-    SIG Fiesta time! Sign up for Overflow here
+    SIG Fiesta time! Express your interest and take part in Overflow things here.
   url: https://forms.office.com/r/46tigKSLzz
 
 navbar:
@@ -20,13 +20,12 @@ navbar:
   join_us:
     enabled: true
     text: Join Us!
-    url: https://np-overflow.club
+    url: https://forms.office.com/r/46tigKSLzz
     icon: tabler:click
 
 socials:
   discord_url: https://discord.gg/gUzY5FrvbM
   instagram_url: https://www.instagram.com/npoverflow/
-
 
 footer:
   org_name: Overflow Special Interest Group, Ngee Ann Polytechnic
@@ -46,5 +45,3 @@ footer:
       items:
         - title: Full-stack Bootcamp
           to: https://bootcamp.np-overflow.club
-
-
