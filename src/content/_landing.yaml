@@ -14,7 +14,7 @@ hero:
   join_us:
     enabled: true
     text: Join Us!
-    url: https://np-overflow.club
+    url: https://forms.office.com/r/46tigKSLzz
 
 section_tagline: Come join us for an event filled year!
 
@@ -42,7 +42,7 @@ sections:
 
 section_ending:
   tagline: Ready to jump on board?
-  description: >- 
+  description: >-
     Simply join one of our workshops! 
     We accept students all year round. Find our more about our admission process below!
   actions:
