@@ -21,6 +21,6 @@
     "tailwindcss": "^3.3.1"
   },
   "dependencies": {
-    "astro-robots-txt": "^0.4.1"
+    "astro-robots-txt": "^0.5.0"
   }
 }
