@@ -1,34 +1,34 @@
 title: Events
 tagline: Overflow has an event for you, no matter what you like!
 type:
-  - title: Workshops
-    events:
-      - title: Software Design and Architecture 1
-        time: 14 March 2023 19:00:00
-        duration_minutes: 120
-        format: online
-        meeting_link: https://np-overflow.club
-  - title: Bootcamps
-    events:
-      - title: Full Stack Development Bootcamp
-        time: 14 March 2023 19:00:00
-        duration_minutes: 120
-        format: hybrid
-        location: 27-05-11/12
-        registration_link: https://np-overflow.club
-        meeting_link: https://np-overflow.club
-        resources:
-          - title: Slideshows
-            url: https://bootcamp.np-overflow.club
-  - title: Competitions
-    events:
-      - title: Poly-ITE Olympiad in Infomatics
-        time: 14 March 2023 19:00:00
-        duration_minutes: 120
-        format: physical
-        location: 27-05-11/12
-        registration_link: https://np-overflow.club
-        meeting_link: https://np-overflow.club
-        resources:
-          - title: Slideshows
-            url: https://bootcamp.np-overflow.club
+  # - title: Workshops
+  #   events:
+  #     - title: Software Design and Architecture 1
+  #       time: 14 March 2023 19:00:00
+  #       duration_minutes: 120
+  #       format: online
+  #       meeting_link: https://np-overflow.club
+  # - title: Bootcamps
+  #   events:
+  #     - title: Full Stack Development Bootcamp
+  #       time: 14 March 2023 19:00:00
+  #       duration_minutes: 120
+  #       format: hybrid
+  #       location: 27-05-11/12
+  #       registration_link: https://np-overflow.club
+  #       meeting_link: https://np-overflow.club
+  #       resources:
+  #         - title: Slideshows
+  #           url: https://bootcamp.np-overflow.club
+  # - title: Competitions
+  #   events:
+  #     - title: Poly-ITE Olympiad in Infomatics
+  #       time: 14 March 2023 19:00:00
+  #       duration_minutes: 120
+  #       format: physical
+  #       location: 27-05-11/12
+  #       registration_link: https://np-overflow.club
+  #       meeting_link: https://np-overflow.club
+  #       resources:
+  #         - title: Slideshows
+  #           url: https://bootcamp.np-overflow.club

@@ -23,7 +23,11 @@ const formatBadgeClass = {
     <BigGradientCard gradientClass="bg-gradient-to-r from-cyan-500 to-blue-500" title={events.title} tagline={events.tagline} />
 
     {
-      events.type.map((type) => (
+      events.type === null ? 
+      <div class="min-h-[25vh] flex flex-col justify-center">
+        <h2 class="text-3xl font-semibold font-cubano mb-5">Check back later!</h2>
+        <p>We're currently working on our events schedule. Check back later for more information.</p>
+      </div> : events.type.map((type) => (
         <div class="mb-10">
           <h2 class="text-3xl font-semibold font-cubano mb-5">{type.title}</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

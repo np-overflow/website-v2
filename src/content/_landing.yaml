@@ -2,13 +2,13 @@ hero:
   tagline_raw: >-
     Inspiring
     <span class="bg-gradient-to-tr from-amber-500 to-pink-500 bg-clip-text text-transparent">
-      Tech
+      tech
     </span>
     talent everyday
   description_raw: >-
     Overflow is a breeding ground for creators. 
-    We provide opportunities to pick up skills & an 
-    outlet to exhibit <span class="font-bold"> your very own creations</span>
+    We provide an outlet to exhibit <span class="font-bold"> your very own creations</span>, 
+    opportunities to pick up skills, and a place to meet like-minded people.
   img_name: hero
   img_alt: Overflow
   join_us:
@@ -16,26 +16,33 @@ hero:
     text: Join Us!
     url: https://forms.office.com/r/46tigKSLzz
 
-section_tagline: Come join us for an event filled year!
+section_tagline: Come join us for an event-filled year!
 
 sections:
   - tagline_raw: >-
       Everyone's welcome!
     description_raw: >-
-      Overflow conducts workshops on Friday evenings, everyone's welcome to join us!
-      Join our Discord server to stay posted!
+      Overflow conducts workshops biweekly on Friday evenings; everyone's welcome to join us!
+      We post announcements in our Discord server as well as our social media platforms, so 
+      if you're keen to see what Overflow's about, hit us up there.
     reverse: false
     img_name: workshop-linux
     img_alt: Workshop on Basics of Linux
     actions:
-      - text: Join Discord!
+      - text: Follow our socials!
         primary: true
+        to: "https://linkedin.com"
+      # - text: Join the server!
+      #   primary: false
+      #   to: "https://google.com"
 
   - tagline_raw: >-
       Unlimited learning
     description_raw: >-
-      Throughout the year, we never touch on the same thing twice. You'll learn about Web Development, Machine Learning, and so much more!
-      Want to learn something new? Just reach out to our committee members, and we'll handle the rest.
+      Throughout a year, we never touch on the same topic twice. We've done workshops on web development, 
+      machine learning, and so much more before, and our workshops every year only get better! Plus, if 
+      you want to learn something new, just reach out to our committee members and we might just work 
+      together to bring your topic to the masses.
     reverse: true
     img_name: workshop-linux
     img_alt: Workshop on Basics of Linux
@@ -43,8 +50,6 @@ sections:
 section_ending:
   tagline: Ready to jump on board?
   description: >-
-    Simply join one of our workshops! 
-    We accept students all year round. Find our more about our admission process below!
-  actions:
-    - text: Joining Overflow
-      primary: false
+    If you're keen to hear more about Overflow announcement, click the Join Us button scattered around 
+    to sign up for Overflow. If you're still making up your mind, you can always join later: simply join 
+    one of our workshops; we accept students all year round!

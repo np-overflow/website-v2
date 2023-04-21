@@ -3,20 +3,20 @@ tagline: Building the future, one step at a time
 departments:
   - title: Lecturers
     members:
-      - name: Lee Ching Yun
+      - name: Ms Lee Ching Yun
         title: Lecturer-in-charge
   - title: P/VP
     members:
-      - name: Arash Nur Iman Mohd Ali Shaifuddin
+      - name: Arash Nur Iman
         title: President
       - name: Xu Jiawei
-        title: Vice-President
+        title: Vice-President, Head of Operations
   - title: Tech-Ops
     members:
       - name: Ang Jeyvian
         title: Head of Technology
       - name: Xu Jiawei
-        title: Head of Operations
+        title: Vice-President, Head of Operations
       - name: Lakshminarayanan Karthik Nagaraj
         title: Tech-Ops Lead
       - name: Koh Kai Chun Samuel
@@ -29,7 +29,7 @@ departments:
         title: Publicity Lead
   - title: Secretaries
     members:
-      - name: Huey Ian Jay Reginald Tan
+      - name: Reginald Tan
         title: Head Secretary
       - name: Ong Xin Yin
         title: Assistant Secretary

@@ -1,7 +1,7 @@
 announcement:
   enabled: true
   description: >-
-    SIG Fiesta time! Express your interest and take part in Overflow things here.
+    It's time for SIG Fiesta! Express your interest to take part in Overflow here.
   url: https://forms.office.com/r/46tigKSLzz
 
 navbar:
@@ -13,9 +13,9 @@ navbar:
     - name: Team
       to: /team
       icon: tabler:users
-    - name: Handbook
-      to: https://handbook.np-overflow.club
-      icon: tabler:book-2
+    # - name: Handbook
+    #   to: https://handbook.np-overflow.club
+    #   icon: tabler:book-2
 
   join_us:
     enabled: true
@@ -39,9 +39,9 @@ footer:
           to: /team
         - title: GitHub
           to: https://github.com/np-overflow
-        - title: Handbook
-          to: https://handbook.np-overflow.club
-    - title: Resources
-      items:
-        - title: Full-stack Bootcamp
-          to: https://bootcamp.np-overflow.club
+        # - title: Handbook
+        #   to: https://handbook.np-overflow.club
+    # - title: Resources
+    #   items:
+    #     - title: Full-stack Bootcamp
+    #       to: https://bootcamp.np-overflow.club
