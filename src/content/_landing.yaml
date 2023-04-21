@@ -29,9 +29,9 @@ sections:
     img_name: workshop-linux
     img_alt: Workshop on Basics of Linux
     actions:
-      - text: Follow our socials!
+      - text: Follow us on Instagram!
         primary: true
-        to: "https://linkedin.com"
+        to: "https://instagram.com/npoverflow"
       # - text: Join the server!
       #   primary: false
       #   to: "https://google.com"
