@@ -1,6 +1,20 @@
 title: Events
 tagline: Overflow has an event for you, no matter what you like!
 type:
+  - title: Workshops
+    events:
+      - title: Git and GitHub
+        time: 12 May 2023 18:30:00
+        duration_minutes: 120
+        format: physical
+        location: 27-05-11/12
+  - title: Events
+    events:
+      - title: Freshmen Welcome Party
+        time: 5 May 2023 18:30:00
+        duration_minutes: 120
+        format: physical
+        location: 27-05-01/11/12
   # - title: Workshops
   #   events:
   #     - title: Software Design and Architecture 1

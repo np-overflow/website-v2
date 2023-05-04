@@ -9,12 +9,14 @@ departments:
     members:
       - name: Arash Nur Iman
         title: President
+      - name: Ang Jeyvian
+        title: Vice-President, Head of Technology
       - name: Xu Jiawei
         title: Vice-President, Head of Operations
   - title: Tech-Ops
     members:
       - name: Ang Jeyvian
-        title: Head of Technology
+        title: Vice-President, Head of Technology
       - name: Xu Jiawei
         title: Vice-President, Head of Operations
       - name: Lakshminarayanan Karthik Nagaraj

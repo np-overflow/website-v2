@@ -24,7 +24,7 @@ sections:
     description_raw: >-
       Overflow conducts workshops biweekly on Friday evenings; everyone's welcome to join us!
       We post announcements in our Discord server as well as our social media platforms, so 
-      if you're keen to see what Overflow's about, hit us up there.
+      if you're keen to see what Overflow's about, hit us up through our channels.
     reverse: false
     img_name: workshop-linux
     img_alt: Workshop on Basics of Linux
@@ -37,7 +37,7 @@ sections:
       #   to: "https://google.com"
 
   - tagline_raw: >-
-      Unlimited learning
+      Unlimited learning!
     description_raw: >-
       Throughout a year, we never touch on the same topic twice. We've done workshops on web development, 
       machine learning, and so much more before, and our workshops every year only get better! Plus, if 
@@ -50,6 +50,5 @@ sections:
 section_ending:
   tagline: Ready to jump on board?
   description: >-
-    If you're keen to hear more about Overflow announcement, click the Join Us button scattered around 
-    to sign up for Overflow. If you're still making up your mind, you can always join later: simply join 
+    We welcome you to join us for fun workshops and a space to learn. Simply join 
     one of our workshops; we accept students all year round!

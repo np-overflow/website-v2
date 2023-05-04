@@ -1,5 +1,5 @@
 announcement:
-  enabled: true
+  enabled: false
   description: >-
     It's time for SIG Fiesta! Express your interest to take part in Overflow here.
   url: https://forms.office.com/r/46tigKSLzz
@@ -18,7 +18,7 @@ navbar:
     #   icon: tabler:book-2
 
   join_us:
-    enabled: true
+    enabled: false
     text: Join Us!
     url: https://forms.office.com/r/46tigKSLzz
     icon: tabler:click
