@@ -11,7 +11,7 @@
     "start": "astro dev"
   },
   "devDependencies": {
-    "@astrojs/image": "^0.16.5",
+    "@astrojs/image": "^0.17.0",
     "@astrojs/tailwind": "^4.0.0",
     "@types/js-yaml": "^4.0.5",
     "astro": "^2.2.1",
