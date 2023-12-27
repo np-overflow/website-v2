@@ -1,5 +1,5 @@
 ---
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 
 import { getLanding } from "../lib/api";
@@ -37,6 +37,7 @@ const landing = getLanding();
         <Image
           alt={landing.hero.img_alt}
           src={import(`../images/landing/${landing.hero.img_name}.svg`)}
+          format="webp"
           class="mx-auto w-full md:w-2/3"
         />
       </div>
@@ -58,6 +59,7 @@ const landing = getLanding();
               <div class="w-full lg:w-full flex-1">
                 <Image
                   format="webp"
+                  quality={50}
                   alt={section.img_alt}
                   src={import(`../images/landing/${section.img_name}.jpg`)}
                   class="rounded-3xl"
