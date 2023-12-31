@@ -11,14 +11,13 @@
     "start": "astro dev"
   },
   "devDependencies": {
-    "@astrojs/image": "^0.18.0",
-    "@astrojs/tailwind": "^4.0.0",
-    "@types/js-yaml": "^4.0.5",
-    "astro": "^2.2.1",
-    "astro-icon": "^0.8.0",
-    "daisyui": "^4.0.0",
+    "@astrojs/tailwind": "^5.0.4",
+    "@types/js-yaml": "^4.0.9",
+    "astro": "^4.0.7",
+    "astro-icon": "^0.8.2",
+    "daisyui": "^4.4.24",
     "js-yaml": "^4.1.0",
-    "tailwindcss": "^3.3.1"
+    "tailwindcss": "^3.4.0"
   },
   "dependencies": {
     "astro-robots-txt": "^1.0.0"

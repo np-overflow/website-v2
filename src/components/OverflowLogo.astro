@@ -1,11 +1,21 @@
 ---
-import { Image } from '@astrojs/image/components'
+import { Image } from "astro:assets";
 
-import { DarkLogo, LightLogo } from '../images/logos'
+import { DarkLogo, LightLogo } from "../images/logos";
 ---
 
-<Image format="webp" class="OverflowLogo__dark" src={DarkLogo} alt="Overflow logo" />
-<Image format="webp" class="OverflowLogo__light" src={LightLogo} alt="Overflow logo" />
+<Image
+  format="webp"
+  class="OverflowLogo__dark"
+  src={DarkLogo}
+  alt="Overflow logo"
+/>
+<Image
+  format="webp"
+  class="OverflowLogo__light"
+  src={LightLogo}
+  alt="Overflow logo"
+/>
 
 <style>
   .OverflowLogo__dark {
