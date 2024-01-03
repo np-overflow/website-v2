@@ -1,15 +1,23 @@
 ---
 export interface Props {
-  description: string
-  url: string
+  description: string;
+  url: string;
 }
 
-const { description, url } = Astro.props
+const { description, url } = Astro.props;
 ---
 
-<div class="flex justify-between align-center flex-col gap-3 lg:flex-row bg-orange-500 p-3 rounded-lg">
-  <span class="font-semibold text-lg text-white">
+<div
+  class="flex justify-between align-center flex-col gap-3 lg:flex-row border-primary border-2 p-3 rounded-lg"
+>
+  <span class="text-lg text-white">
     {description}
   </span>
-  <a href={url} class="btn btn-sm">More Info</a>
+  {
+    url && (
+      <a href={url} class="btn-secondary btn btn-sm">
+        More Info
+      </a>
+    )
+  }
 </div>

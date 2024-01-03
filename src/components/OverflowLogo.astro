@@ -1,7 +1,8 @@
 ---
 import { Image } from "astro:assets";
 
-import { DarkLogo, LightLogo } from "../images/logos";
+import DarkLogo from "../images/logos/dark.svg";
+import LightLogo from "../images/logos/light.svg";
 ---
 
 <Image
@@ -9,12 +10,14 @@ import { DarkLogo, LightLogo } from "../images/logos";
   class="OverflowLogo__dark"
   src={DarkLogo}
   alt="Overflow logo"
+  height={48}
 />
 <Image
   format="webp"
   class="OverflowLogo__light"
   src={LightLogo}
   alt="Overflow logo"
+  height={48}
 />
 
 <style>

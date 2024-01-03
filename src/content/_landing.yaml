@@ -4,30 +4,33 @@ hero:
     <span class="bg-gradient-to-tr from-amber-500 to-pink-500 bg-clip-text text-transparent">
       tech
     </span>
-    talent everyday
+    talents everyday
   description_raw: >-
-    Overflow is a breeding ground for creators. 
-    We provide an outlet to exhibit <span class="font-bold"> your very own creations</span>, 
-    opportunities to pick up skills, and a place to meet like-minded people.
+    We're a community of tech enthusiasts and like-minded people sharing a passion for all things tech. 
+    We're here to foster learning, collaboration, and innovation, motivating you to explore and create 
+    <span class="font-bold"> your very own creations</span>.
   img_name: hero
   img_alt: Overflow
   join_us:
-    enabled: true
+    enabled: false
     text: Join Us!
+    # Not bad! You're interested in joining us. Fill up this form and we'll get back to you soon!
     url: https://forms.office.com/r/46tigKSLzz
 
 section_tagline: Come join us for an event-filled year!
 
 sections:
   - tagline_raw: >-
-      Everyone's welcome!
+      Learn together!
     description_raw: >-
-      Overflow conducts workshops biweekly on Friday evenings; everyone's welcome to join us!
-      We post announcements in our Discord server as well as our social media platforms, so 
-      if you're keen to see what Overflow's about, hit us up through our channels.
+      Our workshops are usually on Friday evenings; everyone's welcome to join!
+      We post announcements in our Discord server and social media platforms, so 
+      if you're keen to see what Overflow's about, hit us up through our channels. 
+      We never touch the same topic twice in a year, so you'll always be learning
+      something new!
     reverse: false
-    img_name: workshop-linux
-    img_alt: Workshop on Basics of Linux
+    img_name: workshop-git-github
+    img_alt: Workshop on Git and GitHub, in collaboration with NullSec, another special interest group in ICT.
     actions:
       - text: Follow us on Instagram!
         primary: true
@@ -37,18 +40,29 @@ sections:
       #   to: "https://google.com"
 
   - tagline_raw: >-
-      Unlimited learning!
+      Take part in things!
     description_raw: >-
-      Throughout a year, we never touch on the same topic twice. We've done workshops on web development, 
-      machine learning, and so much more before, and our workshops every year only get better! Plus, if 
-      you want to learn something new, just reach out to our committee members and we might just work 
-      together to bring your topic to the masses.
+      Besides our workshops, we'll share any exciting opportunities for you to take 
+      your skills to the next level. From hackathons and casual developer meetups to 
+      conferences and professional networking events, we'll keep you in the loop with 
+      what's happening in the tech scene.
     reverse: true
-    img_name: workshop-linux
-    img_alt: Workshop on Basics of Linux
+    img_name: event-google-tech-meetup
+    img_alt: A group of people sitting in a room, with the words "Google" in the middle.
+
+  - tagline_raw: >-
+      Have fun!
+    description_raw: >-
+      We run some events that value add to your learning experience, like The Byte® 
+      Hackz, a hackathon for Information Technology students, and the Polytechnic–ITE 
+      Olympiad in Informatics (PIOI), a yearly competitive programming competition for 
+      polytechnic and ITE students.
+    reverse: false
+    img_name: event-the-byte-hackz-2023
+    img_alt: A large screen with the words "The Byte® Hackz 2023" on it, with two speakers to the right.
 
 section_ending:
-  tagline: Ready to jump on board?
+  tagline: What are you waiting for?
   description: >-
     We welcome you to join us for fun workshops and a space to learn. Simply join 
     one of our workshops; we accept students all year round!

@@ -25,7 +25,7 @@ const landing = getLanding();
               <div class="card-action">
                 <a
                   href={landing.hero.join_us.url}
-                  class="border-3 btn-accent btn rounded text-lg font-bold text-white"
+                  class="border-3 btn-primary btn rounded text-lg font-bold text-white"
                 >
                   {landing.hero.join_us.text}
                 </a>
@@ -83,20 +83,16 @@ const landing = getLanding();
                 <div class="flex gap-3">
                   {section.actions
                     ? section.actions.map((action) => {
-                        return action.to !== undefined ? ( // The colors are a bit weird?
+                        return action.to !== undefined ? (
                           <a
-                            class={`${
-                              action.primary ? "btn-secondary" : "btn-primary"
-                            } btn font-bold`}
+                            class={`btn-secondary hover:btn-primary btn font-cubano text-lg text-white`}
                             href={action.to}
                           >
                             {action.text}
-                          </a> // The colors are a bit weird?
+                          </a>
                         ) : (
                           <button
-                            class={`${
-                              action.primary ? "btn-secondary" : "btn-primary"
-                            } btn font-bold`}
+                            class={`btn-secondary hover:btn-primary btn font-cubano text-lg text-white`}
                           >
                             {action.text}
                           </button>

@@ -30,20 +30,20 @@ const formatBadgeClass = {
       </div> : events.type.map((type) => (
         <div class="mb-10">
           <h2 class="text-3xl font-semibold font-cubano mb-5">{type.title}</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {type.events.map((event) => (
               <div class="bg-neutral p-5 rounded-lg">
                 <h3 class="font-semibold text-lg">{event.title}</h3>
                 <div class="flex mt-2">
                   <span class={formatBadgeClass[event.format]}>{event.format}</span>
-                  <span class="text-neutral-content">{new Date(event.time).toLocaleString()}</span>
+                  <span class="text-neutral-content">{new Date(event.time).toLocaleString("en-SG", {day: "numeric", month: "long", year: "numeric", hour: "numeric", minute: "numeric"})}</span>
                 </div>
                 <div class="flex gap-3 flex-wrap mt-7 items-center">
                   {event.registration_link ? <a href={event.registration_link} class="font-medium text-orange-700 dark:text-orange-500 hover:underline">Register here</a> : null}
 
                   <div class="flex-1"></div>
 
-                  {event.format === 'online' || event.format === 'hybrid' ? (
+                  {(event.format === 'online' || event.format === 'hybrid') && event.meeting_link != undefined ? (
                     <a href={event.meeting_link} class=" px-3 py-2 text-sm font-medium text-center text-white bg-orange-700 rounded-lg hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-orange-300 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800">
                       Join meeting
                     </a>
@@ -53,12 +53,15 @@ const formatBadgeClass = {
                     <a href={'#' + event.title}
                       class="px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
-                      View location
+                      Learn more
                     </a>
                     <div class="modal" id={event.title}>
                       <div class="modal-box">
-                        <h3 class="font-bold text-lg">Event location</h3>
-                        <p class="py-4">
+                        <h3 class="font-bold text-lg">About {event.title}</h3>
+                        {event.description_raw && (
+                          <p><Fragment set:html={event.description_raw}/></p>
+                        )}
+                        <p class="pt-4">
                           {event.navigation_instructions_raw ? (
                             <Fragment set:html={event.navigation_instructions_raw}/>
                           ) : (
@@ -66,7 +69,7 @@ const formatBadgeClass = {
                           )}
                         </p>
                         <div class="modal-action">
-                        <a href="#" class="btn">Close</a>
+                          <a href="#" class="btn btn-secondary">Close</a>
                         </div>
                       </div>
                     </div>

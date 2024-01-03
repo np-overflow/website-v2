@@ -114,6 +114,7 @@ export function getTeam() {
 
 interface GenericEvent {
   title: string;
+  description_raw?: string;
   time: string;
   duration_minutes: number;
   registration_link?: string;
