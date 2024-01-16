@@ -6,6 +6,16 @@ tagline: >-
 type:
   - title: Workshops
     events:
+      - title: React
+        description_raw: >-
+          In this hands-on session 🔧, we'll learn more about React library. Delve into how to harness React library, covering essential aspects such as creating a well-structured React app🧰. Additionally, we will explore key functions🔑 associated with React and understand how to effectively utilize them for rendering a basic web application.<br /><br />
+
+          React, developed by Facebook, is a JavaScript library celebrated for its efficiency in building flexible and modular user interfaces, particularly for single-page applications. With a component-based architecture, virtual DOM, and declarative syntax, React ensures optimal performance 💯and a predictable codebase. Its extensive ecosystem and wide community support👥 make it an indispensable tool for scalable front-end development.
+        time: 12 January 2024 18:30:00
+        duration_minutes: 120
+        format: physical
+        location: 27-05-10
+
       - title: Chatbots
         description_raw: >-
           In this hands-on session 🔧, we'll learn all about chatbot development. Delve into the practical 
