@@ -7,45 +7,53 @@ departments:
         title: Lecturer-in-charge
   - title: P/VP
     members:
-      - name: Arash Nur Iman
+      - name: Lee Guang Le Jeffrey
         title: President
-      - name: Ang Jeyvian
-        title: Vice-President, Head of Technology
-      - name: Xu Jiawei
-        title: Vice-President, Head of Operations
-  - title: Tech-Ops
+      - name: Chew Ming Hong Ethan
+        title: Vice-President
+  - title: Technology
     members:
-      - name: Ang Jeyvian
-        title: Vice-President, Head of Technology
-      - name: Xu Jiawei
-        title: Vice-President, Head of Operations
-      - name: Lakshminarayanan Karthik Nagaraj
-        title: Tech-Ops Lead
-      - name: Koh Kai Chun Samuel
-        title: Tech-Ops Lead
-      - name: Lim Hui Xiang
-        title: Tech-Ops Lead
+      - name: Tan Syn Kit
+        title: Head of Technology
+      - name: Alfred Kang Jing Rui
+        title: Technology Lead
+      - name: Brandon Koh Ziheng
+        title: Technology Lead
+      - name: Darius Koh Kai Keat
+        title: Technology Lead
+      - name: Hoh Jun Gi
+        title: Technology Lead
+      - name: Lee Jia Yu
+        title: Technology Lead        
+  - title: Operations
+    members:
+      - name: Tay King Yu Galen
+        title: Head of Operations
   - title: Publicity
     members:
-      - name: Kee Bing Heng
+      - name: Sung Yeji
         title: Head of Publicity
-      - name: Koh Kai Chun Samuel
+      - name: Loh Sze Kye
         title: Publicity Lead
-  - title: Secretaries
+      - name: Quek Tsun Yang
+        title: Publicity Lead        
+  - title: Secretary-Operations
     members:
-      - name: Reginald Tan
-        title: Head Secretary
-      - name: Ong Xin Yin
-        title: Assistant Secretary
+      - name: Brayden Ziyang Saga
+        title: Head of Sec-Ops
+      - name: Danial Nurhakim Razali
+        title: Sec-Ops Lead
+      - name: Yong Yun Kai Louis
+        title: Sec-Ops Lead        
   - title: Student Advisors
     members:
-      - name: Qin Guan
+      - name: Arash Nur Iman
         title: Student Advisor
-      - name: Lai Wai Hang
+      - name: Xu Jiawei
         title: Student Advisor
-      - name: Jimmy Lew Kwong Yi
+      - name: Ang Jeyvian
         title: Student Advisor
-      - name: Yong Zong Han Ryan
+      - name: Kee Bing Heng
         title: Student Advisor
-      - name: Chua Jie Yi Addison
+      - name: Koh Kai Chun Samuel
         title: Student Advisor
