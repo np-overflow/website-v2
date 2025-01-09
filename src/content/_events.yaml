@@ -6,104 +6,122 @@ tagline: >-
 type:
   - title: Workshops
     events:
-      - title: React
+      - title: Three.js
         description_raw: >-
-          In this hands-on session 🔧, we'll learn more about React library. Delve into how to harness React library, covering essential aspects such as creating a well-structured React app🧰. Additionally, we will explore key functions🔑 associated with React and understand how to effectively utilize them for rendering a basic web application.<br /><br />
-
-          React, developed by Facebook, is a JavaScript library celebrated for its efficiency in building flexible and modular user interfaces, particularly for single-page applications. With a component-based architecture, virtual DOM, and declarative syntax, React ensures optimal performance 💯and a predictable codebase. Its extensive ecosystem and wide community support👥 make it an indispensable tool for scalable front-end development.
-        time: 12 January 2024 18:30:00
-        duration_minutes: 120
-        format: physical
-        location: 27-05-10
-
-      - title: Chatbots
-        description_raw: >-
-          In this hands-on session 🔧, we'll learn all about chatbot development. Delve into the practical 
-          applications of NLP as we explore pre-trained Large Language Models and learn to incorporate essential 
-          elements like Prompt Template and LLMChain for seamless chatbot development. This workshop is beginner-friendly 
-          as we‘ll construct a no-code chatbot from scratch before using tensorflow to do the same! Join us as we 
-          bridge 🌉 the gap between theory and practice, elevating your NLP skills to new heights!
-        time: 1 December 2023 18:30:00
-        duration_minutes: 120
-        format: physical
-        location: 27-05-10
-
-      - title: NLP Basics
-        description_raw: >-
-          Natural Language Processing is a branch of Computer Science that gives computers the ability to understand text and 
-          spoken words, similar to the way human beings can.🧠<br/><br/>
-
-          📆 Join us for an exciting NLP Basics Workshop and embark on a journey through the key pillars of language understanding 
-          and machine learning. In this workshop, we would be covering NLP basics and how to use them in a pre-trained model!<br/><br/>
-
-          Additionally, you will learn about project planning in NLP, data collecting and cleaning🧹, POS tagging and grammar, and 
-          model building and evaluation. Join our workshop and start your NLP journey!! 💯
+           Blast Off Into the World of 3D! 🌌💻 
+           Ready to create your own galactic masterpiece? 🌠 
+           In this workshop, learn how to use Three.js to build stunning 3D space models right in your browser. 🌍🌟 
         time: 24 November 2023 18:30:00
         duration_minutes: 120
         format: physical
         location: 27-05-10
 
-      - title: Docker
-        time: 3 November 2023 18:30:00
+      - title: Intro to Unity II
+        description_raw: >-
+          🔥GET READY TO LEVEL UP YOUR GAME DEV SKILLS! 🔥
+          Are you ready to unleash your creativity and bring your gaming visions to life? 👾 Do you dream of creating the next Minecraft, Fortnite, or Assassin's Creed? Join our Unity II Workshop and discover the secrets of advanced game development! 🎭
+          You will get to learn more about Unity and add more features such as power-ups, player animations 💥and more to the game you created from the Unity I Workshop. 
+        time: 8 November 2024 18:30:00
         duration_minutes: 120
         format: physical
         location: 27-05-10
 
-      - title: Building Your Personal Porfolio
-        time: 27 October 2023 18:30:00
+      - title: Intro to Unity I
+        description_raw: >-
+          Calling all creatives! ⭐️ 
+          Join our Unity Workshop and turn your gaming passion into a game creation! ✏️
+          This workshop teaches the basics of game development 🎮, and you can even learn how to create the next super mario jump 🤫🦘!
+        time: 1 November 2024 18:30:00
+        duration_minutes: 120
+        format: physical
+        location: 27-05-10
+
+      - title: Flask
+        description_raw: >-
+          🚀 Ready to dive into backend development? Join us for an ✨ exciting ✨ Flask & Python workshop where you'll learn how to build 🔨web applications from the ground up! 💻 
+          Whether you're new to Flask or looking to sharpen 🔪 your backend skills, this session is perfect for you.
+        time: 18 October 2024 18:30:00
+        duration_minutes: 120
+        format: physical
+        location: 27-05-10
+
+      - title: Large Language Models (LLMs)
+        description_raw: >-
+          Overflow and AiSIG are collaborating to bring you a workshop on LLMs!
+          Fascinated by ChatGPT and other AI with the ✨ magical ability ✨ to communicate? Join us for our workshop on Large Language Models (LLMs) and learn the basics 📚 of how to customise and run a LLM.
+          This workshop will be a beginner friendly 😊 look into the basics of Large Language Models. Learn how to install, customise, and run a LLM and how to best write your AI prompts to achieve maximum results 🧑‍🎓!
+        time: 26 July 2024 18:30:00
+        duration_minutes: 120
+        format: physical
+        location: 27-05-10
+
+      - title: Discord Bot
+        description_raw: >-
+          If you've used Discord you've likely heard of Discord Bots 🤖  
+          Join us for our workshop and learn how to create your very own customised 🛠 Discord Bots for your servers. 
+        time: 12 July 2024 18:30:00
         duration_minutes: 120
         format: online
 
-      - title: Making APIs
-        time: 18 August 2023 18:30:00
-        duration_minutes: 120
-        format: hybrid
-        location: 27-05-12
-
-      - title: Using APIs
-        time: 4 August 2023 18:30:00
-        duration_minutes: 120
-        format: online
-
-      - title: Discord Bots (Part 2)
-        time: 14 July 2023 18:30:00
+      - title: Git & GitHub
+        description_raw: >-
+          Version control is an essential ⚙️ tool in every development team's arsenal. 
+          Join us for our workshop on Git and Github and learn how to manage 🥸 your own projects and collaborate 🤝 with others in group projects!
+          Look into fundamental Git and Github features like cloning a repository, pushing, pulling and more. Learn how to resolve merge conflicts 💥 and harness Git and Github effectively!
+        time: 5 July 2024 18:30:00
         duration_minutes: 120
         format: physical
-        location: 27-05-12
+        location: 27-05-10
 
-      - title: Discord Bots (Part 1)
-        time: 7 July 2023 18:30:00
+      - title: UI/UX with Figma
+        description_raw: >-
+          Want to learn how to design a ✨ seamless ✨ UI/UX experience? 
+          Join us for our workshop on Figma, a popular interface design tool! 
+          This workshop is a beginner friendly look into essential ⚙️ Figma concepts like frames, interactions and components. Learn more about how to use Figma to prototype 🛠️ and design 🎨 your very own user interface for your own projects.
+        time: 24 May 2024 18:30:00
         duration_minutes: 120
         format: physical
-        location: 27-05-12
+        location: 27-05-10
 
-      - title: OOP with Python
-        time: 1 June 2023 18:30:00
+      - title: HTML and CSS
+        description_raw: >-
+          Overflow and Nullsec are collaborating🤝 to kickstart your journey into Web Development! 
+          Join us to learn more about HTML and CSS, two essential web development languages!
+        time: 10 May 2024 18:30:00
         duration_minutes: 120
         format: physical
         location: 27-05-11/12
-
-      - title: Git and GitHub
-        time: 12 May 2023 18:30:00
-        duration_minutes: 120
-        format: physical
-        location: 27-05-11/12
-  - title: Bootcamps
-    events:
-      - title: DSA Bootcamp
-        time: 9 June 2023 13:00:00
-        duration_minutes: 300
-        format: online
+  # - title: Bootcamps
+  #   events:
+  #     - title: DSA Bootcamp
+  #       time: 9 June 2023 13:00:00
+  #       duration_minutes: 300
+  #       format: online
   - title: Events
     events:
-      - title: The Byte® Hackz 2023
-        time: 15 November 2023 09:30:00
+      - title: The Byte® Hackz 2024
+        description_raw: >-
+          The Byte®Hackz is an annual hackathon conducted for Information Technology students taking the module Full Stack Development Project (FSDP).
+          There will be 7 challenge statements, with 5 Groups of 4 to 5 Participants attempting each challenge statement.
+          Byte®Hackz is organised by Overflow and the School of Inforcomm Technology's FSDP Module Team.
+        time: 15 November 2024 09:30:00
         duration_minutes: 510
         format: physical
         location: Block 27 & Block 31
 
+      - title: Project Pixel Perfect
+        description_raw: >-
+          We’re back with a fun and enriching collaboration with Potong Pasir CC! 
+          Alongside Leo Club 🦁, we are bringing you Project Pixel Perfect 🎆, a community service activity for Overflowers and Leos alike! 😄 
+          Join us in guiding the elderly 🧓 through the process of creating beautiful ✨ photo collages using Canva to help them recall and store their fondest memories 💭.  
+          We’re looking for 🔎 Overflowers who are experienced in Canva and are able to guide 🤝 the elderly in the collage making. 
+        time: 31 August 2024 08:30:00
+        duration_minutes: 240
+        format: physical
+        location: Potong Pasir Community Club
+
       - title: Freshmen Welcome Party
-        time: 5 May 2023 18:30:00
+        time: 3 May 2024 18:30:00
         duration_minutes: 120
         format: physical
         location: 27-05-01/11/12
