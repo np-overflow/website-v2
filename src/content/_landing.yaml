@@ -20,7 +20,8 @@ hero:
 section_tagline: Come join us for an event-filled year!
 
 sections:
-  - tagline_raw: >-
+  - id: learn-together 
+    tagline_raw: >-
       Learn together!
     description_raw: >-
       Our workshops are usually on Friday evenings; everyone's welcome to join!
@@ -29,8 +30,11 @@ sections:
       We never touch the same topic twice in a year, so you'll always be learning
       something new!
     reverse: false
-    img_name: workshop-git-github
-    img_alt: Workshop on Git and GitHub, in collaboration with NullSec, another special interest group in ICT.
+    images:
+      - img_name: workshop-git-github
+        img_alt: Workshop on Git and GitHub, in collaboration with NullSec, another special interest group in ICT.
+      - img_name: workshop-linux
+        img_alt: Workshop on Linux.
     actions:
       - text: Follow us on Instagram!
         primary: true
@@ -39,7 +43,8 @@ sections:
       #   primary: false
       #   to: "https://google.com"
 
-  - tagline_raw: >-
+  - id: take-part
+    tagline_raw: >-
       Take part in things!
     description_raw: >-
       Besides our workshops, we'll share any exciting opportunities for you to take 
@@ -47,10 +52,12 @@ sections:
       conferences and professional networking events, we'll keep you in the loop with 
       what's happening in the tech scene.
     reverse: true
-    img_name: event-google-tech-meetup
-    img_alt: A group of people sitting in a room, with the words "Google" in the middle.
+    images:
+      - img_name: event-google-tech-meetup
+        img_alt: A group of people sitting in a room, with the words "Google" in the middle.
 
-  - tagline_raw: >-
+  - id: have-fun
+    tagline_raw: >-
       Have fun!
     description_raw: >-
       We run some events that value add to your learning experience, like The Byte® 
@@ -58,8 +65,9 @@ sections:
       Olympiad in Informatics (PIOI), a yearly competitive programming competition for 
       polytechnic and ITE students.
     reverse: false
-    img_name: event-the-byte-hackz-2023
-    img_alt: A large screen with the words "The Byte® Hackz 2023" on it, with two speakers to the right.
+    images:
+      - img_name: event-the-byte-hackz-2023
+        img_alt: A large screen with the words "The Byte® Hackz 2023" on it, with two speakers to the right.
 
 section_ending:
   tagline: What are you waiting for?

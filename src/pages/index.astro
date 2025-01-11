@@ -56,14 +56,39 @@ const landing = getLanding();
                 section.reverse ? "md:flex-row-reverse" : "md:flex-row"
               }`}
             >
-              <div class="w-full lg:w-full flex-1">
-                <Image
-                  format="webp"
-                  quality={50}
-                  alt={section.img_alt}
-                  src={import(`../images/landing/${section.img_name}.jpg`)}
-                  class="rounded-3xl"
-                />
+              <div class="rounded-3xl carousel carousel-center flex-1">
+                {section.images.map((image, iter) => {
+                  console.log(section.id + ", " + image.img_name + ", " + iter);
+                  console.log(iter - 1, iter + 1);
+                  return (
+                    <div
+                      class="carousel-item w-full relative"
+                      id={`${section.id}_${iter}`}
+                    >
+                      <Image
+                        format="webp"
+                        quality={50}
+                        alt={image.img_alt}
+                        src={import(`../images/landing/${image.img_name}.jpg`)}
+                        class=""
+                      />
+                      <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                        <a
+                          href={`#${section.id}_${iter - 1}`}
+                          class={`btn btn-circle ${iter - 1 < 0 && "invisible"}`}
+                        >
+                          ❮
+                        </a>
+                        <a
+                          href={`#${section.id}_${iter + 1}`}
+                          class={`btn btn-circle ${iter + 1 >= section.images.length && "invisible"}`}
+                        >
+                          ❯
+                        </a>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
 
               <div class="flex-1 p-5 md:p-10">
