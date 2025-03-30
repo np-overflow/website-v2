@@ -7,53 +7,45 @@ departments:
         title: Lecturer-in-charge
   - title: P/VP
     members:
-      - name: Lee Guang Le Jeffrey
+      - name: Ooi Jing Shun
         title: President
-      - name: Chew Ming Hong Ethan
+      - name: Tan Xuan Han
         title: Vice-President
   - title: Technology
     members:
-      - name: Tan Syn Kit
+      - name: Ranen Sim
         title: Head of Technology
-      - name: Alfred Kang Jing Rui
+      - name: Goo Yu Wei Raymond
         title: Technology Lead
-      - name: Brandon Koh Ziheng
+      - name: Linn Thit Aung
         title: Technology Lead
-      - name: Darius Koh Kai Keat
+      - name: Moh Journ Haydn
         title: Technology Lead
-      - name: Hoh Jun Gi
+      - name: Rafe Chan Rui An
         title: Technology Lead
-      - name: Lee Jia Yu
-        title: Technology Lead        
+      - name: Regen Wong Li En
+        title: Technology Lead
   - title: Operations
     members:
-      - name: Tay King Yu Galen
+      - name: Daksh Thapar
         title: Head of Operations
+      - name: Tan Jun Wei
+        title: Operations Lead
+      - name: Alluru Rishita Reddy
+        title: Operations Lead
+      - name: Gan Wei Zhi Javier
+        title: Operations Lead
   - title: Publicity
     members:
-      - name: Sung Yeji
+      - name: Chee Hsiao En Samuela
         title: Head of Publicity
-      - name: Loh Sze Kye
+      - name: Aloysius Luke Tay Shi Yuan
         title: Publicity Lead
-      - name: Qwek Tsun Yang
-        title: Publicity Lead        
-  - title: Secretary-Operations
-    members:
-      - name: Brayden Ziyang Saga
-        title: Head of Sec-Ops
-      - name: Danial Nurhakim Razali
-        title: Sec-Ops Lead
-      - name: Yong Yun Kai Louis
-        title: Sec-Ops Lead        
+      - name: Teo Hong Yi
+        title: Publicity Lead
   - title: Student Advisors
     members:
-      - name: Arash Nur Iman
+      - name: Chew Ming Hong, Ethan
         title: Student Advisor
-      - name: Xu Jiawei
-        title: Student Advisor
-      - name: Ang Jeyvian
-        title: Student Advisor
-      - name: Kee Bing Heng
-        title: Student Advisor
-      - name: Koh Kai Chun Samuel
+      - name: Lee Guang Le Jeffrey
         title: Student Advisor
