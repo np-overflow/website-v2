@@ -25,7 +25,7 @@ importers:
         specifier: ^0.8.2
         version: 0.8.2
       daisyui:
-        specifier: ^4.4.24
+        specifier: ^4.12.24
         version: 4.12.24(postcss@8.5.3)
       js-yaml:
         specifier: ^4.1.0
