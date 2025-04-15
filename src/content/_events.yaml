@@ -6,11 +6,26 @@ tagline: >-
 type:
   - title: Workshops
     events:
+      - title: PageRank with R
+        description_raw: >-
+          🔥 Passionate 🔥 about advanced Mathematics? Want to learn more about R and search ranking algorithms? Join us for a ✨ special holiday workshop ✨on the official search algorithm used by Google: PageRank with R, where you'll learn how to develop your own ranking algorithms!
+        time: 20 March 2025 14:00:00
+        duration_minutes: 120
+        format: online
+
+      - title: Swift & SwiftUI
+        description_raw: >-
+          Are you ready to unleash your creativity and bring your app ideas to life? 🖥️✨ Do you dream of creating the next big app or game? Join our Swift & SwiftUI Workshop and discover the secrets of advanced app development! 🛠️📲
+        time: 17 January 2025 18:30:00
+        duration_minutes: 120
+        format: physical
+        location: 31-04-09
+
       - title: Three.js
         description_raw: >-
-           Blast Off Into the World of 3D! 🌌💻 
-           Ready to create your own galactic masterpiece? 🌠 
-           In this workshop, learn how to use Three.js to build stunning 3D space models right in your browser. 🌍🌟 
+          Blast Off Into the World of 3D! 🌌💻 
+          Ready to create your own galactic masterpiece? 🌠 
+          In this workshop, learn how to use Three.js to build stunning 3D space models right in your browser. 🌍🌟
         time: 24 November 2024 18:30:00
         duration_minutes: 120
         format: physical
@@ -20,7 +35,7 @@ type:
         description_raw: >-
           🔥GET READY TO LEVEL UP YOUR GAME DEV SKILLS! 🔥
           Are you ready to unleash your creativity and bring your gaming visions to life? 👾 Do you dream of creating the next Minecraft, Fortnite, or Assassin's Creed? Join our Unity II Workshop and discover the secrets of advanced game development! 🎭
-          You will get to learn more about Unity and add more features such as power-ups, player animations 💥and more to the game you created from the Unity I Workshop. 
+          You will get to learn more about Unity and add more features such as power-ups, player animations 💥and more to the game you created from the Unity I Workshop.
         time: 8 November 2024 18:30:00
         duration_minutes: 120
         format: physical
@@ -58,7 +73,7 @@ type:
       - title: Discord Bot
         description_raw: >-
           If you've used Discord you've likely heard of Discord Bots 🤖  
-          Join us for our workshop and learn how to create your very own customised 🛠 Discord Bots for your servers. 
+          Join us for our workshop and learn how to create your very own customised 🛠 Discord Bots for your servers.
         time: 12 July 2024 18:30:00
         duration_minutes: 120
         format: online
@@ -114,7 +129,7 @@ type:
           We’re back with a fun and enriching collaboration with Potong Pasir CC! 
           Alongside Leo Club 🦁, we are bringing you Project Pixel Perfect 🎆, a community service activity for Overflowers and Leos alike! 😄 
           Join us in guiding the elderly 🧓 through the process of creating beautiful ✨ photo collages using Canva to help them recall and store their fondest memories 💭.  
-          We’re looking for 🔎 Overflowers who are experienced in Canva and are able to guide 🤝 the elderly in the collage making. 
+          We’re looking for 🔎 Overflowers who are experienced in Canva and are able to guide 🤝 the elderly in the collage making.
         time: 31 August 2024 08:30:00
         duration_minutes: 240
         format: physical
