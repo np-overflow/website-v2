@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon"
 import { getMeta } from '../lib/api'
 import OverflowLogo from './OverflowLogo.astro'
 
@@ -20,12 +21,74 @@ const meta = getMeta()
         <div>
           <span class="footer-title">{section.title}</span>
           {section.items.map((item) => (
-            <a class="link link-hover" href={item.to}>
-              {item.title}
-            </a>
+            item.to === 'socials' ? (
+              <label for="socials-modal" class="link link-hover cursor-pointer">
+                {item.title}
+              </label>
+            ) : (
+              <a class="link link-hover" href={item.to}>
+                {item.title}
+              </a>
+            )
           ))}
         </div>
       ))
     }
   </footer>
+
+  <!-- socials -->
+  <input type="checkbox" id="socials-modal" class="modal-toggle" />
+  <div class="modal">
+    <div class="modal-box relative">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-lg font-bold">Follow Overflow</h3>
+        <label for="socials-modal" class="btn btn-sm btn-circle">
+          <Icon name="tabler:x" size="16" />
+        </label>
+      </div>
+      
+      <div class="flex flex-col gap-4">
+        <a 
+          href={meta.socials.instagram_url} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="btn btn-outline btn-primary flex items-center gap-3 justify-start"
+        >
+          <Icon name="tabler:brand-instagram" size="24" />
+          <span>Follow us on Instagram</span>
+        </a>
+        
+        <a 
+          href={meta.socials.tiktok_url} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="btn btn-outline btn-info flex items-center gap-3 justify-start"
+        >
+          <Icon name="tabler:brand-tiktok" size="24" />
+          <span>Follow us on TikTok</span>
+        </a>
+
+        <a 
+          href={meta.socials.linkedin_url} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="btn btn-outline btn-success flex items-center gap-3 justify-start"
+        >
+          <Icon name="tabler:brand-linkedin" size="24" />
+          <span>Follow us on LinkedIn</span>
+        </a>
+
+        <a 
+          href={meta.socials.discord_url} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="btn btn-outline btn-bright flex items-center gap-3 justify-start"
+        >
+          <Icon name="tabler:brand-discord" size="24" />
+          <span>Join our Discord</span>
+        </a>
+      </div>
+    </div>
+    <label class="modal-backdrop" for="socials-modal"></label>
+  </div>
 </div>

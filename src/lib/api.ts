@@ -29,6 +29,8 @@ export interface Meta {
   socials: {
     discord_url: string;
     instagram_url: string;
+    tiktok_url: string;
+    linkedin_url: string;
   };
   footer: {
     org_name: string;

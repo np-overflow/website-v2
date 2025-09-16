@@ -45,6 +45,7 @@ module.exports = {
           success: "#22c55e",
           warning: "#f59e0b",
           error: "#be123c",
+          bright: "#ffd700",
         },
       },
       {
@@ -59,6 +60,7 @@ module.exports = {
           success: "#22c55e",
           warning: "#f59e0b",
           error: "#be123c",
+          bright: "#ffd700",
         },
       },
     ],

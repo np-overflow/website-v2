@@ -1,5 +1,5 @@
 announcement:
-  enabled: true
+  enabled: false
   description: >-
     If you're stopping by SIG Fiesta, welcome! Feel free to ask us any questions you have about our club, or just say hi! 👋
   url: https://bit.ly/ict-sig-fiesta-2025
@@ -26,6 +26,8 @@ navbar:
 socials:
   discord_url: https://discord.gg/gUzY5FrvbM
   instagram_url: https://www.instagram.com/npoverflow/
+  tiktok_url: https://www.tiktok.com/@npoverflowsig
+  linkedin_url: https://www.linkedin.com/company/np-overflow
 
 footer:
   org_name: Overflow Special Interest Group, Ngee Ann Polytechnic
@@ -33,14 +35,12 @@ footer:
   sections:
     - title: About us
       items:
-        - title: Events
-          to: /events
-        - title: Team
-          to: /team
+        - title: Socials
+          to: socials
         - title: GitHub
           to: https://github.com/np-overflow
-        # - title: Handbook
-        #   to: https://handbook.np-overflow.club
+        - title: Handbook
+          to: https://handbook.np-overflow.club
     # - title: Resources
     #   items:
     #     - title: Full-stack Bootcamp
