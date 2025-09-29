@@ -6,137 +6,127 @@ tagline: >-
 type:
   - title: Workshops
     events:
-      - title: PageRank with R
+      - title: NullFlow I
         description_raw: >-
-          🔥 Passionate 🔥 about advanced Mathematics? Want to learn more about R and search ranking algorithms? Join us for a ✨ special holiday workshop ✨on the official search algorithm used by Google: PageRank with R, where you'll learn how to develop your own ranking algorithms!
-        time: 20 March 2025 14:00:00
-        duration_minutes: 120
-        format: online
-
-      - title: Swift & SwiftUI
-        description_raw: >-
-          Are you ready to unleash your creativity and bring your app ideas to life? 🖥️✨ Do you dream of creating the next big app or game? Join our Swift & SwiftUI Workshop and discover the secrets of advanced app development! 🛠️📲
-        time: 17 January 2025 18:30:00
-        duration_minutes: 120
-        format: physical
-        location: 31-04-09
-
-      - title: Three.js
-        description_raw: >-
-          Blast Off Into the World of 3D! 🌌💻 
-          Ready to create your own galactic masterpiece? 🌠 
-          In this workshop, learn how to use Three.js to build stunning 3D space models right in your browser. 🌍🌟
-        time: 24 November 2024 18:30:00
-        duration_minutes: 120
-        format: physical
-        location: 27-05-10
-
-      - title: Intro to Unity II
-        description_raw: >-
-          🔥GET READY TO LEVEL UP YOUR GAME DEV SKILLS! 🔥
-          Are you ready to unleash your creativity and bring your gaming visions to life? 👾 Do you dream of creating the next Minecraft, Fortnite, or Assassin's Creed? Join our Unity II Workshop and discover the secrets of advanced game development! 🎭
-          You will get to learn more about Unity and add more features such as power-ups, player animations 💥and more to the game you created from the Unity I Workshop.
-        time: 8 November 2024 18:30:00
-        duration_minutes: 120
-        format: physical
-        location: 27-05-10
-
-      - title: Intro to Unity I
-        description_raw: >-
-          Calling all creatives! ⭐️ 
-          Join our Unity Workshop and turn your gaming passion into a game creation! ✏️
-          This workshop teaches the basics of game development 🎮, and you can even learn how to create the next super mario jump 🤫🦘!
-        time: 1 November 2024 18:30:00
-        duration_minutes: 120
-        format: physical
-        location: 27-05-10
-
-      - title: Flask
-        description_raw: >-
-          🚀 Ready to dive into backend development? Join us for an ✨ exciting ✨ Flask & Python workshop where you'll learn how to build 🔨web applications from the ground up! 💻 
-          Whether you're new to Flask or looking to sharpen 🔪 your backend skills, this session is perfect for you.
-        time: 18 October 2024 18:30:00
-        duration_minutes: 120
-        format: physical
-        location: 27-05-10
-
-      - title: Large Language Models (LLMs)
-        description_raw: >-
-          Overflow and AiSIG are collaborating to bring you a workshop on LLMs!
-          Fascinated by ChatGPT and other AI with the ✨ magical ability ✨ to communicate? Join us for our workshop on Large Language Models (LLMs) and learn the basics 📚 of how to customise and run a LLM.
-          This workshop will be a beginner friendly 😊 look into the basics of Large Language Models. Learn how to install, customise, and run a LLM and how to best write your AI prompts to achieve maximum results 🧑‍🎓!
-        time: 26 July 2024 18:30:00
-        duration_minutes: 120
-        format: physical
-        location: 27-05-10
-
-      - title: Discord Bot
-        description_raw: >-
-          If you've used Discord you've likely heard of Discord Bots 🤖  
-          Join us for our workshop and learn how to create your very own customised 🛠 Discord Bots for your servers.
-        time: 12 July 2024 18:30:00
-        duration_minutes: 120
-        format: online
-
-      - title: Git & GitHub
-        description_raw: >-
-          Version control is an essential ⚙️ tool in every development team's arsenal. 
-          Join us for our workshop on Git and Github and learn how to manage 🥸 your own projects and collaborate 🤝 with others in group projects!
-          Look into fundamental Git and Github features like cloning a repository, pushing, pulling and more. Learn how to resolve merge conflicts 💥 and harness Git and Github effectively!
-        time: 5 July 2024 18:30:00
-        duration_minutes: 120
-        format: physical
-        location: 27-05-10
-
-      - title: UI/UX with Figma
-        description_raw: >-
-          Want to learn how to design a ✨ seamless ✨ UI/UX experience? 
-          Join us for our workshop on Figma, a popular interface design tool! 
-          This workshop is a beginner friendly look into essential ⚙️ Figma concepts like frames, interactions and components. Learn more about how to use Figma to prototype 🛠️ and design 🎨 your very own user interface for your own projects.
-        time: 24 May 2024 18:30:00
-        duration_minutes: 120
-        format: physical
-        location: 27-05-10
-
-      - title: HTML and CSS
-        description_raw: >-
-          Overflow and Nullsec are collaborating🤝 to kickstart your journey into Web Development! 
-          Join us to learn more about HTML and CSS, two essential web development languages!
-        time: 10 May 2024 18:30:00
+          Overflow and Nullsec collaborated to bring you a workshop on Web Development & Security 🔐!
+          Being the first of a two part series, we covered the basics of HTML layouts & CSS styling 🎨, creating our very own restaurant website 🍔!
+        time: 8 May 2025 18:30:00
         duration_minutes: 120
         format: physical
         location: 27-05-11/12
+        workshop_folder: NullFlowP1
+        
+
+      - title: NullFlow II
+        description_raw: >-
+          Overflow and Nullsec collaborated to bring you a workshop on Web Development & Security 🔐!
+          Being the second of a two part series, we covered cybersecurity in the web 🤖, best practices when securing applications, as well as the basics of Git!
+        time: 16 May 2025 17:30:00
+        duration_minutes: 180
+        format: physical
+        location: 27-05-11/12
+        workshop_folder: NullFlowP2
+
+
+      - title: Git & GitHub
+        description_raw: >-
+          Version control is an essential part of modern software development 🛠️.
+          In this workshop, we discovered how Git can be used to record changes, recover earlier versions, and keep projects organised 🗃️. We also explored GitHub as a platform for sharing code, working with branches, and collaborating smoothly with others 🐙.
+        time: 23 May 2025 15:00:00
+        duration_minutes: 90
+        format: online
+        workshop_folder: Git
+        
+
+      - title: UI/UX with Figma
+        description_raw: >-
+          In this hands-on session, participants explored the world of UI/UX design with Figma 🎨
+          We learnt how to navigate the interface, create reusable components, and prototype interactive screens. We also touched on using community assets, adding scroll effects, and designing mobile-friendly layouts 📱.
+        time: 4 July 2025 17:30:00
+        duration_minutes: 135
+        format: online
+        workshop_folder: Figma
+
+
+      - title: Flutter I
+        description_raw: >-
+          Building a mobile app starts with understanding its building blocks 📱✨.
+          As the first of a two part series, we explored Flutter's widget system, learning how to structure interfaces, manage state, and use common widgets like buttons, images, text fields, and lists. By the end, we gained the foundation to create dynamic, interactive UIs with Flutter.
+        time: 11 July 2025 18:30:00
+        duration_minutes: 120
+        format: physical
+        location: 27-05-10
+        workshop_folder: Flutter1
+
+
+      - title: Flutter II
+        description_raw: >-
+          Building a mobile app starts with understanding its building blocks 📱✨.
+          As the second of a two part series, we learnt how to implement Material 3 themes, navigate between pages with the Navigator, and troubleshoot common runtime issues using Flutter DevTools and the debugger. By the end, we were able to create polished, functional apps with optimal performance across devices.
+        time: 18 July 2025 17:30:00
+        duration_minutes: 120
+        format: physical
+        location: 27-05-10
+        workshop_folder: Flutter2
+
+
+      - title: IoT
+        description_raw: >-
+          In this session, we built our own IoT system using Arduino (ESP32) and MQTT, learnt how devices communicate, sense their environment, and respond in real time.
+        time: 8 August 2025 17:30:00
+        duration_minutes: 120
+        format: physical
+        location: 27-05-10
+        workshop_folder: IoT
+
+
+      - title: FlutterFlow
+        description_raw: >-
+          No-code development meets practical app design 🚀📱!
+          In collaboration with Engineering Interest Group's Ideatecomm social hackathon, we built a dashboard app with live weather updates, and news headlines. 
+          Along the way, we explored FlutterFlow's page navigation, widget trees, actions, and API integration, while connecting Firestore for dynamic data retrieval.
+        time: 22 September 2025 15:30:00
+        duration_minutes: 120
+        format: physical
+        location: LT58A
+        workshop_folder: FlutterFlow
+
+
   # - title: Bootcamps
   #   events:
   #     - title: DSA Bootcamp
   #       time: 9 June 2023 13:00:00
   #       duration_minutes: 300
   #       format: online
+
+
   - title: Events
     events:
-      - title: The Byte® Hackz 2024
+      - title: HackIT 2025
         description_raw: >-
-          The Byte®Hackz is an annual hackathon conducted for Information Technology students taking the module Full Stack Development Project (FSDP).
-          There will be 7 challenge statements, with 5 Groups of 4 to 5 Participants attempting each challenge statement.
-          Byte®Hackz is organised by Overflow and the School of Inforcomm Technology's FSDP Module Team.
-        time: 15 November 2024 09:30:00
+          🚀 HackIT brought student ideas to life!
+          Together with EIG and AISIG, Overflow hosted a school-wide hackathon where teams of up to 4 took on challenges in AI, sustainability, and digital wellbeing 🌏💡.
+          Over the months, participants joined workshops, milestone checks, and consultations before pitching their creations at the big finale on 15 September. With snacks 🍪, games 🎲, and mystery tech prizes 🎁 up for grabs, it was an inspiring way to see how everyone's ideas came to life!
+        time: 15 September 2025 09:30:00
         duration_minutes: 510
         format: physical
-        location: Block 27 & Block 31
+        location: 27-05-11/12
+        event_folder: HackIT
 
-      - title: Project Pixel Perfect
+      - title: SIG Fiesta
         description_raw: >-
-          We’re back with a fun and enriching collaboration with Potong Pasir CC! 
-          Alongside Leo Club 🦁, we are bringing you Project Pixel Perfect 🎆, a community service activity for Overflowers and Leos alike! 😄 
-          Join us in guiding the elderly 🧓 through the process of creating beautiful ✨ photo collages using Canva to help them recall and store their fondest memories 💭.  
-          We’re looking for 🔎 Overflowers who are experienced in Canva and are able to guide 🤝 the elderly in the collage making.
-        time: 31 August 2024 08:30:00
+          At SIG Fiesta, we showcased some of the exciting projects our members built, from a remote-controlled robotics car 🚗💨, to an interactive 3D website 🌐, and even a computer vision space invader game 👾 controlled by hand gestures. Visitors got to experience first-hand the creativity and technical skills that Overflowers bring to life through hackathons, workshops, and showcases. 
+        time: 16 April 2025 13:00:00
         duration_minutes: 240
         format: physical
-        location: Potong Pasir Community Club
+        location: 27-05-11/12
+        event_folder: SIG Fiesta
 
       - title: Freshmen Welcome Party
-        time: 3 May 2024 18:30:00
+        description_raw: >-
+          We kicked off the new academic year with our Welcome Party 🎉, where new and returning Overflowers came together for an evening of games, debates, and snacks 🍪. 
+        time: 2 May 2025 17:30:00
         duration_minutes: 120
         format: physical
-        location: 27-05-01/11/12
+        location: 27-05-11/12
+        event_folder: Welcome Party
