@@ -1,0 +1,104 @@
+---
+import { Icon } from "astro-icon";
+
+interface Props {
+  title: string;
+  folderType: "workshops" | "events";
+  folderName: string;
+  location?: string;
+  id?: string;
+}
+
+const { title, folderType, folderName, location, id } = Astro.props;
+
+import * as workshopImages from '../images/workshops'
+import * as eventImages from '../images/events'
+
+const allImages = folderType === 'workshops' ? workshopImages : eventImages;
+
+// Get images for this specific folder
+const images = Object.entries(allImages)
+  .filter(([key]) => key.startsWith(folderName.replace(' ', '')))
+  .sort(([a], [b]) => {
+    const numA = parseInt(a.split('_')[1]) || 0;
+    const numB = parseInt(b.split('_')[1]) || 0;
+    return numA - numB;
+  })
+  .map(([, imageModule]) => (imageModule as any).src);
+---
+
+<div id={id} class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden items-center justify-center">
+  <div class="popup-content bg-[#000212] rounded-lg p-6 max-w-3xl w-full mx-4 relative text-white">
+    <div class="flex justify-between items-center mb-4">
+      <h3 class="font-bold text-lg">{title}</h3>
+      <button id="close-popup" class="text-gray-400 hover:text-gray-200 p-1 rounded transition-colors">
+        <Icon name="tabler:x" size="24" />
+      </button>
+    </div>
+    
+    <div id="img-container" class="mb-4 overflow-hidden aspect-[3/2]">
+      <img id="popup-img" class="w-full h-full object-cover rounded-lg" alt={`Image from ${title}`} />
+    </div>
+    
+    <h3 class="font-bold text-lg mb-3">About {title}</h3>
+    
+    <div id="popup-desc" class="text-base mb-4">
+      <slot />
+    </div>
+    
+    {location && (
+      <p class="text-base">
+        The event was located at {location}.
+      </p>
+    )}
+  </div>
+</div>
+
+<script define:vars={{ images, id }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const popupBg = document.getElementById(id);
+    const closeBtn = popupBg?.querySelector('#close-popup');
+    const imgElement = popupBg?.querySelector('#popup-img');
+    
+    if (!popupBg || !closeBtn || !imgElement) return;
+
+    let currentImageIndex = 0;
+    
+    function initImages() {
+      if (images.length > 0) {
+        imgElement.src = images[0];
+      }
+      
+      imgElement.onclick = () => {
+        if (images.length <= 1) return;
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        imgElement.src = images[currentImageIndex];
+      };
+    }
+    
+    closeBtn.addEventListener('click', () => {
+      popupBg.classList.add('hidden');
+      popupBg.classList.remove('flex');
+    });
+    
+    popupBg.addEventListener('click', (e) => {
+      if (e.target === popupBg) {
+        popupBg.classList.add('hidden');
+        popupBg.classList.remove('flex');
+      }
+    });
+    
+    popupBg.addEventListener('showPopup', () => {
+      popupBg.classList.remove('hidden');
+      popupBg.classList.add('flex');
+      initImages();
+    });
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !popupBg.classList.contains('hidden')) {
+        popupBg.classList.add('hidden');
+        popupBg.classList.remove('flex');
+      }
+    });
+  });
+</script>

@@ -1,6 +1,7 @@
 ---
 import BigGradientCard from '../components/BigGradientCard.astro'
 import DefaultLayout from '../layouts/DefaultLayout.astro'
+import ImagePopup from '../components/ImagePopup.astro'
 import { getEvents } from '../lib/api'
 
 const events = getEvents()
@@ -32,8 +33,8 @@ const formatBadgeClass = {
           <h2 class="text-3xl font-semibold font-cubano mb-5">{type.title}</h2>
           {type.title === "Workshops" ? (
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {type.events.map((event) => (
-                <div class="bg-neutral p-5 rounded-lg">
+              {type.events.map((event, index) => (
+                <div class="bg-neutral p-5 rounded-lg cursor-pointer hover:bg-neutral-focus transition-colors" onclick={`showWorkshopPopup(${index})`}>
                   <h3 class="font-semibold text-lg">{event.title}</h3>
                   <span class="text-neutral-content text-sm">{new Date(event.time).toLocaleDateString("en-SG", {day: "numeric", month: "long", year: "numeric"})}</span>
                 </div>
@@ -41,8 +42,13 @@ const formatBadgeClass = {
             </div>
           ) : (
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {type.events.map((event) => (
-                <div class="bg-neutral p-5 rounded-lg">
+              {type.events.map((event, index) => (
+                <div 
+                  class={`bg-neutral p-5 rounded-lg ${
+                    event.event_folder ? 'cursor-pointer hover:bg-neutral-focus transition-colors' : ''
+                  }`}
+                  onclick={event.event_folder ? `showEventPopup(${index})` : ''}
+                >
                   <h3 class="font-semibold text-lg">{event.title}</h3>
                   <div class="flex mt-2">
                     <span class={formatBadgeClass[event.format]}>{event.format}</span>
@@ -59,30 +65,12 @@ const formatBadgeClass = {
                       </a>
                     ) : null}
 
-                    {event.format === 'physical' || event.format === 'hybrid' ? (
-                      <a href={'#' + event.title}
+                    {event.link ? (
+                      <a href={event.link} target="_blank" rel="noopener noreferrer"
                         class="px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                       >
-                        Learn more
+                        Visit post
                       </a>
-                      <div class="modal" id={event.title}>
-                        <div class="modal-box">
-                          <h3 class="font-bold text-lg">About {event.title}</h3>
-                          {event.description_raw && (
-                            <p><Fragment set:html={event.description_raw}/></p>
-                          )}
-                          <p class="pt-4">
-                            {event.navigation_instructions_raw ? (
-                              <Fragment set:html={event.navigation_instructions_raw}/>
-                            ) : (
-                              <span>The event location is at {event.location}.</span>
-                            )}
-                          </p>
-                          <div class="modal-action">
-                            <a href="#" class="btn btn-secondary">Close</a>
-                          </div>
-                        </div>
-                      </div>
                     ) : null}
                   </div>
                 </div>
@@ -93,4 +81,38 @@ const formatBadgeClass = {
       ))
     }
   </div>
+
+  {events.type.map((type) => (
+    type.events.map((event, i) => 
+      (event.workshop_folder || event.event_folder) && (
+        <ImagePopup 
+          title={event.title} 
+          folderType={type.title === "Workshops" ? "workshops" : "events"}
+          folderName={(event.workshop_folder || event.event_folder) || ""}
+          location={event.format !== "online" ? (event as any).location : undefined}
+          id={`${type.title.toLowerCase() === 'workshops' ? 'workshops' : 'events'}-popup-${i}`}
+        >
+          <Fragment set:html={event.description_raw} />
+        </ImagePopup>
+      )
+    )
+  ))}
 </DefaultLayout>
+
+<script is:inline>
+  function showWorkshopPopup(index) {
+    const popupId = `workshops-popup-${index}`;
+    const popup = document.getElementById(popupId);
+    if (popup) {
+      popup.dispatchEvent(new CustomEvent('showPopup'));
+    }
+  }
+  
+  function showEventPopup(index) {
+    const popupId = `events-popup-${index}`;
+    const popup = document.getElementById(popupId);
+    if (popup) {
+      popup.dispatchEvent(new CustomEvent('showPopup'));
+    }
+  }
+</script>

@@ -125,6 +125,9 @@ interface GenericEvent {
     url: string;
   }[];
   format: "online" | "physical" | "hybrid";
+  workshop_folder?: string;
+  event_folder?: string;
+  link?: string;
 }
 
 interface OnlineEvent extends GenericEvent {
