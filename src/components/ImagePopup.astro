@@ -37,8 +37,10 @@ const images = Object.entries(allImages)
     </div>
     
     <div id="img-container" class="mb-4 overflow-hidden aspect-[3/2]">
-      <img id="popup-img" class="w-full h-full object-cover rounded-lg" alt={`Image from ${title}`} />
+      <img id="popup-img" class="w-full h-full object-cover rounded-lg transition-opacity duration-200" alt={`Image from ${title}`} />
     </div>
+    
+    <div id="image-indicators" class="flex gap-2 mb-4 justify-center "></div>
     
     <h3 class="font-bold text-lg mb-3">About {title}</h3>
     
@@ -59,20 +61,47 @@ const images = Object.entries(allImages)
     const popupBg = document.getElementById(id);
     const closeBtn = popupBg?.querySelector('#close-popup');
     const imgElement = popupBg?.querySelector('#popup-img');
+    const indicatorsContainer = popupBg?.querySelector('#image-indicators');
     
-    if (!popupBg || !closeBtn || !imgElement) return;
+    if (!popupBg || !closeBtn || !imgElement || !indicatorsContainer) return;
 
     let currentImageIndex = 0;
+    
+    function changeImage(newIndex) {
+      currentImageIndex = newIndex;
+      imgElement.style.opacity = '0.5';
+      setTimeout(() => {
+        imgElement.src = images[currentImageIndex];
+        imgElement.style.opacity = '1';
+        updateIndicators();
+      }, 100);
+    }
+    
+    function updateIndicators() {
+      indicatorsContainer.innerHTML = '';
+      images.forEach((imageSrc, index) => {
+        const indicator = document.createElement('img');
+        indicator.src = imageSrc;
+        indicator.className = `w-12 h-8 object-cover rounded cursor-pointer transition-transform hover:scale-110 ${
+          index === currentImageIndex ? 'ring-2 ring-white' : 'opacity-70'
+        }`;
+        indicator.onclick = () => {
+          changeImage(index);
+        };
+        indicatorsContainer.appendChild(indicator);
+      });
+    }
     
     function initImages() {
       if (images.length > 0) {
         imgElement.src = images[0];
+        updateIndicators();
       }
       
       imgElement.onclick = () => {
         if (images.length <= 1) return;
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-        imgElement.src = images[currentImageIndex];
+        const nextIndex = (currentImageIndex + 1) % images.length;
+        changeImage(nextIndex);
       };
     }
     
