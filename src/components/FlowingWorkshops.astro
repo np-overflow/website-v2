@@ -25,15 +25,16 @@ const workshopData = workshops
   })
   .filter((item): item is NonNullable<typeof item> => item !== null)
 
-// Responsive item count - fewer items on mobile to reduce clustering
-const mobileItemCount = Math.min(workshopData.length, Math.floor(workshopData.length * 0.7))
+const mobileItemCount = Math.min(workshopData.length, Math.floor(workshopData.length * 0.6))
 const desktopItemCount = workshopData.length
 
-// Math for spacing
+// Omg math - different bounds for mobile and desktop
 const duration = 25
-const topBound = 10
-const bottomBound = 58
-const usableRange = Math.max(0, bottomBound - topBound)
+const topBound = 15
+const mobileBottomBound = 35
+const desktopBottomBound = 55
+const mobileUsableRange = Math.max(0, mobileBottomBound - topBound)
+const desktopUsableRange = Math.max(0, desktopBottomBound - topBound)
 
 // Helper: Fisher-Yates shuffle
 function shuffle<T>(arr: T[]): T[] {
@@ -47,7 +48,10 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 // Create positions for both mobile and desktop
-function createWorkshopItems(count: number, dataSet: typeof workshopData) {
+function createWorkshopItems(count: number, dataSet: typeof workshopData, isMobile: boolean) {
+  const usableRange = isMobile ? mobileUsableRange : desktopUsableRange
+  const bottomBound = isMobile ? mobileBottomBound : desktopBottomBound
+  
   const yPositions = Array.from({ length: count }, (_, k) => {
     const segment = usableRange / Math.max(1, count)
     return topBound + (k + 0.5) * segment
@@ -59,11 +63,10 @@ function createWorkshopItems(count: number, dataSet: typeof workshopData) {
 
   return dataSet.slice(0, count).map((item, i) => {
     // Y with tiny jitter and clamped to inner bounds to avoid edge touches
-    const yJitter = (Math.random() * 0.6) - 0.3 // +/-0.3%
+    const yJitter = (Math.random() * 0.6) - 0.3
     const yRaw = yPositions[i] + yJitter
     const y = Math.max(topBound + 1, Math.min(bottomBound - 1, yRaw))
 
-    // Delay from shuffled evenly spaced phases so items are spread across time
     const phase = phases[i]
     const delayJitter = (Math.random() * 1.5) - 0.75
     const delay = -(phase * duration) + delayJitter
@@ -77,16 +80,16 @@ function createWorkshopItems(count: number, dataSet: typeof workshopData) {
   })
 }
 
-const mobileWorkshopItems = createWorkshopItems(mobileItemCount, workshopData)
-const desktopWorkshopItems = createWorkshopItems(desktopItemCount, workshopData)
+const mobileWorkshopItems = createWorkshopItems(mobileItemCount, workshopData, true)
+const desktopWorkshopItems = createWorkshopItems(desktopItemCount, workshopData, false)
 
 ---
 
-<div class="relative overflow-hidden" style="height: 50vh;">
-  <!-- Mobile workshops (fewer items, smaller size) -->
+<div class="relative overflow-hidden flowing-workshop-container">
+  <!-- Mobile workshops -->
   {mobileWorkshopItems.map((workshop, index) => (
     <div 
-      class={`absolute w-48 h-36 ${workshop.border} rounded-lg bg-white p-2 flowing-workshop lg:hidden`}
+      class={`absolute w-48 h-36 ${workshop.border} rounded-lg bg-white p-2 flowing-workshop xl:hidden`}
       style={`
         top: ${workshop.y}%;
         --tilt: ${workshop.tilt}deg;
@@ -104,10 +107,10 @@ const desktopWorkshopItems = createWorkshopItems(desktopItemCount, workshopData)
     </div>
   ))}
   
-  <!-- Desktop workshops (all items, normal size) -->
+  <!-- Desktop workshops -->
   {desktopWorkshopItems.map((workshop, index) => (
     <div 
-      class={`absolute w-60 h-45 ${workshop.border} rounded-lg bg-white p-2 flowing-workshop hidden lg:block`}
+      class={`absolute w-60 h-45 ${workshop.border} rounded-lg bg-white p-2 flowing-workshop hidden xl:block`}
       style={`
         top: ${workshop.y}%;
         --tilt: ${workshop.tilt}deg;
@@ -151,5 +154,34 @@ const desktopWorkshopItems = createWorkshopItems(desktopItemCount, workshopData)
   
   .flowing-workshop {
     --tilt: 0deg;
+  }
+  
+  .flowing-workshop-container {
+    height: 50vh;
+  }
+
+  @media (max-width: 1279px) {
+    .flowing-workshop-container {
+      /* Default mobile height */
+      height: 60vh;
+    }
+    
+    @media (max-aspect-ratio: 4/3) {
+      .flowing-workshop-container {
+        height: 70vh;
+      }
+    }
+    
+    @media (max-aspect-ratio: 3/2) {
+      .flowing-workshop-container {
+        height: 80vh;
+      }
+    }
+    
+    @media (max-aspect-ratio: 16/9) {
+      .flowing-workshop-container {
+        height: 90vh;
+      }
+    }
   }
 </style>
