@@ -40,7 +40,10 @@ const formatBadgeClass = {
               {type.events.map((event, index) => (
                 <div class="bg-neutral p-5 rounded-lg cursor-pointer hover:bg-neutral-focus transition-colors" onclick={`showWorkshopPopup(${index})`}>
                   <h3 class="font-semibold text-lg">{event.title}</h3>
-                  <span class="text-neutral-content text-sm">{new Date(event.time).toLocaleDateString("en-SG", {day: "numeric", month: "long", year: "numeric"})}</span>
+                  <div class="flex mt-2">
+                    <span class={formatBadgeClass[event.format]}>{event.format}</span>
+                    <span class="text-neutral-content text-sm">{new Date(event.time).toLocaleDateString("en-SG", {day: "numeric", month: "long", year: "numeric"})}</span>
+                  </div>
                 </div>
               ))}
             </div>

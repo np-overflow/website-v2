@@ -28,10 +28,10 @@ const images = Object.entries(allImages)
 ---
 
 <div id={id} class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden items-center justify-center">
-  <div class="popup-content bg-[#000212] rounded-lg p-6 max-w-3xl w-full mx-4 relative text-white">
+  <div class="popup-content bg-white dark:bg-[#000212] rounded-lg p-6 max-w-3xl w-full mx-4 relative text-gray-900 dark:text-white">
     <div class="flex justify-between items-center mb-4">
       <h3 class="font-bold text-lg">{title}</h3>
-      <button id="close-popup" class="text-gray-400 hover:text-gray-200 p-1 rounded transition-colors">
+      <button id="close-popup" class="text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 p-1 rounded transition-colors">
         <Icon name="tabler:x" size="24" />
       </button>
     </div>
@@ -44,12 +44,12 @@ const images = Object.entries(allImages)
     
     <h3 class="font-bold text-lg mb-3">About {title}</h3>
     
-    <div id="popup-desc" class="text-base mb-4">
+    <div id="popup-desc" class="text-base text-gray-700 dark:text-gray-300 mb-4">
       <slot />
     </div>
     
     {location && (
-      <p class="text-base">
+      <p class="text-base text-gray-700 dark:text-gray-300">
         The event was located at {location}.
       </p>
     )}
