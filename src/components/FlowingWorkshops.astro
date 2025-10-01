@@ -1,0 +1,115 @@
+---
+import { getEvents } from '../lib/api'
+import * as workshopImages from '../images/workshops'
+
+const events = getEvents()
+const workshops = events.type.find(type => type.title === "Workshops")?.events || []
+
+// Get random image for each workshop
+const workshopData = workshops
+  .map((workshop, index) => {
+    if (!workshop.workshop_folder) return null
+    
+    // Get images for this workshop
+    const folderImages = Object.entries(workshopImages)
+      .filter(([key]) => key.startsWith(workshop.workshop_folder!.replace(' ', '')))
+      .map(([, imageModule]) => (imageModule as any).src)
+    
+    if (folderImages.length === 0) return null
+    
+    const randomImage = folderImages[Math.floor(Math.random() * folderImages.length)]
+    return {
+      title: workshop.title,
+      image: randomImage,
+    }
+  })
+  .filter((item): item is NonNullable<typeof item> => item !== null)
+
+// Omg math
+const duration = 25
+const count = workshopData.length
+const topBound = 10
+const bottomBound = 58
+const usableRange = Math.max(0, bottomBound - topBound)
+
+// Helper: Fisher-Yates shuffle
+function shuffle<T>(arr: T[]): T[] {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    const tmp = arr[i]
+    arr[i] = arr[j]
+    arr[j] = tmp
+  }
+  return arr
+}
+
+const yPositions = Array.from({ length: count }, (_, k) => {
+  const segment = usableRange / Math.max(1, count)
+  return topBound + (k + 0.5) * segment
+})
+shuffle(yPositions)
+
+const phases = Array.from({ length: count }, (_, k) => (k + 0.5) / Math.max(1, count))
+shuffle(phases)
+
+const workshopItems = workshopData.map((item, i) => {
+  // Y with tiny jitter and clamped to inner bounds to avoid edge touches
+  const yJitter = (Math.random() * 0.6) - 0.3 // +/-0.3%
+  const yRaw = yPositions[i] + yJitter
+  const y = Math.max(topBound + 1, Math.min(bottomBound - 1, yRaw))
+
+  // Delay from shuffled evenly spaced phases so items are spread across time
+  const phase = phases[i]
+  const delayJitter = (Math.random() * 1.5) - 0.75
+  const delay = -(phase * duration) + delayJitter
+
+  const borderColor = i % 3 === 0 ? 'border-white' : i % 3 === 1 ? 'border-gray-300' : 'border-orange-400'
+  const borderStyle = Math.random() > 0.5 ? 'border-2' : 'border-2 border-dotted'
+  const border = `${borderStyle} ${borderColor}`
+  const tilt = (Math.random() - 0.5) * 40
+
+  return { ...item, y, delay, border, tilt }
+})
+
+---
+
+<div class="relative overflow-hidden" style="height: 50vh;">
+  {workshopItems.map((workshop, index) => (
+    <div 
+      class={`absolute w-60 h-45 ${workshop.border} rounded-lg bg-white p-2 flowing-workshop`}
+      style={`
+        top: ${workshop.y}%;
+        --tilt: ${workshop.tilt}deg;
+        transform: translateX(calc(100vw + 250px)) rotate(${workshop.tilt}deg);
+        animation: flow-right-to-left 25s linear infinite;
+        animation-delay: ${workshop.delay}s;
+      `}
+    >
+      <img 
+        src={workshop.image} 
+        alt={workshop.title}
+        class="w-full h-32 object-cover rounded"
+      />
+      <p class="text-sm font-medium text-center text-gray-800 mt-2 px-1">{workshop.title}</p>
+    </div>
+  ))}
+  
+  <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#f6f7fc] dark:from-[#000212] to-transparent pointer-events-none z-10"></div>
+  <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#f6f7fc] dark:from-[#000212] to-transparent pointer-events-none z-10"></div>
+  
+</div>
+
+<style>
+  @keyframes flow-right-to-left {
+    from {
+      transform: translateX(calc(100vw + 250px)) rotate(var(--tilt));
+    }
+    to {
+      transform: translateX(-300px) rotate(var(--tilt));
+    }
+  }
+  
+  .flowing-workshop {
+    --tilt: 0deg;
+  }
+</style>
