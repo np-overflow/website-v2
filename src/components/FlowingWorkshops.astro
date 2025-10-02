@@ -167,8 +167,8 @@ const desktopWorkshopItems = createWorkshopItems(desktopItemCount, workshopData,
     </div>
   ))}
   
-  <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#f6f7fc] dark:from-[#000212] to-transparent pointer-events-none z-10"></div>
-  <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#f6f7fc] dark:from-[#000212] to-transparent pointer-events-none z-10"></div>
+  <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#f6f7fc] dark:from-[#000212] to-transparent pointer-events-none z-0"></div>
+  <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#f6f7fc] dark:from-[#000212] to-transparent pointer-events-none z-0"></div>
 
 </div>
 
@@ -201,24 +201,24 @@ const desktopWorkshopItems = createWorkshopItems(desktopItemCount, workshopData,
 
   @media (max-width: 1279px) {
     .flowing-workshop-container {
-      height: 60vh;
+      height: 48vh;
     }
     
     @media (min-aspect-ratio: 4/3) {
       .flowing-workshop-container {
-        height: 70vh;
+        height: 56vh;
       }
     }
     
     @media (min-aspect-ratio: 3/2) {
       .flowing-workshop-container {
-        height: 80vh;
+        height: 64vh;
       }
     }
     
     @media (min-aspect-ratio: 16/9) {
       .flowing-workshop-container {
-        height: 90vh;
+        height: 72vh;
       }
     }
     
