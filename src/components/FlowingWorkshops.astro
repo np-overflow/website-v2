@@ -103,138 +103,126 @@ const desktopWorkshopItems = createWorkshopItems(desktopItemCount, workshopData,
 
 ---
 
-<div class="relative overflow-hidden flowing-workshop-container">
+<div class="relative overflow-hidden h-[50vh] flowing-workshop-container">
   <!-- Mobile workshops - Portrait -->
   {mobilePortraitWorkshopItems.map((workshop, index) => (
-    <div 
-      class={`absolute w-48 h-36 ${workshop.border} rounded-lg bg-white p-2 flowing-workshop xl:hidden mobile-portrait-only`}
+    <div
+      class={`absolute w-48 h-36 ${workshop.border} rounded-lg bg-white p-2 flowing-workshop-mobile xl:hidden mobile-portrait-only`}
       style={`
         top: ${workshop.y}%;
         --tilt: ${workshop.tilt}deg;
-        transform: translateX(calc(100vw + 200px)) rotate(${workshop.tilt}deg);
-        animation: flow-right-to-left-mobile 25s linear infinite;
         animation-delay: ${workshop.delay}s;
       `}
     >
-      <img 
-        src={workshop.image} 
+      <img
+        src={workshop.image}
         alt={workshop.title}
         class="w-full h-24 object-cover rounded"
       />
       <p class="text-xs font-medium text-center text-gray-800 mt-1 px-1">{workshop.title}</p>
     </div>
   ))}
-  
+
   <!-- Mobile workshops - Landscape -->
   {mobileLandscapeWorkshopItems.map((workshop, index) => (
-    <div 
-      class={`absolute w-48 h-36 ${workshop.border} rounded-lg bg-white p-2 flowing-workshop xl:hidden mobile-landscape-only`}
+    <div
+      class={`absolute w-48 h-36 ${workshop.border} rounded-lg bg-white p-2 flowing-workshop-mobile xl:hidden mobile-landscape-only`}
       style={`
         top: ${workshop.y}%;
         --tilt: ${workshop.tilt}deg;
-        transform: translateX(calc(100vw + 200px)) rotate(${workshop.tilt}deg);
-        animation: flow-right-to-left-mobile 25s linear infinite;
         animation-delay: ${workshop.delay}s;
       `}
     >
-      <img 
-        src={workshop.image} 
+      <img
+        src={workshop.image}
         alt={workshop.title}
         class="w-full h-24 object-cover rounded"
       />
       <p class="text-xs font-medium text-center text-gray-800 mt-1 px-1">{workshop.title}</p>
     </div>
   ))}
-  
+
   <!-- Desktop workshops -->
   {desktopWorkshopItems.map((workshop, index) => (
-    <div 
+    <div
       class={`absolute w-60 h-45 ${workshop.border} rounded-lg bg-white p-2 flowing-workshop hidden xl:block`}
       style={`
         top: ${workshop.y}%;
         --tilt: ${workshop.tilt}deg;
-        transform: translateX(calc(100vw + 250px)) rotate(${workshop.tilt}deg);
-        animation: flow-right-to-left 25s linear infinite;
         animation-delay: ${workshop.delay}s;
       `}
     >
-      <img 
-        src={workshop.image} 
+      <img
+        src={workshop.image}
         alt={workshop.title}
         class="w-full h-32 object-cover rounded"
       />
       <p class="text-sm font-medium text-center text-gray-800 mt-2 px-1">{workshop.title}</p>
     </div>
   ))}
-  
+
   <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#f6f7fc] dark:from-[#000212] to-transparent pointer-events-none z-0"></div>
   <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#f6f7fc] dark:from-[#000212] to-transparent pointer-events-none z-0"></div>
 
 </div>
 
 <style>
-  @keyframes flow-right-to-left {
-    from {
-      transform: translateX(calc(100vw + 250px)) rotate(var(--tilt));
-    }
-    to {
-      transform: translateX(-300px) rotate(var(--tilt));
-    }
+  @keyframes flow {
+    from { transform: translateX(calc(100vw + 250px)) rotate(var(--tilt)); }
+    to { transform: translateX(-300px) rotate(var(--tilt)); }
   }
-  
-  @keyframes flow-right-to-left-mobile {
-    from {
-      transform: translateX(calc(100vw + 200px)) rotate(var(--tilt));
-    }
-    to {
-      transform: translateX(-250px) rotate(var(--tilt));
-    }
+
+  @keyframes flow-mobile {
+    from { transform: translateX(calc(100vw + 200px)) rotate(var(--tilt)); }
+    to { transform: translateX(-250px) rotate(var(--tilt)); }
   }
-  
+
   .flowing-workshop {
     --tilt: 0deg;
+    animation: flow 25s linear infinite;
   }
-  
-  .flowing-workshop-container {
-    height: 50vh;
+
+  .flowing-workshop-mobile {
+    --tilt: 0deg;
+    animation: flow-mobile 25s linear infinite;
   }
 
   @media (max-width: 1279px) {
     .flowing-workshop-container {
       height: 48vh;
     }
-    
+
     @media (min-aspect-ratio: 4/3) {
       .flowing-workshop-container {
         height: 56vh;
       }
     }
-    
+
     @media (min-aspect-ratio: 3/2) {
       .flowing-workshop-container {
         height: 64vh;
       }
     }
-    
+
     @media (min-aspect-ratio: 16/9) {
       .flowing-workshop-container {
         height: 72vh;
       }
     }
-    
+
     .mobile-portrait-only {
       display: block;
     }
-    
+
     .mobile-landscape-only {
       display: none;
     }
-    
+
     @media (min-aspect-ratio: 4/3) {
       .mobile-portrait-only {
         display: none;
       }
-      
+
       .mobile-landscape-only {
         display: block;
       }
