@@ -5,166 +5,146 @@ import * as workshopImages from '../images/workshops'
 const events = getEvents()
 const workshops = events.type.find(type => type.title === "Workshops")?.events || []
 
-// Get random image for each workshop
 const workshopData = workshops
-  .map((workshop, index) => {
+  .map((workshop) => {
     if (!workshop.workshop_folder) return null
-    
-    // Get images for this workshop
     const folderImages = Object.entries(workshopImages)
       .filter(([key]) => key.startsWith(workshop.workshop_folder!.replace(' ', '')))
       .map(([, imageModule]) => (imageModule as any).src)
-    
     if (folderImages.length === 0) return null
-    
-    const randomImage = folderImages[Math.floor(Math.random() * folderImages.length)]
     return {
       title: workshop.title,
-      image: randomImage,
+      images: folderImages,
     }
   })
   .filter((item): item is NonNullable<typeof item> => item !== null)
 
 const mobileItemCount = Math.min(workshopData.length, Math.floor(workshopData.length * 0.6))
-const desktopItemCount = workshopData.length
-
-// Omg math - different bounds for mobile portrait, mobile landscape, and desktop
-const duration = 25
-const topBound = 15
-const mobilePortraitBottomBound = 50  
-const mobileLandscapeBottomBound = 35 
-const desktopBottomBound = 55
-const mobilePortraitUsableRange = Math.max(0, mobilePortraitBottomBound - topBound)
-const mobileLandscapeUsableRange = Math.max(0, mobileLandscapeBottomBound - topBound)
-const desktopUsableRange = Math.max(0, desktopBottomBound - topBound)
-
-// Helper: Fisher-Yates shuffle
-function shuffle<T>(arr: T[]): T[] {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    const tmp = arr[i]
-    arr[i] = arr[j]
-    arr[j] = tmp
-  }
-  return arr
-}
-
-// Create positions for mobile portrait, mobile landscape, and desktop
-function createWorkshopItems(count: number, dataSet: typeof workshopData, mode: 'mobile-portrait' | 'mobile-landscape' | 'desktop') {
-  let usableRange: number
-  let bottomBound: number
-  
-  switch (mode) {
-    case 'mobile-portrait':
-      usableRange = mobilePortraitUsableRange
-      bottomBound = mobilePortraitBottomBound
-      break
-    case 'mobile-landscape':
-      usableRange = mobileLandscapeUsableRange
-      bottomBound = mobileLandscapeBottomBound
-      break
-    case 'desktop':
-      usableRange = desktopUsableRange
-      bottomBound = desktopBottomBound
-      break
-  }
-  
-  const yPositions = Array.from({ length: count }, (_, k) => {
-    const segment = usableRange / Math.max(1, count)
-    return topBound + (k + 0.5) * segment
-  })
-  shuffle(yPositions)
-
-  const phases = Array.from({ length: count }, (_, k) => (k + 0.5) / Math.max(1, count))
-  shuffle(phases)
-
-  return dataSet.slice(0, count).map((item, i) => {
-    // Y with tiny jitter and clamped to inner bounds to avoid edge touches
-    const yJitter = (Math.random() * 0.6) - 0.3
-    const yRaw = yPositions[i] + yJitter
-    const y = Math.max(topBound + 1, Math.min(bottomBound - 1, yRaw))
-
-    const phase = phases[i]
-    const delayJitter = (Math.random() * 1.5) - 0.75
-    const delay = -(phase * duration) + delayJitter
-
-    const borderColor = i % 3 === 0 ? 'border-white' : i % 3 === 1 ? 'border-gray-300' : 'border-orange-400'
-    const borderStyle = Math.random() > 0.5 ? 'border-2' : 'border-2 border-dotted'
-    const border = `${borderStyle} ${borderColor}`
-    const tilt = (Math.random() - 0.5) * 40
-
-    return { ...item, y, delay, border, tilt }
-  })
-}
-
-const mobilePortraitWorkshopItems = createWorkshopItems(mobileItemCount, workshopData, 'mobile-portrait')
-const mobileLandscapeWorkshopItems = createWorkshopItems(mobileItemCount, workshopData, 'mobile-landscape')
-const desktopWorkshopItems = createWorkshopItems(desktopItemCount, workshopData, 'desktop')
-
 ---
 
 <div class="relative overflow-hidden h-[50vh] flowing-workshop-container">
   <!-- Mobile workshops - Portrait -->
-  {mobilePortraitWorkshopItems.map((workshop, index) => (
+  {workshopData.slice(0, mobileItemCount).map((workshop) => (
     <div
-      class={`absolute w-48 h-36 ${workshop.border} rounded-lg bg-white p-2 flowing-workshop-mobile xl:hidden mobile-portrait-only`}
-      style={`
-        top: ${workshop.y}%;
-        --tilt: ${workshop.tilt}deg;
-        animation-delay: ${workshop.delay}s;
-      `}
+      class="absolute w-48 h-36 border-2 border-white rounded-lg bg-white p-2 flowing-workshop-mobile xl:hidden mobile-portrait-only"
+      data-images={JSON.stringify(workshop.images)}
+      data-mode="mobile-portrait"
+      style="opacity: 0;"
     >
-      <img
-        src={workshop.image}
-        alt={workshop.title}
-        class="w-full h-24 object-cover rounded"
-      />
+      <img src={workshop.images[0]} alt={workshop.title} class="w-full h-24 object-cover rounded" />
       <p class="text-xs font-medium text-center text-gray-800 mt-1 px-1">{workshop.title}</p>
     </div>
   ))}
 
   <!-- Mobile workshops - Landscape -->
-  {mobileLandscapeWorkshopItems.map((workshop, index) => (
+  {workshopData.slice(0, mobileItemCount).map((workshop) => (
     <div
-      class={`absolute w-48 h-36 ${workshop.border} rounded-lg bg-white p-2 flowing-workshop-mobile xl:hidden mobile-landscape-only`}
-      style={`
-        top: ${workshop.y}%;
-        --tilt: ${workshop.tilt}deg;
-        animation-delay: ${workshop.delay}s;
-      `}
+      class="absolute w-48 h-36 border-2 border-white rounded-lg bg-white p-2 flowing-workshop-mobile xl:hidden mobile-landscape-only"
+      data-images={JSON.stringify(workshop.images)}
+      data-mode="mobile-landscape"
+      style="opacity: 0;"
     >
-      <img
-        src={workshop.image}
-        alt={workshop.title}
-        class="w-full h-24 object-cover rounded"
-      />
+      <img src={workshop.images[0]} alt={workshop.title} class="w-full h-24 object-cover rounded" />
       <p class="text-xs font-medium text-center text-gray-800 mt-1 px-1">{workshop.title}</p>
     </div>
   ))}
 
   <!-- Desktop workshops -->
-  {desktopWorkshopItems.map((workshop, index) => (
+  {workshopData.map((workshop) => (
     <div
-      class={`absolute w-60 h-45 ${workshop.border} rounded-lg bg-white p-2 flowing-workshop hidden xl:block`}
-      style={`
-        top: ${workshop.y}%;
-        --tilt: ${workshop.tilt}deg;
-        animation-delay: ${workshop.delay}s;
-      `}
+      class="absolute w-60 h-45 border-2 border-white rounded-lg bg-white p-2 flowing-workshop hidden xl:block"
+      data-images={JSON.stringify(workshop.images)}
+      data-mode="desktop"
+      style="opacity: 0;"
     >
-      <img
-        src={workshop.image}
-        alt={workshop.title}
-        class="w-full h-32 object-cover rounded"
-      />
+      <img src={workshop.images[0]} alt={workshop.title} class="w-full h-32 object-cover rounded" />
       <p class="text-sm font-medium text-center text-gray-800 mt-2 px-1">{workshop.title}</p>
     </div>
   ))}
 
   <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#f6f7fc] dark:from-[#000212] to-transparent pointer-events-none z-0"></div>
   <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#f6f7fc] dark:from-[#000212] to-transparent pointer-events-none z-0"></div>
-
 </div>
+
+<script is:inline>
+  (function() {
+    function shuffle(arr) {
+      for (var i = arr.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+      }
+      return arr;
+    }
+
+    var duration = 25;
+    var topBound = 15;
+    var modes = {
+      'mobile-portrait': 40,
+      'mobile-landscape': 30,
+      'desktop': 45
+    };
+    var borderColors = ['border-white', 'border-gray-300', 'border-orange-400'];
+
+    for (var mode in modes) {
+      var bottomBound = modes[mode];
+      var elements = document.querySelectorAll('[data-mode="' + mode + '"]');
+      var count = elements.length;
+      if (count === 0) continue;
+
+      var usableRange = bottomBound - topBound;
+
+      var yPositions = [];
+      var phases = [];
+      for (var k = 0; k < count; k++) {
+        var segment = usableRange / Math.max(1, count);
+        yPositions.push(topBound + (k + 0.5) * segment);
+        phases.push((k + 0.5) / Math.max(1, count));
+      }
+      shuffle(yPositions);
+      shuffle(phases);
+
+      for (var i = 0; i < count; i++) {
+        var el = elements[i];
+
+        // Random image
+        var images = JSON.parse(el.getAttribute('data-images'));
+        var img = el.querySelector('img');
+        if (img && images.length > 0) {
+          img.src = images[Math.floor(Math.random() * images.length)];
+        }
+
+        // Random y position with jitter
+        var yJitter = (Math.random() * 0.6) - 0.3;
+        var yRaw = yPositions[i] + yJitter;
+        var y = Math.max(topBound + 1, Math.min(bottomBound - 1, yRaw));
+
+        // Random animation delay (negative means pre-positioned in cycle)
+        var delayJitter = (Math.random() * 1.5) - 0.75;
+        var delay = -(phases[i] * duration) + delayJitter;
+
+        // Random tilt
+        var tilt = (Math.random() - 0.5) * 30;
+
+        // Random border
+        var borderColor = borderColors[i % 3];
+        var isDotted = Math.random() > 0.5;
+
+        // Apply styles
+        el.style.top = y + '%';
+        el.style.setProperty('--tilt', tilt + 'deg');
+        el.style.animationDelay = delay + 's';
+        el.style.opacity = '1';
+
+        // Update border classes
+        el.classList.remove('border-white', 'border-gray-300', 'border-orange-400', 'border-dotted');
+        el.classList.add(borderColor);
+        if (isDotted) el.classList.add('border-dotted');
+      }
+    }
+  })();
+</script>
 
 <style>
   @keyframes flow {
