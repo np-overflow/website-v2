@@ -36,7 +36,7 @@ type:
         duration_minutes: 90
         format: online
         workshop_folder: Git
-        
+
 
       - title: UI/UX with Figma
         description_raw: >-
@@ -92,6 +92,69 @@ type:
         workshop_folder: FlutterFlow
 
 
+      - title: C++
+        description_raw: >-
+          Every great program starts with a solid foundation in a powerful language 💻.
+          In this workshop, we dived into the fundamentals of C++, covering basic syntax, variables, loops, and functions before moving on to Object-Oriented Programming with classes and inheritance. We put our skills to the test by building a text-based fighter game from scratch ⚔️!
+        time: 24 October 2025 17:30:00
+        duration_minutes: 120
+        format: physical
+        location: 27-05-10
+        workshop_folder: Cpp
+
+
+      - title: Django
+        description_raw: >-
+          We explored the world of web development with Django 🌐, learning how the web works under the hood with HTTP, MVC architecture, and database migrations. Along the way, we built our own web app from scratch, working with models, views, and URL routing 🛠️.
+        time: 31 October 2025 17:30:00
+        duration_minutes: 120
+        format: physical
+        location: 27-05-10
+        workshop_folder: Django
+
+
+      - title: React
+        description_raw: >-
+          Modern web development starts with mastering the right tools 🚀.
+          In this session, we got hands-on with React.js and Tailwind CSS, learning how components, state, and styling come together to build modern web interfaces. We started with a clicker app to grasp the basics, then built our very own portfolio website from scratch 💻✨!
+        time: 7 November 2025 17:30:00
+        duration_minutes: 120
+        format: physical
+        location: 27-05-10
+        workshop_folder: React
+
+
+      - title: Agentic AI
+        description_raw: >-
+          In this workshop, we explored the world of Agentic AI, learning how autonomous agents can automate everyday tasks. From understanding AI workflows to building our own task reminder agent using tools like n8n and Telegram, we got hands-on with practical AI that students can apply to their daily lives 🚀.
+        time: 14 November 2025 18:00:00
+        duration_minutes: 90
+        format: physical
+        location: LT58B
+        workshop_folder: Agentic AI
+
+
+      - title: Computer Vision
+        description_raw: >-
+          We explored the world of Computer Vision and Machine Learning 🤖, learning how machines see and understand images. From training models with Teachable Machine to building our own OpenCV project in Python 🐍, we got hands-on with image processing, model evaluation, and real-world applications like face detection 👁️.
+        time: 28 November 2025 17:30:00
+        duration_minutes: 120
+        format: physical
+        location: 27-05-10
+        workshop_folder: Computer Vision
+
+
+      - title: Kubernetes
+        description_raw: >-
+          Taking your apps from local to production starts with containers ☸️.
+          We learnt how to containerise and deploy applications with Docker and K8s, from writing Dockerfiles and building images to deploying pods, services, and managing clusters with kubectl and minikube. We also explored Helm for package management and Sealed Secrets for managing sensitive data securely 🔐.
+        time: 30 January 2026 17:30:00
+        duration_minutes: 120
+        format: physical
+        location: 27-05-10
+        workshop_folder: Kubernetes
+
+
   # - title: Bootcamps
   #   events:
   #     - title: DSA Bootcamp
@@ -102,6 +165,26 @@ type:
 
   - title: Events
     events:
+      - title: SIG Fiesta
+        description_raw: >-
+          At SIG Fiesta, we showcased some of the exciting projects our members built, from a remote-controlled robotics car 🚗💨, to an interactive 3D website 🌐, and even a computer vision space invader game 👾 controlled by hand gestures. Visitors got to experience first-hand the creativity and technical skills that Overflowers bring to life through hackathons, workshops, and showcases.
+        time: 16 April 2025 13:00:00
+        duration_minutes: 240
+        format: physical
+        location: 27-05-11/12
+        event_folder: SIG Fiesta
+        link: https://www.linkedin.com/posts/np-overflow_npoverflow-ictsigfiesta2025-ictorientation-activity-7325895217692209152-sITz
+
+      - title: Freshmen Welcome Party
+        description_raw: >-
+          We kicked off the new academic year with our Welcome Party 🎉, where new and returning Overflowers came together for an evening of games, debates, and snacks 🍪.
+        time: 2 May 2025 17:30:00
+        duration_minutes: 120
+        format: physical
+        location: 27-05-11/12
+        event_folder: Welcome Party
+        link: https://www.linkedin.com/posts/np-overflow_npoverflow-techcommunity-ictstudentlife-activity-7363791687019577344-nRBP
+
       - title: HackIT 2025
         description_raw: >-
           🚀 HackIT brought student ideas to life!
@@ -112,25 +195,15 @@ type:
         format: physical
         location: 27-05-11/12
         event_folder: HackIT
-        link: https://www.linkedin.com/posts/np-overflow_%F0%9D%98%90%F0%9D%98%9B%F0%9D%98%B4-%F0%9D%98%A2-%F0%9D%98%B8%F0%9D%98%B3%F0%9D%98%A2%F0%9D%98%B1-%F0%9D%98%B0%F0%9D%98%AF-%F0%9D%98%8F%F0%9D%98%A2%F0%9D%98%A4%F0%9D%98%AC%F0%9D%98%90%F0%9D%98%9B-activity-7375414768486023169-ICYj?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE2_NKQBdjyhSD0-Lu9mLwJVOlmZOGgS-1g
+        link: https://www.linkedin.com/posts/np-overflow_%F0%9D%98%90%F0%9D%98%9B%F0%9D%98%B4-%F0%9D%98%A2-%F0%9D%98%B8%F0%9D%98%B3%F0%9D%98%A2%F0%9D%98%B1-%F0%9D%98%B0%F0%9D%98%AF-%F0%9D%98%8F%F0%9D%98%A2%F0%9D%98%A4%F0%9D%98%AC%F0%9D%98%90%F0%9D%98%9B-activity-7375414768486023169-ICYj
 
-      - title: SIG Fiesta
+      - title: BYTEHackz 2025
         description_raw: >-
-          At SIG Fiesta, we showcased some of the exciting projects our members built, from a remote-controlled robotics car 🚗💨, to an interactive 3D website 🌐, and even a computer vision space invader game 👾 controlled by hand gestures. Visitors got to experience first-hand the creativity and technical skills that Overflowers bring to life through hackathons, workshops, and showcases. 
-        time: 16 April 2025 13:00:00
-        duration_minutes: 240
+          BYTEHackz is an annual hackathon where IT students tackle real-world Full Stack Development challenges in front of lecturers, industry partners, and peers 💻🏆. With booth demos, presentations, games, and prizes up for grabs, it's where months of hard work get the spotlight they deserve!
+        time: 20 November 2025 08:45:00
+        duration_minutes: 255
         format: physical
-        location: 27-05-11/12
-        event_folder: SIG Fiesta
-        link: https://www.linkedin.com/posts/np-overflow_npoverflow-ictsigfiesta2025-ictorientation-activity-7325895217692209152-sITz?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE2_NKQBdjyhSD0-Lu9mLwJVOlmZOGgS-1g
-
-      - title: Freshmen Welcome Party
-        description_raw: >-
-          We kicked off the new academic year with our Welcome Party 🎉, where new and returning Overflowers came together for an evening of games, debates, and snacks 🍪. 
-        time: 2 May 2025 17:30:00
-        duration_minutes: 120
-        format: physical
-        location: 27-05-11/12
-        event_folder: Welcome Party
-        link: https://www.linkedin.com/posts/np-overflow_npoverflow-techcommunity-ictstudentlife-activity-7363791687019577344-nRBP?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE2_NKQBdjyhSD0-Lu9mLwJVOlmZOGgS-1g
+        location: NPYA (Blk 16) Level 3
+        event_folder: Bytehacks
+        link: https://www.linkedin.com/posts/np-overflow_thebytehackz2025-innovation-techevents-activity-7407360803743551488-iwdE
 

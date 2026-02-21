@@ -46,3 +46,45 @@ export { default as FlutterFlow_3 } from './FlutterFlow/Workshop3.jpg'
 export { default as FlutterFlow_4 } from './FlutterFlow/Workshop4.jpg'
 export { default as FlutterFlow_5 } from './FlutterFlow/Workshop5.jpg'
 export { default as FlutterFlow_6 } from './FlutterFlow/Workshop6.jpg'
+
+// Agentic AI
+export { default as AgenticAI_1 } from './Agentic AI/Workshop1.jpg'
+export { default as AgenticAI_2 } from './Agentic AI/Workshop2.jpg'
+export { default as AgenticAI_3 } from './Agentic AI/Workshop3.jpg'
+export { default as AgenticAI_4 } from './Agentic AI/Workshop4.jpg'
+export { default as AgenticAI_5 } from './Agentic AI/Workshop5.jpg'
+
+// Computer Vision
+export { default as ComputerVision_1 } from './Computer Vision/Workshop1.jpg'
+export { default as ComputerVision_2 } from './Computer Vision/Workshop2.jpg'
+export { default as ComputerVision_3 } from './Computer Vision/Workshop3.jpg'
+export { default as ComputerVision_4 } from './Computer Vision/Workshop4.jpg'
+
+// Cpp
+export { default as Cpp_1 } from './Cpp/Workshop1.jpg'
+export { default as Cpp_2 } from './Cpp/Workshop2.jpg'
+export { default as Cpp_3 } from './Cpp/Workshop3.jpg'
+export { default as Cpp_4 } from './Cpp/Workshop4.jpg'
+export { default as Cpp_5 } from './Cpp/Workshop5.jpg'
+export { default as Cpp_6 } from './Cpp/Workshop6.jpg'
+
+// Django
+export { default as Django_1 } from './Django/Workshop1.jpg'
+export { default as Django_2 } from './Django/Workshop2.jpg'
+export { default as Django_3 } from './Django/Workshop3.jpg'
+export { default as Django_4 } from './Django/Workshop4.jpg'
+
+// Kubernetes
+export { default as Kubernetes_1 } from './Kubernetes/Workshop1.jpg'
+export { default as Kubernetes_2 } from './Kubernetes/Workshop2.jpg'
+export { default as Kubernetes_3 } from './Kubernetes/Workshop3.jpg'
+export { default as Kubernetes_4 } from './Kubernetes/Workshop4.jpg'
+export { default as Kubernetes_5 } from './Kubernetes/Workshop5.jpg'
+
+// React
+export { default as React_1 } from './React/Workshop1.jpg'
+export { default as React_2 } from './React/Workshop2.jpg'
+export { default as React_3 } from './React/Workshop3.jpg'
+export { default as React_4 } from './React/Workshop4.jpg'
+export { default as React_5 } from './React/Workshop5.jpg'
+export { default as React_6 } from './React/Workshop6.jpg'

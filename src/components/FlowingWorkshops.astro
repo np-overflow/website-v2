@@ -1,23 +1,36 @@
 ---
+import { getImage } from 'astro:assets'
 import { getEvents } from '../lib/api'
 import * as workshopImages from '../images/workshops'
 
 const events = getEvents()
 const workshops = events.type.find(type => type.title === "Workshops")?.events || []
 
-const workshopData = workshops
-  .map((workshop) => {
+const workshopData = (await Promise.all(
+  workshops.map(async (workshop) => {
     if (!workshop.workshop_folder) return null
-    const folderImages = Object.entries(workshopImages)
+    const folderImageModules = Object.entries(workshopImages)
       .filter(([key]) => key.startsWith(workshop.workshop_folder!.replace(' ', '')))
-      .map(([, imageModule]) => (imageModule as any).src)
-    if (folderImages.length === 0) return null
+      .map(([, imageModule]) => imageModule)
+    if (folderImageModules.length === 0) return null
+    const optimizedImages = await Promise.all(
+      folderImageModules.map((mod) =>
+        getImage({ src: mod as any, width: 480, format: 'webp' })
+      )
+    )
     return {
       title: workshop.title,
-      images: folderImages,
+      images: optimizedImages.map((img) => img.src),
     }
   })
-  .filter((item): item is NonNullable<typeof item> => item !== null)
+)).filter((item): item is NonNullable<typeof item> => item !== null)
+
+const MAX_WORKSHOPS = 8
+for (let i = workshopData.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [workshopData[i], workshopData[j]] = [workshopData[j], workshopData[i]]
+}
+workshopData.length = Math.min(workshopData.length, MAX_WORKSHOPS)
 
 const mobileItemCount = Math.min(workshopData.length, Math.floor(workshopData.length * 0.6))
 ---
