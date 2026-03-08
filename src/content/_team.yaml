@@ -7,45 +7,35 @@ departments:
         title: Advisor
   - title: P/VP
     members:
-      - name: Ooi Jing Shun
+      - name: Sean Ulric Buguina Chua
         title: President
-      - name: Tan Xuan Han
+      - name: Song Jun Hao Jarell
         title: Vice-President
   - title: Technology
     members:
-      - name: Ranen Sim
+      - name: Lim Hong Yi
         title: Head of Technology
-      - name: Goo Yu Wei Raymond
+      - name: Koh Zihao Alexander
         title: Technology Lead
-      - name: Linn Thit Aung
+      - name: Kayden Dua Zhen Xuan
         title: Technology Lead
-      - name: Moh Journ Haydn
-        title: Technology Lead
-      - name: Rafe Chan Rui An
-        title: Technology Lead
-      - name: Regen Wong Li En
+      - name: Guan Jiahong
         title: Technology Lead
   - title: Operations
     members:
-      - name: Daksh Thapar
+      - name: Felix Forbes Dimjati
         title: Head of Operations
-      - name: Tan Jun Wei
-        title: Operations Lead
-      - name: Alluru Rishitha Reddy
-        title: Operations Lead
-      - name: Gan Wei Zhi Javier
+      - name: Sairam Suresh
         title: Operations Lead
   - title: Publicity
     members:
-      - name: Chee Hsiao En Samuela
+      - name: Lee Dong Ze Zac
         title: Head of Publicity
-      - name: Aloysius Luke Tay Shi Yuan
-        title: Publicity Lead
-      - name: Teo Hong Yi
+      - name: Chee Lai Yan
         title: Publicity Lead
   - title: Student Advisors
     members:
-      - name: Chew Ming Hong, Ethan
+      - name: Ooi Jing Shun
         title: Student Advisor
-      - name: Lee Guang Le Jeffrey
+      - name: Tan Xuan Han
         title: Student Advisor
