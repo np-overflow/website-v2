@@ -13,6 +13,9 @@ navbar:
     - name: Team
       to: /team
       icon: tabler:users
+    - name: Showcase Portal
+      to: /showcase
+      icon: tabler:screen-share
     # - name: Handbook
     #   to: https://handbook.np-overflow.club
     #   icon: tabler:book-2

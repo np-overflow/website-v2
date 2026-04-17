@@ -1,0 +1,33 @@
+---
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+---
+
+<DefaultLayout
+  seo={{
+    title: "Showcase Portal | NP Overflow",
+    description:
+      "The projects created by members from the Overflow Special Interest Group",
+  }}
+>
+  <div class="w-full p-5 lg:max-w-7xl lg:mx-auto">
+    <div class="rounded-md w-full shadow-md relative flex overflow-x-hidden">
+      <div class="bg-blue-500 w-full h-48 min-h-50 flex-shrink-0">
+        <!-- Note: items-end, and text-overflow to 2 lines for description to prevent major overflow -->
+         
+      </div>
+      <div class="bg-blue-500 w-full h-48 min-h-50 flex-shrink-0">hii</div>
+      <div class="bg-blue-500 w-full h-48 min-h-50 flex-shrink-0">hey</div>
+      <div class="flex gap-2 absolute bottom-4 justify-center w-full">
+        <a>Hi</a>
+        <a>Hi</a>
+        <!-- The thingy at the bottom to click to the specific featured prj -->
+      </div>
+      <!-- Arrows will have listeners and class names. Only the featured divs are auto-gen -->
+      <div
+        class="absolute top-1/2 -translate-y-1/2 left-4 p-4 rounded-full bg-green-50"
+      >
+      </div>
+      <div class="absolute top-1/2 -translate-y-1/2 right-4 p-4 rounded-full bg-green-50"></div>
+    </div>
+  </div>
+</DefaultLayout>
