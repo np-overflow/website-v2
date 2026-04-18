@@ -1,5 +1,7 @@
 ---
 import DefaultLayout from "../layouts/DefaultLayout.astro";
+//  Imagine import of data for carousel
+let selected = true;
 ---
 
 <DefaultLayout
@@ -10,24 +12,132 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
   }}
 >
   <div class="w-full p-5 lg:max-w-7xl lg:mx-auto">
-    <div class="rounded-md w-full shadow-md relative flex overflow-x-hidden">
-      <div class="bg-blue-500 w-full h-48 min-h-50 flex-shrink-0">
+    <div
+      class="rounded-badge w-full shadow-md relative flex overflow-x-hidden mb-12"
+    >
+      <div class="w-full h-48 min-h-[450px] flex-shrink-0">
         <!-- Note: items-end, and text-overflow to 2 lines for description to prevent major overflow -->
-         
+        <div
+          class="w-full h-full flex items-end justify-between p-10 relative"
+        >
+          <img
+            src="src/images/showcase/drivesim.jpg"
+            class="inset-0 absolute w-full h-full object-cover"
+          />
+          <div class="mx-10 max-w-[60%] relative z-10 flex-col flex gap-1">
+            <!-- Separate div for text vs image (full-banner) -->
+            <p class="text-[#a478e6] font-bold">FEATURED PROJECT</p>
+            <h3 class="text-6xl font-cubano">Project Name</h3>
+            <p class="text-wrap text-gray-400">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam
+              animi minus delectus odit doloremque modi tempore, totam saepe
+              nemo dolorem labore voluptates iure, enim adipisci voluptate
+              reprehenderit ipsa itaque ipsum?
+            </p>
+          </div>
+          <button
+            class="bg-[#6c3fdd] py-2 px-4 rounded-md font-medium text-[#ffffff] z-10 mx-10 flex gap-2 items-center"
+          >
+            Explore Project
+            <img class="w-4 h-4" src="src/images/showcase/arrow-forward.png">
+          </button>
+        </div>
+        <!-- Shadow -->
+        <div
+          class="absolute bottom-0 z-0 w-full h-72 max-h-full bg-gradient-to-t from-[#000000f1] from-0% via-[#000000ca] via-60% to-[#00000000]"
+        >
+        </div>
       </div>
+
       <div class="bg-blue-500 w-full h-48 min-h-50 flex-shrink-0">hii</div>
       <div class="bg-blue-500 w-full h-48 min-h-50 flex-shrink-0">hey</div>
+      <!-- This doesn't have to be absolute positioning, prevent text overlap. -->
       <div class="flex gap-2 absolute bottom-4 justify-center w-full">
-        <a>Hi</a>
-        <a>Hi</a>
+        <button
+          class=`h-[4px] w-[32px] bg-purple-500 rounded-2xl transition-all prev-element` onclick="onPaginationClick(event)"
+        ></button>
+        <button
+          class="h-[4px] w-[16px] bg-gray-500 rounded-2xl transition-all"
+          onclick="onPaginationClick(event)"></button>
+        <button class="h-[4px] w-[16px] bg-gray-500 rounded-2xl transition-all" onclick="onPaginationClick(event)"
+        ></button>
         <!-- The thingy at the bottom to click to the specific featured prj -->
       </div>
       <!-- Arrows will have listeners and class names. Only the featured divs are auto-gen -->
-      <div
-        class="absolute top-1/2 -translate-y-1/2 left-4 p-4 rounded-full bg-green-50"
+      <button
+        class="absolute top-1/2 -translate-y-1/2 left-6 p-2 rounded-full bg-[#10101059]"
       >
+        <img class="h-8 w-8 rotate-180" src="src/images/showcase/arrow.png" />
+      </button>
+      <button
+        class="absolute top-1/2 -translate-y-1/2 right-6 p-2 rounded-full bg-[#10101059]"
+      >
+        <img class="h-8 w-8" src="src/images/showcase/arrow.png" />
+      </button>
+    </div>
+
+    <!-- Reuse layout -->
+    <div>
+      <h2>Featured Projects</h2>
+      <div class="w-full grid grid-cols-3 gap-8 grid-rows">
+        <!-- CSS Grid with 3x3. On md 2x2, on sm 1x1. -->
+
+        <!-- Render tags dynamically, e.g. (FEATURED ON CNA) -->
+        <div class="rounded-xl bg-[#3C4043]">
+          <img
+            class="max-w-full object-cover"
+            src="src/images/showcase/drivesim.jpg"
+          />
+          <div class="p-4 flex-col gap-1">
+            <div>
+              <!-- Render tags if any -->
+            </div>
+            <p>Title Project</p>
+            <p>By xyz</p>
+          </div>
+        </div>
+        <div class="">
+          <img class="max-w-full" src="src/images/showcase/drivesim.jpg" />
+          <div class="p-4 flex-col gap-1">
+            <div>
+              <!-- Render tags if any -->
+            </div>
+            <p>Title Project</p>
+            <p>By xyz</p>
+          </div>
+        </div>
+        <div class="">
+          <img class="max-w-full" src="src/images/showcase/drivesim.jpg" />
+          <div class="p-4 flex-col gap-1">
+            <div>
+              <!-- Render tags if any -->
+            </div>
+            <p>Title Project</p>
+            <p>By xyz</p>
+          </div>
+        </div>
       </div>
-      <div class="absolute top-1/2 -translate-y-1/2 right-4 p-4 rounded-full bg-green-50"></div>
+    </div>
+
+    <div>
+      <h2>Community Projects</h2>
+    </div>
+
+    <div>
+      <h2>Workshop Projects</h2>
     </div>
   </div>
 </DefaultLayout>
+
+<script is:inline>
+  previousElement = document.querySelector(".prev-element");
+
+  let onPaginationClick = (event) => {
+    let element = event.currentTarget;
+    previousElement.classList.remove("w-[32px]", "bg-purple-500", "prev-element");
+    previousElement.classList.add("w-[16px]", "bg-gray-500");
+    element.classList.remove("w-[16px]")
+    element.classList.add("w-[32px]", "bg-purple-500", "prev-element");
+    previousElement = document.querySelector(".prev-element")
+  };
+</script>

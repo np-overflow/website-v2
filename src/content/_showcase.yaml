@@ -1,0 +1,7 @@
+# I need to parse yaml content raw, load it to get an object and break down object into props
+
+type:
+  - title: Carousel
+  - title: Featured Projects
+  - title: Community Projects
+  - title: Workshop Projects
