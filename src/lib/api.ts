@@ -106,6 +106,19 @@ export interface Showcase {
     img_name: string;
     img_alt: string;
   }[];
+  type: {
+    title: string;
+    projects: {
+      proj_name: string;
+      proj_desc: string;
+      username: string;
+      img_folder: string;
+      img_alts: string;
+      github: string;
+      linkedin: string;
+      live_view: string;
+    }[]
+  }[]
 }
 
 export function getShowcase() {

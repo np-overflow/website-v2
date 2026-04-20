@@ -7,12 +7,78 @@ carousel:
     img_alt: Eye can drive project image
   - title: Digital Photobooth
     description: 
-    img_name:
+    img_name: digital_photobooth.jpeg
     img_alt:
   - title: Blaster Brawl
     description: 
-    img_name:
+    img_name: blaster_brawl.jpeg
     img_alt:
-
+  - title: CheekyLawyer
+    description: 
+    img_name: cheekylawyer.png
+    img_alt:
+type:
+  - title: "Featured Projects"
+    projects: 
+      - proj_name: Eye Can Drive
+        proj_desc:
+        username:
+        img_folder:
+        img_alts:
+        github:
+        linkedin:
+        live_view:
+      - proj_name: Digital Photobooth
+        proj_desc:
+        username:
+        img_folder:
+        img_alts:
+        github:
+        linkedin:
+        live_view:
+      - proj_name: Blaster Brawl
+        proj_desc:
+        username:
+        img_folder:
+        img_alts:
+        github:
+        linkedin:
+        live_view:
+      - proj_name: CheekyLawyer
+        proj_desc:
+        username:
+        img_folder:
+        img_alts:
+        github:
+        linkedin:
+        live_view:
+  - title: "Community Projects"
+    projects: 
+      - proj_name: Abcd
+        proj_desc:
+        username:
+        img_folder:
+        img_alts:
+        github:
+        linkedin:
+        live_view:
+      - proj_name: Abcd
+        proj_desc:
+        username:
+        img_folder:
+        img_alts:
+        github:
+        linkedin:
+        live_view:
+  - title: "Workshop Projects"
+    projects: 
+      - proj_name: Computer Vision
+        proj_desc:
+        username:
+        img_folder:
+        img_alts:
+        github:
+        linkedin:
+        live_view:
 # Carousel: Title, Description, Image Folder/Place, The explore more button has to link to the pop-up.
-# For actual showcase, it will be an image folder. for now do both image folfers
+# For actual showcase, it will be an image folder. for now do both image folders

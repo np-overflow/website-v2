@@ -16,29 +16,29 @@ const featuredElements = showcase.carousel.length;
   }}
 >
   <div class="w-full p-5 lg:max-w-7xl lg:mx-auto">
-    <div class="relative">
+    <div class="relative overflow-hidden snap-mandatory">
       <button
-        class="absolute top-1/2 -translate-y-1/2 left-6 p-2 rounded-full bg-[#10101059] z-10"
+        class="absolute top-1/2 -translate-y-1/2 left-6 p-2 rounded-full bg-[#10101059] z-10 arrow"
         onclick="onLeftArrowClick()"
       >
         <img class="h-8 w-8 rotate-180" src="src/images/showcase/arrow.png" />
       </button>
       <button
-        class="absolute top-1/2 -translate-y-1/2 right-6 p-2 rounded-full bg-[#10101059] z-10"
+        class="absolute top-1/2 -translate-y-1/2 right-6 p-2 rounded-full bg-[#10101059] z-10 arrow"
         onclick="onRightArrowClick()"
       >
         <img class="h-8 w-8" src="src/images/showcase/arrow.png" />
       </button>
 
       <div
-        class="flex gap-2 absolute bottom-4 justify-center items-center w-full z-10"
+        class="flex gap-2 absolute bottom-4 justify-center items-center w-full z-10 pagination snap-mandatory"
       >
         {
           showcase.carousel.map((project, index) => {
             if (index == 0) {
               return (
                 <button
-                  class="h-[8px] w-[40px] bg-purple-500 rounded-2xl transition-all prev-element"
+                  class="h-[8px] w-[40px] bg-purple-500 rounded-2xl transition-all prev-element pagination"
                   data-index={index}
                   onclick="onPaginationClick(event)"
                 />
@@ -46,7 +46,7 @@ const featuredElements = showcase.carousel.length;
             } else {
               return (
                 <button
-                  class="h-[6px] w-[24px] bg-gray-500 rounded-2xl transition-all"
+                  class="h-[6px] w-[24px] bg-gray-500 rounded-2xl transition-all pagination"
                   data-index={index}
                   onclick="onPaginationClick(event)"
                 />
@@ -58,8 +58,9 @@ const featuredElements = showcase.carousel.length;
         <!-- The thingy at the bottom to click to the specific featured prj -->
       </div>
       <div
-        class="rounded-badge w-full shadow-md relative flex overflow-x-hidden mb-12"
-        id="track" data-length={featuredElements}
+        class="rounded-3xl w-full shadow-md relative flex overflow-x-hidden mb-12  border-[2px] border-[#16181F] box-border"
+        id="track"
+        data-length={featuredElements}
       >
         {
           showcase.carousel.map((project) => (
@@ -90,14 +91,68 @@ const featuredElements = showcase.carousel.length;
 
     <!-- Reuse layout -->
     <div>
-      <h2>Featured Projects</h2>
-      <div class="w-full grid grid-cols-3 gap-8 grid-rows">
+      <h2 class="text-2xl font-cubano mb-4">Featured Projects</h2>
+      <div class="w-full grid grid-cols-3 gap-12 grid-rows-3">
         <!-- CSS Grid with 3x3. On md 2x2, on sm 1x1. -->
 
         <!-- Render tags dynamically, e.g. (FEATURED ON CNA) -->
-        <div class="rounded-xl bg-[#3C4043]">
+        <div class="rounded-xl bg-[#111218] h-80 border-[#16181F] border-[2px]">
           <img
-            class="max-w-full object-cover"
+            class="w-full object-cover rounded-t-xl h-52"
+            src="src/images/showcase/drivesim.jpg"
+          />
+          <div class="p-4 flex-col gap-1">
+            <div class="flex gap-2">
+              <div class="rounded-full py-1 px-3 text-[0.75rem] mb-1 bg-[#200b3b89] text-[#6b25c6] border-[#6b25c6] border-[1px]">
+                IoT
+              </div>
+              <div class="rounded-full py-1 px-3 text-[0.75rem] mb-1 bg-[#200b3b89] text-[#6b25c6] border-[#6b25c6] border-[1px]">
+                Unity
+              </div>
+            </div>
+            <p class="font-cubano text-xl text-gray-300">Eye Can Drive</p>
+            <p class="text-gray-500 text-sm">By Software Team 1</p>
+          </div>
+        </div>
+        <div class="rounded-xl bg-[#111218] h-80 border-[#16181F] border-[2px]">
+          <img
+            class="w-full object-cover rounded-t-xl h-52"
+            src="src/images/showcase/blaster_brawl.jpeg"
+          />
+          <div class="p-4 flex-col gap-1">
+            <div class="flex gap-2">
+              <div class="rounded-full py-1 px-3 text-[0.75rem] mb-1 bg-[#200b3b89] text-[#6b25c6] border-[#6b25c6] border-[1px]">
+                IoT
+              </div>
+              <div class="rounded-full py-1 px-3 text-[0.75rem] mb-1 bg-[#200b3b89] text-[#6b25c6] border-[#6b25c6] border-[1px]">
+                Unity
+              </div>
+            </div>
+            <p class="font-cubano text-xl text-gray-300">Eye Can Drive</p>
+            <p class="text-gray-500 text-sm">By Software Team 1</p>
+          </div>
+        </div>
+        <div class="rounded-xl bg-[#111218] h-80 border-[#16181F] border-[2px]">
+          <img
+            class="w-full object-cover rounded-t-xl h-52"
+            src="src/images/showcase/cheekylawyer.png"
+          />
+          <div class="p-4 flex-col gap-1">
+            <div class="flex gap-2">
+              <div class="rounded-full py-1 px-3 text-[0.75rem] mb-1 bg-[#200b3b89] text-[#6b25c6] border-[#6b25c6] border-[1px]">
+                IoT
+              </div>
+              <div class="rounded-full py-1 px-3 text-[0.75rem] mb-1 bg-[#200b3b89] text-[#6b25c6] border-[#6b25c6] border-[1px]">
+                Unity
+              </div>
+            </div>
+            <p class="font-cubano text-xl text-gray-300">Eye Can Drive</p>
+            <p class="text-gray-500 text-sm">By Software Team 1</p>
+          </div>
+        </div>
+         <div class="rounded-xl bg-[#3C4043] h-72">
+          <img
+            class="w-full object-cover rounded-t-xl h-48"
             src="src/images/showcase/drivesim.jpg"
           />
           <div class="p-4 flex-col gap-1">
@@ -108,8 +163,11 @@ const featuredElements = showcase.carousel.length;
             <p>By xyz</p>
           </div>
         </div>
-        <div class="">
-          <img class="max-w-full" src="src/images/showcase/drivesim.jpg" />
+         <div class="rounded-xl bg-[#3C4043] h-72">
+          <img
+            class="w-full object-cover rounded-t-xl h-48"
+            src="src/images/showcase/drivesim.jpg"
+          />
           <div class="p-4 flex-col gap-1">
             <div>
               <!-- Render tags if any -->
@@ -118,8 +176,11 @@ const featuredElements = showcase.carousel.length;
             <p>By xyz</p>
           </div>
         </div>
-        <div class="">
-          <img class="max-w-full" src="src/images/showcase/drivesim.jpg" />
+         <div class="rounded-xl bg-[#3C4043] h-72">
+          <img
+            class="w-full object-cover rounded-t-xl h-48"
+            src="src/images/showcase/drivesim.jpg"
+          />
           <div class="p-4 flex-col gap-1">
             <div>
               <!-- Render tags if any -->
@@ -128,8 +189,6 @@ const featuredElements = showcase.carousel.length;
             <p>By xyz</p>
           </div>
         </div>
-      </div>
-    </div>
 
     <div>
       <h2>Community Projects</h2>
@@ -142,56 +201,72 @@ const featuredElements = showcase.carousel.length;
 </DefaultLayout>
 
 <script is:inline>
-
-  
-
   // Featured Section Carousel: Tracks currentTarget as distance to scroll
   // autoScrollCarousel is used to reinitialize pagination before actually autoscrolling
   // resetTimer contains actual autoscroll functionality, separated to reset
-  
-  let carouselCards = document.querySelectorAll(".carousel-card")
-  console.log(carouselCards)
 
-  carouselCards.forEach(card => {
-    let imageDiv = card.querySelector(".image-div")
-    card.addEventListener("mouseenter", () => {
-      imageDiv.classList.add("scale-[110%]")
-    })
-    card.addEventListener("mouseleave", () => {
-      imageDiv.classList.remove("scale-[110%]")
-    })
-  });
-
+  let carouselCards = document.querySelectorAll(".carousel-card");
   let previousElement = document.querySelector(".prev-element");
   let carouselTrack = document.querySelector("#track");
-  let featuredElements = carouselTrack.dataset.length
-  let carouselClientWidth = carouselTrack.clientWidth;
+  let featuredElements = carouselTrack.dataset.length;
+  let carouselClientWidth = Math.round(10* carouselCards[0].getBoundingClientRect().width) / 10
+  let scrollWidth = carouselClientWidth * featuredElements*2
+  console.log(carouselClientWidth)
   let carouselTrackWidth = carouselTrack.offsetWidth;
   let nextPagination;
   let timer;
 
-  carouselTrack.right = -carouselClientWidth * featuredElements;
+  // Track Initialization
   carouselTrack.scrollTo({
     left: carouselClientWidth * featuredElements,
     behavior: "instant",
   });
   let currentTarget = carouselClientWidth * featuredElements;
 
+  // Carousel Featured Hover Listener
+  carouselCards.forEach((card) => {
+    let imageDiv = card.querySelector(".image-div");
+    card.addEventListener("mouseenter", () => {
+      imageDiv.classList.add("scale-[110%]");
+    });
+    card.addEventListener("mouseleave", (event) => {
+      const destination = event.relatedTarget;
+
+      // Check if destination is pagination or arrow div, if it is maintain hover.
+      if (
+        destination &&
+        (destination.closest(".pagination") || destination.closest(".arrow"))
+      ) {
+        return;
+      } else {
+        imageDiv.classList.remove("scale-[110%]");
+      }
+    });
+  });
+
+
   // Scroll to currentTarget
   let scrollCarousel = () => {
+    carouselTrack.classList.add("snap-x")
     carouselTrack.scrollTo({
       left: currentTarget,
       behavior: "smooth",
     });
+    
+    carouselTrack.classList.remove("snap-x")
+    console.log(carouselClientWidth)
+    console.log(currentTarget)
   };
 
   // Check if carousel is at ridge edge, changes currentTarget back to the front
   let scrollEdgeCheckRight = () => {
-    if (currentTarget > carouselTrack.scrollWidth - carouselClientWidth) {
-      currentTarget = carouselTrack.scrollWidth - carouselClientWidth;
+    if (currentTarget > scrollWidth - carouselClientWidth) {
+      currentTarget = scrollWidth - carouselClientWidth;
+      console.log(scrollWidth + "hi")
     }
-    if (currentTarget == carouselTrack.scrollLeft) {
-      currentTarget = carouselClientWidth * (featuredElements-1);
+    if (Math.round(currentTarget) == Math.round(carouselTrack.scrollLeft)) {
+      currentTarget = carouselClientWidth * (featuredElements - 1);
+      carouselCards[featuredElements-1].querySelector(".image-div").classList.add("scale-[110%]")
       carouselTrack.scrollTo({
         left: currentTarget,
         behavior: "instant",
@@ -211,6 +286,7 @@ const featuredElements = showcase.carousel.length;
     }
     if (currentTarget == carouselTrack.scrollLeft) {
       currentTarget = carouselClientWidth * featuredElements;
+      carouselCards[featuredElements-1].querySelector(".image-div").classList.add("scale-[110%]", "transition-none")
       carouselTrack.scrollTo({
         left: currentTarget,
         behavior: "instant",
@@ -220,6 +296,7 @@ const featuredElements = showcase.carousel.length;
         left: currentTarget,
         behavior: "smooth",
       });
+      carouselCards[featuredElements-1].querySelector(".image-div").classList.remove("transition-none")
     }
   };
 
@@ -252,7 +329,8 @@ const featuredElements = showcase.carousel.length;
     if (currentTarget < carouselClientWidth * featuredElements) {
       currentTarget = carouselClientWidth * index;
     } else {
-      currentTarget = carouselClientWidth * featuredElements + carouselClientWidth * index;
+      currentTarget =
+        carouselClientWidth * featuredElements + carouselClientWidth * index;
     }
   };
 
@@ -281,6 +359,7 @@ const featuredElements = showcase.carousel.length;
       previousElement.nextElementSibling ??
       document.querySelector("[data-index='0']");
     currentTarget += carouselClientWidth;
+    console.log(currentTarget)
     scrollEdgeCheckRight();
     scrollCarousel();
     paginationChange(nextPagination, nextPagination.dataset.index);
@@ -290,7 +369,7 @@ const featuredElements = showcase.carousel.length;
   let onLeftArrowClick = () => {
     let nextPagination =
       previousElement.previousElementSibling ??
-      document.querySelector(`[data-index='${featuredElements-1}']`);
+      document.querySelector(`[data-index='${featuredElements - 1}']`);
     currentTarget -= carouselClientWidth;
     scrollEdgeCheckLeft();
     scrollCarousel();

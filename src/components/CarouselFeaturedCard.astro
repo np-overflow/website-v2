@@ -9,7 +9,7 @@ export interface Props {
 const { title, description, img_name, img_alt } = Astro.props;
 ---
 
-<div class="w-full h-48 min-h-[450px] flex-shrink-0 carousel-card">
+<div class="w-full h-48 min-h-[450px] flex-shrink-0 carousel-card snap-start shadow-xl overflow-hidden relative">
   <!-- Note: items-end, and text-overflow to 2 lines for description to prevent major overflow -->
   <div class="w-full h-full flex items-end justify-between p-10 relative">
     <div class="inset-0 absolute w-full h-full overflow-hidden">
@@ -37,17 +37,12 @@ const { title, description, img_name, img_alt } = Astro.props;
   </div>
   <!-- Shadow -->
   <div
-    class="absolute bottom-0 z-0 w-full h-72 max-h-full bg-gradient-to-t from-[#000000f1] from-0% via-[#000000ca] via-60% to-[#00000000]"
+    class="absolute -left-1 -bottom-1 z-0 w-screen h-72 max-h-full bg-gradient-to-t from-[#000000f1] from-0% via-[#000000ca] via-40% to-[#00000000]"
   >
   </div>
 </div>
 
 <script is:inline>
-  let carouselCard = document.querySelector(".carousel-card")
-  let featuredImage = document.querySelector(".featured-image")
-  carouselCard.addEventListener("mouseover", () => {
-    featuredImage.classList.add("scale-[110%]")
-    console.log("hi")
-  })
+
 
 </script>
