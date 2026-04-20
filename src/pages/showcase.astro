@@ -1,7 +1,11 @@
 ---
+import CarouselFeaturedCard from "../components/CarouselFeaturedCard.astro";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 //  Imagine import of data for carousel
 let selected = true;
+import { getShowcase } from "../lib/api";
+const showcase = getShowcase();
+const featuredElements = showcase.carousel.length;
 ---
 
 <DefaultLayout
@@ -12,68 +16,76 @@ let selected = true;
   }}
 >
   <div class="w-full p-5 lg:max-w-7xl lg:mx-auto">
-    <div
-      class="rounded-badge w-full shadow-md relative flex overflow-x-hidden mb-12"
-    >
-      <div class="w-full h-48 min-h-[450px] flex-shrink-0">
-        <!-- Note: items-end, and text-overflow to 2 lines for description to prevent major overflow -->
-        <div
-          class="w-full h-full flex items-end justify-between p-10 relative"
-        >
-          <img
-            src="src/images/showcase/drivesim.jpg"
-            class="inset-0 absolute w-full h-full object-cover"
-          />
-          <div class="mx-10 max-w-[60%] relative z-10 flex-col flex gap-1">
-            <!-- Separate div for text vs image (full-banner) -->
-            <p class="text-[#a478e6] font-bold">FEATURED PROJECT</p>
-            <h3 class="text-6xl font-cubano">Project Name</h3>
-            <p class="text-wrap text-gray-400">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam
-              animi minus delectus odit doloremque modi tempore, totam saepe
-              nemo dolorem labore voluptates iure, enim adipisci voluptate
-              reprehenderit ipsa itaque ipsum?
-            </p>
-          </div>
-          <button
-            class="bg-[#6c3fdd] py-2 px-4 rounded-md font-medium text-[#ffffff] z-10 mx-10 flex gap-2 items-center"
-          >
-            Explore Project
-            <img class="w-4 h-4" src="src/images/showcase/arrow-forward.png">
-          </button>
-        </div>
-        <!-- Shadow -->
-        <div
-          class="absolute bottom-0 z-0 w-full h-72 max-h-full bg-gradient-to-t from-[#000000f1] from-0% via-[#000000ca] via-60% to-[#00000000]"
-        >
-        </div>
-      </div>
-
-      <div class="bg-blue-500 w-full h-48 min-h-50 flex-shrink-0">hii</div>
-      <div class="bg-blue-500 w-full h-48 min-h-50 flex-shrink-0">hey</div>
-      <!-- This doesn't have to be absolute positioning, prevent text overlap. -->
-      <div class="flex gap-2 absolute bottom-4 justify-center w-full">
-        <button
-          class=`h-[4px] w-[32px] bg-purple-500 rounded-2xl transition-all prev-element` onclick="onPaginationClick(event)"
-        ></button>
-        <button
-          class="h-[4px] w-[16px] bg-gray-500 rounded-2xl transition-all"
-          onclick="onPaginationClick(event)"></button>
-        <button class="h-[4px] w-[16px] bg-gray-500 rounded-2xl transition-all" onclick="onPaginationClick(event)"
-        ></button>
-        <!-- The thingy at the bottom to click to the specific featured prj -->
-      </div>
-      <!-- Arrows will have listeners and class names. Only the featured divs are auto-gen -->
+    <div class="relative">
       <button
-        class="absolute top-1/2 -translate-y-1/2 left-6 p-2 rounded-full bg-[#10101059]"
+        class="absolute top-1/2 -translate-y-1/2 left-6 p-2 rounded-full bg-[#10101059] z-10"
+        onclick="onLeftArrowClick()"
       >
         <img class="h-8 w-8 rotate-180" src="src/images/showcase/arrow.png" />
       </button>
       <button
-        class="absolute top-1/2 -translate-y-1/2 right-6 p-2 rounded-full bg-[#10101059]"
+        class="absolute top-1/2 -translate-y-1/2 right-6 p-2 rounded-full bg-[#10101059] z-10"
+        onclick="onRightArrowClick()"
       >
         <img class="h-8 w-8" src="src/images/showcase/arrow.png" />
       </button>
+
+      <div
+        class="flex gap-2 absolute bottom-4 justify-center items-center w-full z-10"
+      >
+        {
+          showcase.carousel.map((project, index) => {
+            if (index == 0) {
+              return (
+                <button
+                  class="h-[8px] w-[40px] bg-purple-500 rounded-2xl transition-all prev-element"
+                  data-index={index}
+                  onclick="onPaginationClick(event)"
+                />
+              );
+            } else {
+              return (
+                <button
+                  class="h-[6px] w-[24px] bg-gray-500 rounded-2xl transition-all"
+                  data-index={index}
+                  onclick="onPaginationClick(event)"
+                />
+              );
+            }
+          })
+        }
+
+        <!-- The thingy at the bottom to click to the specific featured prj -->
+      </div>
+      <div
+        class="rounded-badge w-full shadow-md relative flex overflow-x-hidden mb-12"
+        id="track" data-length={featuredElements}
+      >
+        {
+          showcase.carousel.map((project) => (
+            <CarouselFeaturedCard
+              title={project.title}
+              description={project.description}
+              img_name={project.img_name}
+              img_alt={project.img_alt}
+            />
+          ))
+        }
+        {
+          showcase.carousel.map((project) => (
+            <CarouselFeaturedCard
+              title={project.title}
+              description={project.description}
+              img_name={project.img_name}
+              img_alt={project.img_alt}
+            />
+          ))
+        }
+
+        <!-- This doesn't have to be absolute positioning, prevent text overlap. -->
+
+        <!-- Arrows will have listeners and class names. Only the featured divs are auto-gen -->
+      </div>
     </div>
 
     <!-- Reuse layout -->
@@ -130,14 +142,163 @@ let selected = true;
 </DefaultLayout>
 
 <script is:inline>
-  previousElement = document.querySelector(".prev-element");
+
+  
+
+  // Featured Section Carousel: Tracks currentTarget as distance to scroll
+  // autoScrollCarousel is used to reinitialize pagination before actually autoscrolling
+  // resetTimer contains actual autoscroll functionality, separated to reset
+  
+  let carouselCards = document.querySelectorAll(".carousel-card")
+  console.log(carouselCards)
+
+  carouselCards.forEach(card => {
+    let imageDiv = card.querySelector(".image-div")
+    card.addEventListener("mouseenter", () => {
+      imageDiv.classList.add("scale-[110%]")
+    })
+    card.addEventListener("mouseleave", () => {
+      imageDiv.classList.remove("scale-[110%]")
+    })
+  });
+
+  let previousElement = document.querySelector(".prev-element");
+  let carouselTrack = document.querySelector("#track");
+  let featuredElements = carouselTrack.dataset.length
+  let carouselClientWidth = carouselTrack.clientWidth;
+  let carouselTrackWidth = carouselTrack.offsetWidth;
+  let nextPagination;
+  let timer;
+
+  carouselTrack.right = -carouselClientWidth * featuredElements;
+  carouselTrack.scrollTo({
+    left: carouselClientWidth * featuredElements,
+    behavior: "instant",
+  });
+  let currentTarget = carouselClientWidth * featuredElements;
+
+  // Scroll to currentTarget
+  let scrollCarousel = () => {
+    carouselTrack.scrollTo({
+      left: currentTarget,
+      behavior: "smooth",
+    });
+  };
+
+  // Check if carousel is at ridge edge, changes currentTarget back to the front
+  let scrollEdgeCheckRight = () => {
+    if (currentTarget > carouselTrack.scrollWidth - carouselClientWidth) {
+      currentTarget = carouselTrack.scrollWidth - carouselClientWidth;
+    }
+    if (currentTarget == carouselTrack.scrollLeft) {
+      currentTarget = carouselClientWidth * (featuredElements-1);
+      carouselTrack.scrollTo({
+        left: currentTarget,
+        behavior: "instant",
+      });
+      currentTarget += carouselClientWidth;
+      carouselTrack.scrollTo({
+        left: currentTarget,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  // Check if carousel is at left edge, changes currentTarget back to the front
+  let scrollEdgeCheckLeft = () => {
+    if (currentTarget < 0) {
+      currentTarget = 0;
+    }
+    if (currentTarget == carouselTrack.scrollLeft) {
+      currentTarget = carouselClientWidth * featuredElements;
+      carouselTrack.scrollTo({
+        left: currentTarget,
+        behavior: "instant",
+      });
+      currentTarget -= carouselClientWidth;
+      carouselTrack.scrollTo({
+        left: currentTarget,
+        behavior: "smooth",
+      });
+    }
+  };
 
   let onPaginationClick = (event) => {
     let element = event.currentTarget;
-    previousElement.classList.remove("w-[32px]", "bg-purple-500", "prev-element");
-    previousElement.classList.add("w-[16px]", "bg-gray-500");
-    element.classList.remove("w-[16px]")
-    element.classList.add("w-[32px]", "bg-purple-500", "prev-element");
-    previousElement = document.querySelector(".prev-element")
+    let index = element.dataset.index;
+    paginationChange(element, index);
+    scrollCarousel();
+    autoScrollCarousel();
   };
+
+  // Changes pagination style and currentTarget distance based on position in the carousel and index of button clicked.
+  let paginationChange = (element, index) => {
+    previousElement.classList.remove(
+      "w-[40px]",
+      "bg-purple-500",
+      "prev-element",
+      "h-[8px]",
+    );
+    previousElement.classList.add("w-[24px]", "bg-gray-500", "h-[6px]");
+    element.classList.remove("w-[24px]");
+    element.classList.add(
+      "w-[40px]",
+      "h-[8px]",
+      "bg-purple-500",
+      "prev-element",
+    );
+    previousElement = element;
+
+    if (currentTarget < carouselClientWidth * featuredElements) {
+      currentTarget = carouselClientWidth * index;
+    } else {
+      currentTarget = carouselClientWidth * featuredElements + carouselClientWidth * index;
+    }
+  };
+
+  // Initialises/Resets auto-scroll, and re-initializes pagination to be the next pagination before autoscroll
+  let autoScrollCarousel = () => {
+    nextPagination =
+      previousElement.nextElementSibling ??
+      document.querySelector("[data-index='0']");
+
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      currentTarget += carouselClientWidth;
+      scrollEdgeCheckRight();
+      carouselTrack.scrollTo({
+        left: currentTarget,
+        behavior: "smooth",
+      });
+
+      paginationChange(nextPagination, nextPagination.dataset.index);
+      autoScrollCarousel();
+    }, 6000);
+  };
+
+  let onRightArrowClick = () => {
+    let nextPagination =
+      previousElement.nextElementSibling ??
+      document.querySelector("[data-index='0']");
+    currentTarget += carouselClientWidth;
+    scrollEdgeCheckRight();
+    scrollCarousel();
+    paginationChange(nextPagination, nextPagination.dataset.index);
+    autoScrollCarousel();
+  };
+
+  let onLeftArrowClick = () => {
+    let nextPagination =
+      previousElement.previousElementSibling ??
+      document.querySelector(`[data-index='${featuredElements-1}']`);
+    currentTarget -= carouselClientWidth;
+    scrollEdgeCheckLeft();
+    scrollCarousel();
+    paginationChange(nextPagination, nextPagination.dataset.index);
+    autoScrollCarousel();
+  };
+
+  autoScrollCarousel();
+
+  showPopup = (event) => {};
 </script>

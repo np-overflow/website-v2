@@ -1,0 +1,53 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  img_name: string;
+  img_alt: string;
+}
+
+const { title, description, img_name, img_alt } = Astro.props;
+---
+
+<div class="w-full h-48 min-h-[450px] flex-shrink-0 carousel-card">
+  <!-- Note: items-end, and text-overflow to 2 lines for description to prevent major overflow -->
+  <div class="w-full h-full flex items-end justify-between p-10 relative">
+    <div class="inset-0 absolute w-full h-full overflow-hidden">
+      <img
+      src={`src/images/showcase/${img_name}`}
+      class="inset-0 w-full h-full object-cover transition-all duration-300 image-div"
+      alt={img_alt}
+    />
+    </div>
+    
+    <div class="mx-10 max-w-[60%] relative z-10 flex-col flex gap-1">
+      <!-- Separate div for text vs image (full-banner) -->
+      <p class="text-[#a478e6] font-bold">FEATURED PROJECT</p>
+      <h3 class="text-6xl font-cubano">{title}</h3>
+      <p class="text-wrap text-gray-400">
+        {description}
+      </p>
+    </div>
+    <button
+      class="bg-[#6c3fdd] py-2 px-4 rounded-md font-medium text-[#ffffff] z-10 mx-10 flex gap-2 items-center"
+    >
+      Explore Project
+      <img class="w-4 h-4" src="src/images/showcase/arrow-forward.png" />
+    </button>
+  </div>
+  <!-- Shadow -->
+  <div
+    class="absolute bottom-0 z-0 w-full h-72 max-h-full bg-gradient-to-t from-[#000000f1] from-0% via-[#000000ca] via-60% to-[#00000000]"
+  >
+  </div>
+</div>
+
+<script is:inline>
+  let carouselCard = document.querySelector(".carousel-card")
+  let featuredImage = document.querySelector(".featured-image")
+  carouselCard.addEventListener("mouseover", () => {
+    featuredImage.classList.add("scale-[110%]")
+    console.log("hi")
+  })
+
+</script>

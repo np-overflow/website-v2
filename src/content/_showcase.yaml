@@ -1,7 +1,18 @@
 # I need to parse yaml content raw, load it to get an object and break down object into props
 
-type:
-  - title: Carousel
-  - title: Featured Projects
-  - title: Community Projects
-  - title: Workshop Projects
+carousel:
+  - title: Eye Can Drive
+    description: Eye Can Drive is a driving game where you control the car with your facial expressions
+    img_name: drivesim.jpg
+    img_alt: Eye can drive project image
+  - title: Digital Photobooth
+    description: 
+    img_name:
+    img_alt:
+  - title: Blaster Brawl
+    description: 
+    img_name:
+    img_alt:
+
+# Carousel: Title, Description, Image Folder/Place, The explore more button has to link to the pop-up.
+# For actual showcase, it will be an image folder. for now do both image folfers
