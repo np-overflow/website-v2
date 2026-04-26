@@ -1,5 +1,6 @@
 ---
 import CarouselFeaturedCard from "../components/CarouselFeaturedCard.astro";
+import CarouselPaginationButton from "../components/CarouselPaginationButton.astro";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 //  Imagine import of data for carousel
 let selected = true;
@@ -16,49 +17,36 @@ const featuredElements = showcase.carousel.length;
   }}
 >
   <div class="w-full p-5 lg:max-w-7xl lg:mx-auto">
-    <div class="relative overflow-hidden snap-mandatory">
+    <div class="relative overflow-hidden snap-mandatory mb-16">
       <button
         class="absolute top-1/2 -translate-y-1/2 left-6 p-2 rounded-full bg-[#10101059] z-10 arrow"
-        onclick="onLeftArrowClick()"
+        onclick="onArrowClick(event)"
+        data-arrow="left"
       >
         <img class="h-8 w-8 rotate-180" src="src/images/showcase/arrow.png" />
       </button>
       <button
         class="absolute top-1/2 -translate-y-1/2 right-6 p-2 rounded-full bg-[#10101059] z-10 arrow"
-        onclick="onRightArrowClick()"
+        onclick="onArrowClick(event)"
+        data-arrow="right"
       >
         <img class="h-8 w-8" src="src/images/showcase/arrow.png" />
       </button>
 
       <div
-        class="flex gap-2 absolute bottom-4 justify-center items-center w-full z-10 pagination snap-mandatory"
+        class="flex gap-2 absolute bottom-4 justify-center items-center w-full z-10 snap-mandatory"
       >
         {
-          showcase.carousel.map((project, index) => {
-            if (index == 0) {
-              return (
-                <button
-                  class="h-[8px] w-[40px] bg-purple-500 rounded-2xl transition-all prev-element pagination"
-                  data-index={index}
-                  onclick="onPaginationClick(event)"
-                />
-              );
-            } else {
-              return (
-                <button
-                  class="h-[6px] w-[24px] bg-gray-500 rounded-2xl transition-all pagination"
-                  data-index={index}
-                  onclick="onPaginationClick(event)"
-                />
-              );
-            }
-          })
+          showcase.carousel.map((project, index) => (
+             <CarouselPaginationButton index={index}></CarouselPaginationButton>
+        )
+          )
         }
 
         <!-- The thingy at the bottom to click to the specific featured prj -->
       </div>
       <div
-        class="rounded-3xl w-full shadow-md relative flex overflow-x-hidden mb-12  border-[2px] border-[#16181F] box-border"
+        class="rounded-3xl w-full shadow-md relative flex overflow-x-hidden border-[2px] border-[#16181F]"
         id="track"
         data-length={featuredElements}
       >
@@ -103,10 +91,14 @@ const featuredElements = showcase.carousel.length;
           />
           <div class="p-4 flex-col gap-1">
             <div class="flex gap-2">
-              <div class="rounded-full py-1 px-3 text-[0.75rem] mb-1 bg-[#200b3b89] text-[#6b25c6] border-[#6b25c6] border-[1px]">
+              <div
+                class="rounded-full py-1 px-3 text-[0.75rem] mb-1 bg-[#200b3b89] text-[#6b25c6] border-[#6b25c6] border-[1px]"
+              >
                 IoT
               </div>
-              <div class="rounded-full py-1 px-3 text-[0.75rem] mb-1 bg-[#200b3b89] text-[#6b25c6] border-[#6b25c6] border-[1px]">
+              <div
+                class="rounded-full py-1 px-3 text-[0.75rem] mb-1 bg-[#200b3b89] text-[#6b25c6] border-[#6b25c6] border-[1px]"
+              >
                 Unity
               </div>
             </div>
@@ -121,10 +113,14 @@ const featuredElements = showcase.carousel.length;
           />
           <div class="p-4 flex-col gap-1">
             <div class="flex gap-2">
-              <div class="rounded-full py-1 px-3 text-[0.75rem] mb-1 bg-[#200b3b89] text-[#6b25c6] border-[#6b25c6] border-[1px]">
+              <div
+                class="rounded-full py-1 px-3 text-[0.75rem] mb-1 bg-[#200b3b89] text-[#6b25c6] border-[#6b25c6] border-[1px]"
+              >
                 IoT
               </div>
-              <div class="rounded-full py-1 px-3 text-[0.75rem] mb-1 bg-[#200b3b89] text-[#6b25c6] border-[#6b25c6] border-[1px]">
+              <div
+                class="rounded-full py-1 px-3 text-[0.75rem] mb-1 bg-[#200b3b89] text-[#6b25c6] border-[#6b25c6] border-[1px]"
+              >
                 Unity
               </div>
             </div>
@@ -139,10 +135,14 @@ const featuredElements = showcase.carousel.length;
           />
           <div class="p-4 flex-col gap-1">
             <div class="flex gap-2">
-              <div class="rounded-full py-1 px-3 text-[0.75rem] mb-1 bg-[#200b3b89] text-[#6b25c6] border-[#6b25c6] border-[1px]">
+              <div
+                class="rounded-full py-1 px-3 text-[0.75rem] mb-1 bg-[#200b3b89] text-[#6b25c6] border-[#6b25c6] border-[1px]"
+              >
                 IoT
               </div>
-              <div class="rounded-full py-1 px-3 text-[0.75rem] mb-1 bg-[#200b3b89] text-[#6b25c6] border-[#6b25c6] border-[1px]">
+              <div
+                class="rounded-full py-1 px-3 text-[0.75rem] mb-1 bg-[#200b3b89] text-[#6b25c6] border-[#6b25c6] border-[1px]"
+              >
                 Unity
               </div>
             </div>
@@ -150,7 +150,7 @@ const featuredElements = showcase.carousel.length;
             <p class="text-gray-500 text-sm">By Software Team 1</p>
           </div>
         </div>
-         <div class="rounded-xl bg-[#3C4043] h-72">
+        <div class="rounded-xl bg-[#3C4043] h-72">
           <img
             class="w-full object-cover rounded-t-xl h-48"
             src="src/images/showcase/drivesim.jpg"
@@ -163,7 +163,7 @@ const featuredElements = showcase.carousel.length;
             <p>By xyz</p>
           </div>
         </div>
-         <div class="rounded-xl bg-[#3C4043] h-72">
+        <div class="rounded-xl bg-[#3C4043] h-72">
           <img
             class="w-full object-cover rounded-t-xl h-48"
             src="src/images/showcase/drivesim.jpg"
@@ -176,7 +176,7 @@ const featuredElements = showcase.carousel.length;
             <p>By xyz</p>
           </div>
         </div>
-         <div class="rounded-xl bg-[#3C4043] h-72">
+        <div class="rounded-xl bg-[#3C4043] h-72">
           <img
             class="w-full object-cover rounded-t-xl h-48"
             src="src/images/showcase/drivesim.jpg"
@@ -190,194 +190,142 @@ const featuredElements = showcase.carousel.length;
           </div>
         </div>
 
-    <div>
-      <h2>Community Projects</h2>
+        <div>
+          <h2>Community Projects</h2>
+        </div>
+
+        <div>
+          <h2>Workshop Projects</h2>
+        </div>
+      </div>
     </div>
 
-    <div>
-      <h2>Workshop Projects</h2>
-    </div>
-  </div>
-</DefaultLayout>
+    <script is:inline>
+      const DELAY = 6000;
+      const CAROUSEL_TRACK = document.querySelector("#track");
+      const CAROUSEL_CARDS = document.querySelectorAll(".carousel-card");
+      const CAROUSEL_TRACK_CARD_LENGTH = Number(CAROUSEL_TRACK.dataset.length * 2);
 
-<script is:inline>
-  // Featured Section Carousel: Tracks currentTarget as distance to scroll
-  // autoScrollCarousel is used to reinitialize pagination before actually autoscrolling
-  // resetTimer contains actual autoscroll functionality, separated to reset
+      const CAROUSEL_CARD_PIXEL_LENGTH = CAROUSEL_CARDS[0].getBoundingClientRect().width;
+      const CAROUSEL_TRACK_PIXEL_LENGTH = CAROUSEL_CARD_PIXEL_LENGTH * CAROUSEL_TRACK_CARD_LENGTH;
+      const PAGINATION_BUTTONS = document.querySelectorAll(".pagination");
 
-  let carouselCards = document.querySelectorAll(".carousel-card");
-  let previousElement = document.querySelector(".prev-element");
-  let carouselTrack = document.querySelector("#track");
-  let featuredElements = carouselTrack.dataset.length;
-  let carouselClientWidth = Math.round(10* carouselCards[0].getBoundingClientRect().width) / 10
-  let scrollWidth = carouselClientWidth * featuredElements*2
-  console.log(carouselClientWidth)
-  let carouselTrackWidth = carouselTrack.offsetWidth;
-  let nextPagination;
-  let timer;
+      let timer;
+      let selectedPagination = document.querySelector(".selected");
+      let selectedIndex = CAROUSEL_TRACK_CARD_LENGTH / 2;
 
-  // Track Initialization
-  carouselTrack.scrollTo({
-    left: carouselClientWidth * featuredElements,
-    behavior: "instant",
-  });
-  let currentTarget = carouselClientWidth * featuredElements;
+      instantScroll(selectedIndex);
+      autoScroll();
 
-  // Carousel Featured Hover Listener
-  carouselCards.forEach((card) => {
-    let imageDiv = card.querySelector(".image-div");
-    card.addEventListener("mouseenter", () => {
-      imageDiv.classList.add("scale-[110%]");
-    });
-    card.addEventListener("mouseleave", (event) => {
-      const destination = event.relatedTarget;
-
-      // Check if destination is pagination or arrow div, if it is maintain hover.
-      if (
-        destination &&
-        (destination.closest(".pagination") || destination.closest(".arrow"))
-      ) {
-        return;
-      } else {
-        imageDiv.classList.remove("scale-[110%]");
+      function resetScroll() {
+        clearTimeout(timer);
+        autoScroll();
       }
-    });
-  });
 
+      function checkEdge(direction) {
+        if (direction == "right") {
+          if (
+            CAROUSEL_TRACK.scrollLeft >=
+            CAROUSEL_TRACK_PIXEL_LENGTH - CAROUSEL_CARD_PIXEL_LENGTH - 2
+          ) { return true; }
+        } else {
+          if (CAROUSEL_TRACK.scrollLeft == 0) { return true; }
+        }
+        return false;
+      }
 
-  // Scroll to currentTarget
-  let scrollCarousel = () => {
-    carouselTrack.classList.add("snap-x")
-    carouselTrack.scrollTo({
-      left: currentTarget,
-      behavior: "smooth",
-    });
-    
-    carouselTrack.classList.remove("snap-x")
-    console.log(carouselClientWidth)
-    console.log(currentTarget)
-  };
+      function onArrowClick(event) {
+        if (event.currentTarget.dataset.arrow == "right") {
+          selectedIndex += 1;
 
-  // Check if carousel is at ridge edge, changes currentTarget back to the front
-  let scrollEdgeCheckRight = () => {
-    if (currentTarget > scrollWidth - carouselClientWidth) {
-      currentTarget = scrollWidth - carouselClientWidth;
-      console.log(scrollWidth + "hi")
-    }
-    if (Math.round(currentTarget) == Math.round(carouselTrack.scrollLeft)) {
-      currentTarget = carouselClientWidth * (featuredElements - 1);
-      carouselCards[featuredElements-1].querySelector(".image-div").classList.add("scale-[110%]")
-      carouselTrack.scrollTo({
-        left: currentTarget,
-        behavior: "instant",
-      });
-      currentTarget += carouselClientWidth;
-      carouselTrack.scrollTo({
-        left: currentTarget,
-        behavior: "smooth",
-      });
-    }
-  };
+          if (selectedIndex >= CAROUSEL_TRACK_CARD_LENGTH * 2) {
+            selectedIndex = CAROUSEL_TRACK_CARD_LENGTH * 2 - 1;
+          }
 
-  // Check if carousel is at left edge, changes currentTarget back to the front
-  let scrollEdgeCheckLeft = () => {
-    if (currentTarget < 0) {
-      currentTarget = 0;
-    }
-    if (currentTarget == carouselTrack.scrollLeft) {
-      currentTarget = carouselClientWidth * featuredElements;
-      carouselCards[featuredElements-1].querySelector(".image-div").classList.add("scale-[110%]", "transition-none")
-      carouselTrack.scrollTo({
-        left: currentTarget,
-        behavior: "instant",
-      });
-      currentTarget -= carouselClientWidth;
-      carouselTrack.scrollTo({
-        left: currentTarget,
-        behavior: "smooth",
-      });
-      carouselCards[featuredElements-1].querySelector(".image-div").classList.remove("transition-none")
-    }
-  };
+          let edgeTrue = checkEdge("right");
+          if (edgeTrue) { teleportEdge("right"); }
+          scroll(selectedIndex);
+        } else {
+          selectedIndex -= 1;
+          if (selectedIndex < 0) {
+            selectedIndex = 0;
+          }
+          let edgeTrue = checkEdge("left");
+          if (edgeTrue) { teleportEdge("left"); }
+          scroll(selectedIndex);
+        }
+        resetScroll()
+        changePaginationStyle(selectedIndex)
+      }
 
-  let onPaginationClick = (event) => {
-    let element = event.currentTarget;
-    let index = element.dataset.index;
-    paginationChange(element, index);
-    scrollCarousel();
-    autoScrollCarousel();
-  };
+      function onPaginationClick(event) {
+        resetScroll();
+        paginationIndex = Number(event.currentTarget.dataset.index);
+        console.log(paginationIndex)
+        changePaginationStyle(paginationIndex);
+        
 
-  // Changes pagination style and currentTarget distance based on position in the carousel and index of button clicked.
-  let paginationChange = (element, index) => {
-    previousElement.classList.remove(
-      "w-[40px]",
-      "bg-purple-500",
-      "prev-element",
-      "h-[8px]",
-    );
-    previousElement.classList.add("w-[24px]", "bg-gray-500", "h-[6px]");
-    element.classList.remove("w-[24px]");
-    element.classList.add(
-      "w-[40px]",
-      "h-[8px]",
-      "bg-purple-500",
-      "prev-element",
-    );
-    previousElement = element;
+        if (selectedIndex < CAROUSEL_TRACK_CARD_LENGTH / 2) {
+          selectedIndex = paginationIndex;
+          scroll(selectedIndex);
+        } else {
+          console.log(CAROUSEL_TRACK_CARD_LENGTH / 2)
+          selectedIndex = paginationIndex + CAROUSEL_TRACK_CARD_LENGTH / 2;
+          scroll(selectedIndex);
+        }
+      }
 
-    if (currentTarget < carouselClientWidth * featuredElements) {
-      currentTarget = carouselClientWidth * index;
-    } else {
-      currentTarget =
-        carouselClientWidth * featuredElements + carouselClientWidth * index;
-    }
-  };
+      function changePaginationStyle(index) {
+        if (index >= CAROUSEL_TRACK_CARD_LENGTH / 2) {
+          index -= CAROUSEL_TRACK_CARD_LENGTH/2
+        }
+        selectedPagination.classList.remove("selected");
+        PAGINATION_BUTTONS[index].classList.add("selected");
+        selectedPagination = PAGINATION_BUTTONS[index];
+      }
 
-  // Initialises/Resets auto-scroll, and re-initializes pagination to be the next pagination before autoscroll
-  let autoScrollCarousel = () => {
-    nextPagination =
-      previousElement.nextElementSibling ??
-      document.querySelector("[data-index='0']");
+      function teleportEdge(direction) {
+        if (direction == "left") {
+          selectedIndex = CAROUSEL_TRACK_CARD_LENGTH / 2;
+          instantScroll(selectedIndex);
+          selectedIndex -= 1;
+          scroll(selectedIndex);
+        } else {
+          selectedIndex = CAROUSEL_TRACK_CARD_LENGTH / 2 - 1;
+          instantScroll(selectedIndex);
+          selectedIndex += 1;
+          scroll(selectedIndex);
+        }
+      }
 
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      currentTarget += carouselClientWidth;
-      scrollEdgeCheckRight();
-      carouselTrack.scrollTo({
-        left: currentTarget,
-        behavior: "smooth",
-      });
+      function scroll(index) {
+        CAROUSEL_TRACK.scrollTo({
+          left: index * CAROUSEL_CARD_PIXEL_LENGTH,
+          behavior: "smooth",
+        });
+      }
 
-      paginationChange(nextPagination, nextPagination.dataset.index);
-      autoScrollCarousel();
-    }, 6000);
-  };
+      function instantScroll(index) {
+        CAROUSEL_TRACK.scrollTo({
+          left: index * CAROUSEL_CARD_PIXEL_LENGTH,
+          behavior: "instant",
+        });
+      }
 
-  let onRightArrowClick = () => {
-    let nextPagination =
-      previousElement.nextElementSibling ??
-      document.querySelector("[data-index='0']");
-    currentTarget += carouselClientWidth;
-    console.log(currentTarget)
-    scrollEdgeCheckRight();
-    scrollCarousel();
-    paginationChange(nextPagination, nextPagination.dataset.index);
-    autoScrollCarousel();
-  };
-
-  let onLeftArrowClick = () => {
-    let nextPagination =
-      previousElement.previousElementSibling ??
-      document.querySelector(`[data-index='${featuredElements - 1}']`);
-    currentTarget -= carouselClientWidth;
-    scrollEdgeCheckLeft();
-    scrollCarousel();
-    paginationChange(nextPagination, nextPagination.dataset.index);
-    autoScrollCarousel();
-  };
-
-  autoScrollCarousel();
-
-  showPopup = (event) => {};
-</script>
+      function autoScroll() {
+        timer = setTimeout(() => {
+          let edgeTrue = checkEdge("right");
+          if (edgeTrue) {
+            teleportEdge("right")
+          }
+          else {
+            selectedIndex += 1
+            scroll(selectedIndex);
+          }
+          changePaginationStyle(selectedIndex)
+          resetScroll();
+        }, DELAY);
+      }
+    </script>
+  </div></DefaultLayout
+>

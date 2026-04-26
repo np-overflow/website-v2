@@ -1,0 +1,27 @@
+---
+export interface Props {
+    index : Number;
+}
+
+const {index} = Astro.props
+
+const paginationClasses = [
+  "rounded-2xl transition-all pagination h-[6px] w-[24px] bg-gray-500", // Shared classes
+  index==0 ? "selected" : "" // Extra class
+].join(" ")
+---
+
+<button
+  class={paginationClasses}
+  data-index={index}
+  onclick="onPaginationClick(event)">
+</button>
+
+<style>
+    .selected {
+        height: 8px;
+        width: 40px; 
+        background-color: #a855f7;
+    }
+
+</style>
