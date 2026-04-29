@@ -1,6 +1,10 @@
 ---
+import { Icon } from "astro-icon";
 import CarouselFeaturedCard from "../components/CarouselFeaturedCard.astro";
 import CarouselPaginationButton from "../components/CarouselPaginationButton.astro";
+import ImagePopup from "../components/ImagePopup.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import ShowcasePopup from "../components/ShowcasePopup.tsx";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 //  Imagine import of data for carousel
 let selected = true;
@@ -16,21 +20,24 @@ const featuredElements = showcase.carousel.length;
       "The projects created by members from the Overflow Special Interest Group",
   }}
 >
-  <div class="w-full p-5 lg:max-w-7xl lg:mx-auto">
+  <div class="w-full p-5 lg:max-w-7xl lg:mx-auto relative">
+    <ShowcasePopup client:load
+      
+    />
     <div class="relative overflow-hidden snap-mandatory mb-16">
       <button
         class="absolute top-1/2 -translate-y-1/2 left-6 p-2 rounded-full bg-[#10101059] z-10 arrow"
         onclick="onArrowClick(event)"
         data-arrow="left"
       >
-        <img class="h-8 w-8 rotate-180" src="src/images/showcase/arrow.png" />
+        <Icon name="tabler:arrow-left" size={32}></Icon>
       </button>
       <button
         class="absolute top-1/2 -translate-y-1/2 right-6 p-2 rounded-full bg-[#10101059] z-10 arrow"
         onclick="onArrowClick(event)"
         data-arrow="right"
       >
-        <img class="h-8 w-8" src="src/images/showcase/arrow.png" />
+        <Icon name="tabler:arrow-right" size={32}</Icon>>
       </button>
 
       <div
@@ -38,9 +45,8 @@ const featuredElements = showcase.carousel.length;
       >
         {
           showcase.carousel.map((project, index) => (
-             <CarouselPaginationButton index={index}></CarouselPaginationButton>
-        )
-          )
+            <CarouselPaginationButton index={index} />
+          ))
         }
 
         <!-- The thingy at the bottom to click to the specific featured prj -->
@@ -79,253 +85,163 @@ const featuredElements = showcase.carousel.length;
 
     <!-- Reuse layout -->
     <div>
-      <h2 class="text-2xl font-cubano mb-4">Featured Projects</h2>
-      <div class="w-full grid grid-cols-3 gap-12 grid-rows-3">
-        <!-- CSS Grid with 3x3. On md 2x2, on sm 1x1. -->
-
-        <!-- Render tags dynamically, e.g. (FEATURED ON CNA) -->
-        <div class="rounded-xl bg-[#111218] h-80 border-[#16181F] border-[2px]">
-          <img
-            class="w-full object-cover rounded-t-xl h-52"
-            src="src/images/showcase/drivesim.jpg"
-          />
-          <div class="p-4 flex-col gap-1">
-            <div class="flex gap-2">
-              <div
-                class="rounded-full py-1 px-3 text-[0.75rem] mb-1 bg-[#200b3b89] text-[#6b25c6] border-[#6b25c6] border-[1px]"
-              >
-                IoT
-              </div>
-              <div
-                class="rounded-full py-1 px-3 text-[0.75rem] mb-1 bg-[#200b3b89] text-[#6b25c6] border-[#6b25c6] border-[1px]"
-              >
-                Unity
-              </div>
+      {
+        showcase.type.map((type) => (
+          <div class="mb-12">
+            <h2 class="text-2xl font-cubano mb-4">{type.title}</h2>
+            <div class="w-full grid grid-cols-3 gap-12">
+              {type.projects.map((project, index) => (
+                <ProjectCard
+                  id={project.proj_name + index.toString()}
+                  proj_name={project.proj_name}
+                  username={project.username}
+                  img_folder={project.img_folder}
+                  tags={project.tags}
+                  project={project}
+                />
+              ))}
             </div>
-            <p class="font-cubano text-xl text-gray-300">Eye Can Drive</p>
-            <p class="text-gray-500 text-sm">By Software Team 1</p>
           </div>
-        </div>
-        <div class="rounded-xl bg-[#111218] h-80 border-[#16181F] border-[2px]">
-          <img
-            class="w-full object-cover rounded-t-xl h-52"
-            src="src/images/showcase/blaster_brawl.jpeg"
-          />
-          <div class="p-4 flex-col gap-1">
-            <div class="flex gap-2">
-              <div
-                class="rounded-full py-1 px-3 text-[0.75rem] mb-1 bg-[#200b3b89] text-[#6b25c6] border-[#6b25c6] border-[1px]"
-              >
-                IoT
-              </div>
-              <div
-                class="rounded-full py-1 px-3 text-[0.75rem] mb-1 bg-[#200b3b89] text-[#6b25c6] border-[#6b25c6] border-[1px]"
-              >
-                Unity
-              </div>
-            </div>
-            <p class="font-cubano text-xl text-gray-300">Eye Can Drive</p>
-            <p class="text-gray-500 text-sm">By Software Team 1</p>
-          </div>
-        </div>
-        <div class="rounded-xl bg-[#111218] h-80 border-[#16181F] border-[2px]">
-          <img
-            class="w-full object-cover rounded-t-xl h-52"
-            src="src/images/showcase/cheekylawyer.png"
-          />
-          <div class="p-4 flex-col gap-1">
-            <div class="flex gap-2">
-              <div
-                class="rounded-full py-1 px-3 text-[0.75rem] mb-1 bg-[#200b3b89] text-[#6b25c6] border-[#6b25c6] border-[1px]"
-              >
-                IoT
-              </div>
-              <div
-                class="rounded-full py-1 px-3 text-[0.75rem] mb-1 bg-[#200b3b89] text-[#6b25c6] border-[#6b25c6] border-[1px]"
-              >
-                Unity
-              </div>
-            </div>
-            <p class="font-cubano text-xl text-gray-300">Eye Can Drive</p>
-            <p class="text-gray-500 text-sm">By Software Team 1</p>
-          </div>
-        </div>
-        <div class="rounded-xl bg-[#3C4043] h-72">
-          <img
-            class="w-full object-cover rounded-t-xl h-48"
-            src="src/images/showcase/drivesim.jpg"
-          />
-          <div class="p-4 flex-col gap-1">
-            <div>
-              <!-- Render tags if any -->
-            </div>
-            <p>Title Project</p>
-            <p>By xyz</p>
-          </div>
-        </div>
-        <div class="rounded-xl bg-[#3C4043] h-72">
-          <img
-            class="w-full object-cover rounded-t-xl h-48"
-            src="src/images/showcase/drivesim.jpg"
-          />
-          <div class="p-4 flex-col gap-1">
-            <div>
-              <!-- Render tags if any -->
-            </div>
-            <p>Title Project</p>
-            <p>By xyz</p>
-          </div>
-        </div>
-        <div class="rounded-xl bg-[#3C4043] h-72">
-          <img
-            class="w-full object-cover rounded-t-xl h-48"
-            src="src/images/showcase/drivesim.jpg"
-          />
-          <div class="p-4 flex-col gap-1">
-            <div>
-              <!-- Render tags if any -->
-            </div>
-            <p>Title Project</p>
-            <p>By xyz</p>
-          </div>
-        </div>
-
-        <div>
-          <h2>Community Projects</h2>
-        </div>
-
-        <div>
-          <h2>Workshop Projects</h2>
-        </div>
-      </div>
+        ))
+      }
     </div>
+  </div>
 
-    <script is:inline>
-      const DELAY = 6000;
-      const CAROUSEL_TRACK = document.querySelector("#track");
-      const CAROUSEL_CARDS = document.querySelectorAll(".carousel-card");
-      const CAROUSEL_TRACK_CARD_LENGTH = Number(CAROUSEL_TRACK.dataset.length * 2);
+  <script is:inline>
+    // Carousel
+    const DELAY = 6000;
+    const CAROUSEL_TRACK = document.querySelector("#track");
+    const CAROUSEL_CARDS = document.querySelectorAll(".carousel-card");
+    const CAROUSEL_TRACK_CARD_LENGTH = Number(
+      CAROUSEL_TRACK.dataset.length * 2,
+    );
+    const CAROUSEL_CARD_PIXEL_LENGTH =
+      CAROUSEL_CARDS[0].getBoundingClientRect().width;
+    const CAROUSEL_TRACK_PIXEL_LENGTH =
+      CAROUSEL_CARD_PIXEL_LENGTH * CAROUSEL_TRACK_CARD_LENGTH;
+    const PAGINATION_BUTTONS = document.querySelectorAll(".pagination");
 
-      const CAROUSEL_CARD_PIXEL_LENGTH = CAROUSEL_CARDS[0].getBoundingClientRect().width;
-      const CAROUSEL_TRACK_PIXEL_LENGTH = CAROUSEL_CARD_PIXEL_LENGTH * CAROUSEL_TRACK_CARD_LENGTH;
-      const PAGINATION_BUTTONS = document.querySelectorAll(".pagination");
+    let timer;
+    let selectedPagination = document.querySelector(".selected");
+    let selectedIndex = CAROUSEL_TRACK_CARD_LENGTH / 2;
 
-      let timer;
-      let selectedPagination = document.querySelector(".selected");
-      let selectedIndex = CAROUSEL_TRACK_CARD_LENGTH / 2;
+    instantScroll(selectedIndex);
+    autoScroll();
 
-      instantScroll(selectedIndex);
+    function resetScroll() {
+      clearTimeout(timer);
       autoScroll();
+    }
 
-      function resetScroll() {
-        clearTimeout(timer);
-        autoScroll();
-      }
-
-      function checkEdge(direction) {
-        if (direction == "right") {
-          if (
-            CAROUSEL_TRACK.scrollLeft >=
-            CAROUSEL_TRACK_PIXEL_LENGTH - CAROUSEL_CARD_PIXEL_LENGTH - 2
-          ) { return true; }
-        } else {
-          if (CAROUSEL_TRACK.scrollLeft == 0) { return true; }
+    function checkEdge(direction) {
+      if (direction == "right") {
+        if (
+          CAROUSEL_TRACK.scrollLeft >=
+          CAROUSEL_TRACK_PIXEL_LENGTH - CAROUSEL_CARD_PIXEL_LENGTH - 2
+        ) {
+          return true;
         }
-        return false;
+      } else {
+        if (CAROUSEL_TRACK.scrollLeft == 0) {
+          return true;
+        }
       }
+      return false;
+    }
 
-      function onArrowClick(event) {
-        if (event.currentTarget.dataset.arrow == "right") {
+    function onArrowClick(event) {
+      if (event.currentTarget.dataset.arrow == "right") {
+        selectedIndex += 1;
+
+        if (selectedIndex >= CAROUSEL_TRACK_CARD_LENGTH * 2) {
+          selectedIndex = CAROUSEL_TRACK_CARD_LENGTH * 2 - 1;
+        }
+
+        let edgeTrue = checkEdge("right");
+        if (edgeTrue) {
+          teleportEdge("right");
+        }
+        scroll(selectedIndex);
+      } else {
+        selectedIndex -= 1;
+        if (selectedIndex < 0) {
+          selectedIndex = 0;
+        }
+        let edgeTrue = checkEdge("left");
+        if (edgeTrue) {
+          teleportEdge("left");
+        }
+        scroll(selectedIndex);
+      }
+      resetScroll();
+      changePaginationStyle(selectedIndex);
+    }
+
+    function onPaginationClick(event) {
+      resetScroll();
+      paginationIndex = Number(event.currentTarget.dataset.index);
+      console.log(paginationIndex);
+      changePaginationStyle(paginationIndex);
+
+      if (selectedIndex < CAROUSEL_TRACK_CARD_LENGTH / 2) {
+        selectedIndex = paginationIndex;
+        scroll(selectedIndex);
+      } else {
+        console.log(CAROUSEL_TRACK_CARD_LENGTH / 2);
+        selectedIndex = paginationIndex + CAROUSEL_TRACK_CARD_LENGTH / 2;
+        scroll(selectedIndex);
+      }
+    }
+
+    function changePaginationStyle(index) {
+      if (index >= CAROUSEL_TRACK_CARD_LENGTH / 2) {
+        index -= CAROUSEL_TRACK_CARD_LENGTH / 2;
+      }
+      selectedPagination.classList.remove("selected");
+      PAGINATION_BUTTONS[index].classList.add("selected");
+      selectedPagination = PAGINATION_BUTTONS[index];
+    }
+
+    function teleportEdge(direction) {
+      if (direction == "left") {
+        selectedIndex = CAROUSEL_TRACK_CARD_LENGTH / 2;
+        instantScroll(selectedIndex);
+        selectedIndex -= 1;
+        scroll(selectedIndex);
+      } else {
+        selectedIndex = CAROUSEL_TRACK_CARD_LENGTH / 2 - 1;
+        instantScroll(selectedIndex);
+        selectedIndex += 1;
+        scroll(selectedIndex);
+      }
+    }
+
+    function scroll(index) {
+      CAROUSEL_TRACK.scrollTo({
+        left: index * CAROUSEL_CARD_PIXEL_LENGTH,
+        behavior: "smooth",
+      });
+    }
+
+    function instantScroll(index) {
+      CAROUSEL_TRACK.scrollTo({
+        left: index * CAROUSEL_CARD_PIXEL_LENGTH,
+        behavior: "instant",
+      });
+    }
+
+    function autoScroll() {
+      timer = setTimeout(() => {
+        let edgeTrue = checkEdge("right");
+        if (edgeTrue) {
+          teleportEdge("right");
+        } else {
           selectedIndex += 1;
-
-          if (selectedIndex >= CAROUSEL_TRACK_CARD_LENGTH * 2) {
-            selectedIndex = CAROUSEL_TRACK_CARD_LENGTH * 2 - 1;
-          }
-
-          let edgeTrue = checkEdge("right");
-          if (edgeTrue) { teleportEdge("right"); }
-          scroll(selectedIndex);
-        } else {
-          selectedIndex -= 1;
-          if (selectedIndex < 0) {
-            selectedIndex = 0;
-          }
-          let edgeTrue = checkEdge("left");
-          if (edgeTrue) { teleportEdge("left"); }
           scroll(selectedIndex);
         }
-        resetScroll()
-        changePaginationStyle(selectedIndex)
-      }
-
-      function onPaginationClick(event) {
+        changePaginationStyle(selectedIndex);
         resetScroll();
-        paginationIndex = Number(event.currentTarget.dataset.index);
-        console.log(paginationIndex)
-        changePaginationStyle(paginationIndex);
-        
-
-        if (selectedIndex < CAROUSEL_TRACK_CARD_LENGTH / 2) {
-          selectedIndex = paginationIndex;
-          scroll(selectedIndex);
-        } else {
-          console.log(CAROUSEL_TRACK_CARD_LENGTH / 2)
-          selectedIndex = paginationIndex + CAROUSEL_TRACK_CARD_LENGTH / 2;
-          scroll(selectedIndex);
-        }
-      }
-
-      function changePaginationStyle(index) {
-        if (index >= CAROUSEL_TRACK_CARD_LENGTH / 2) {
-          index -= CAROUSEL_TRACK_CARD_LENGTH/2
-        }
-        selectedPagination.classList.remove("selected");
-        PAGINATION_BUTTONS[index].classList.add("selected");
-        selectedPagination = PAGINATION_BUTTONS[index];
-      }
-
-      function teleportEdge(direction) {
-        if (direction == "left") {
-          selectedIndex = CAROUSEL_TRACK_CARD_LENGTH / 2;
-          instantScroll(selectedIndex);
-          selectedIndex -= 1;
-          scroll(selectedIndex);
-        } else {
-          selectedIndex = CAROUSEL_TRACK_CARD_LENGTH / 2 - 1;
-          instantScroll(selectedIndex);
-          selectedIndex += 1;
-          scroll(selectedIndex);
-        }
-      }
-
-      function scroll(index) {
-        CAROUSEL_TRACK.scrollTo({
-          left: index * CAROUSEL_CARD_PIXEL_LENGTH,
-          behavior: "smooth",
-        });
-      }
-
-      function instantScroll(index) {
-        CAROUSEL_TRACK.scrollTo({
-          left: index * CAROUSEL_CARD_PIXEL_LENGTH,
-          behavior: "instant",
-        });
-      }
-
-      function autoScroll() {
-        timer = setTimeout(() => {
-          let edgeTrue = checkEdge("right");
-          if (edgeTrue) {
-            teleportEdge("right")
-          }
-          else {
-            selectedIndex += 1
-            scroll(selectedIndex);
-          }
-          changePaginationStyle(selectedIndex)
-          resetScroll();
-        }, DELAY);
-      }
-    </script>
-  </div></DefaultLayout
->
+      }, DELAY);
+    }
+  </script>
+</DefaultLayout>

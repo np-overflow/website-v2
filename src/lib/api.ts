@@ -111,9 +111,9 @@ export interface Showcase {
     projects: {
       proj_name: string;
       proj_desc: string;
+      tags: string[];
       username: string;
       img_folder: string;
-      img_alts: string;
       github: string;
       linkedin: string;
       live_view: string;

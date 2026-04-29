@@ -8,6 +8,7 @@ module.exports = {
       fontFamily: {
         cubano: ["Cubano", "sans-serif"],
         roboto: ["Roboto", "sans-serif"],
+        inter:  ["Inter", "sans-serif"],
       },
       colors: {
         "primary-100": "#14171A",
