@@ -116,8 +116,8 @@ const ShowcasePopup = () => {
           </div>
           <p className="mb-2 text-3xl font-cubano"> {project.proj_name}</p>
           <p className="text-base mb-2 text-s text-gray-700 dark:text-gray-300">
-            by{" "}
-            <span className="text-white font-semibold">{project.username}</span>
+            by {" "}
+            <span className="text-gray-700 dark:text-white font-semibold">{project.username}</span>
           </p>
           <div className="flex flex-wrap gap-2 mb-2">
             {project.tags.map((tag: string) => (
