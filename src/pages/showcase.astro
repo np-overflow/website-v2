@@ -9,8 +9,10 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
 //  Imagine import of data for carousel
 let selected = true;
 import { getShowcase } from "../lib/api";
+import BigGradientCard from "../components/BigGradientCard.astro";
 const showcase = getShowcase();
 const featuredElements = showcase.carousel.length;
+const submitLink = "https://form.gov.sg"
 ---
 
 <DefaultLayout
@@ -21,23 +23,21 @@ const featuredElements = showcase.carousel.length;
   }}
 >
   <div class="w-full p-5 lg:max-w-7xl lg:mx-auto relative">
-    <ShowcasePopup client:load
-      
-    />
+    <ShowcasePopup client:load />
     <div class="relative overflow-hidden snap-mandatory mb-16">
       <button
         class="absolute top-1/2 -translate-y-1/2 left-6 p-2 rounded-full bg-[#10101059] z-10 arrow"
         onclick="onArrowClick(event)"
         data-arrow="left"
       >
-        <Icon name="tabler:arrow-left" size={32}></Icon>
+        <Icon name="tabler:arrow-left" size={32} />
       </button>
       <button
         class="absolute top-1/2 -translate-y-1/2 right-6 p-2 rounded-full bg-[#10101059] z-10 arrow"
         onclick="onArrowClick(event)"
         data-arrow="right"
       >
-        <Icon name="tabler:arrow-right" size={32}</Icon>>
+        <Icon name="tabler:arrow-right" size={32} />
       </button>
 
       <div
@@ -104,6 +104,20 @@ const featuredElements = showcase.carousel.length;
           </div>
         ))
       }
+    </div>
+    <div class={`mb-7 px-5 py-16 md:px-14 md:py-32 rounded-3xl bg-purple-500`}>
+      <h3 class="font-cubano text-5xl md:text-7xl mb-2">Want to contribute?</h3>
+
+      <p>
+        <span class="text-lg"
+          >Give your projects the stage they deserve. Showcase the cool stuff
+          you've developed with fellow Overflowers!
+        </span>
+      </p>
+      <a class="cursor-pointer rounded-lg mt-2 inline-block px-4 py-3 bg-[#5c009e] font-inter font-bold text-lg text-white"
+      href={submitLink}
+      target="_blank">
+      Submit your project here!</a>
     </div>
   </div>
 
