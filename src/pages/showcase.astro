@@ -11,8 +11,8 @@ let selected = true;
 import { getShowcase } from "../lib/api";
 import BigGradientCard from "../components/BigGradientCard.astro";
 const showcase = getShowcase();
-const featuredElements = showcase.carousel.length;
-const submitLink = "https://form.gov.sg"
+const featuredElements = 5 // Need to find a function to address this
+const submitLink = "https://form.gov.sg";
 ---
 
 <DefaultLayout
@@ -44,9 +44,14 @@ const submitLink = "https://form.gov.sg"
         class="flex gap-2 absolute bottom-4 justify-center items-center w-full z-10 snap-mandatory"
       >
         {
-          showcase.carousel.map((project, index) => (
-            <CarouselPaginationButton index={index} />
-          ))
+          showcase.type.map((type) => {
+            if (type.title == "Featured Projects") {
+              return type.projects.map((project, index) => (
+                <CarouselPaginationButton index={index} />
+              ));
+              return null;
+            }
+          })
         }
 
         <!-- The thingy at the bottom to click to the specific featured prj -->
@@ -57,29 +62,25 @@ const submitLink = "https://form.gov.sg"
         data-length={featuredElements}
       >
         {
-          showcase.carousel.map((project) => (
-            <CarouselFeaturedCard
-              title={project.title}
-              description={project.description}
-              img_name={project.img_name}
-              img_alt={project.img_alt}
-            />
-          ))
+          showcase.type.map((type) => {
+            if (type.title == "Featured Projects") {
+              return type.projects.map((project, index) => (
+                <CarouselFeaturedCard id={index.toString()} project={project} />
+              ));
+            }
+            return null;
+          })
         }
         {
-          showcase.carousel.map((project) => (
-            <CarouselFeaturedCard
-              title={project.title}
-              description={project.description}
-              img_name={project.img_name}
-              img_alt={project.img_alt}
-            />
-          ))
+          showcase.type.map((type) => {
+            if (type.title == "Featured Projects") {
+              return type.projects.map((project, index) => (
+                <CarouselFeaturedCard project={project} id={index + "ver2"}/>
+              ));
+            }
+            return null;
+          })
         }
-
-        <!-- This doesn't have to be absolute positioning, prevent text overlap. -->
-
-        <!-- Arrows will have listeners and class names. Only the featured divs are auto-gen -->
       </div>
     </div>
 
@@ -89,7 +90,7 @@ const submitLink = "https://form.gov.sg"
         showcase.type.map((type) => (
           <div class="mb-12">
             <h2 class="text-2xl font-cubano mb-4">{type.title}</h2>
-            <div class="w-full grid grid-cols-3 gap-12">
+            <div class="w-full grid md:grid-cols-3 grid-cols-1 gap-12">
               {type.projects.map((project, index) => (
                 <ProjectCard
                   id={project.proj_name + index.toString()}
@@ -114,10 +115,13 @@ const submitLink = "https://form.gov.sg"
           you've developed with fellow Overflowers!
         </span>
       </p>
-      <a class="cursor-pointer rounded-lg mt-2 inline-block px-4 py-3 bg-[#5c009e] font-inter font-bold text-lg text-white"
-      href={submitLink}
-      target="_blank">
-      Submit your project here!</a>
+      <a
+        class="cursor-pointer rounded-lg mt-2 inline-block px-4 py-3 bg-[#5c009e] font-inter font-bold text-lg text-white"
+        href={submitLink}
+        target="_blank"
+      >
+        Submit your project here!</a
+      >
     </div>
   </div>
 
@@ -211,6 +215,9 @@ const submitLink = "https://form.gov.sg"
       if (index >= CAROUSEL_TRACK_CARD_LENGTH / 2) {
         index -= CAROUSEL_TRACK_CARD_LENGTH / 2;
       }
+      if (index >= CAROUSEL_TRACK_CARD_LENGTH / 2) {
+        index = CAROUSEL_TRACK_CARD_LENGTH / 2 - 1
+      } 
       selectedPagination.classList.remove("selected");
       PAGINATION_BUTTONS[index].classList.add("selected");
       selectedPagination = PAGINATION_BUTTONS[index];

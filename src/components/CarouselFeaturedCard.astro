@@ -1,12 +1,36 @@
 ---
+import * as showcaseImages from "../images/showcase";
+import { Icon } from "astro-icon";
+interface Project {
+    proj_name: string;
+    proj_desc: string;
+    tags: string[];
+    username: string;
+    img_folder: string;
+    github: string;
+    linkedin: string;
+    live_view: string;
+  }
+
 export interface Props {
-  title: string;
-  description: string;
-  img_name: string;
-  img_alt: string;
+  project: Project;
+  id: string;
 }
 
-const { title, description, img_name, img_alt } = Astro.props;
+const { project, id } = Astro.props;
+
+function processImages(images: any) {
+    return Object.entries(showcaseImages)
+      .filter(([key]) => key.startsWith(images))
+      .sort(([a], [b]) => {
+        const numA = parseInt(a.split("_")[1]) || 0;
+        const numB = parseInt(b.split("_")[1]) || 0;
+        return numA - numB;
+      })
+      .map(([, imageModule]) => (imageModule as any).src);
+  }
+
+  const images = processImages(project.img_folder)
 ---
 
 <div class="w-full h-48 min-h-[450px] flex-shrink-0 carousel-card snap-start shadow-xl overflow-hidden relative">
@@ -14,25 +38,26 @@ const { title, description, img_name, img_alt } = Astro.props;
   <div class="w-full h-full flex items-end justify-between p-10 relative">
     <div class="inset-0 absolute w-full h-full overflow-hidden">
       <img
-      src={`src/images/showcase/${img_name}`}
+      src={`src/images/showcase/${images[0]}`}
       class="inset-0 w-full h-full object-cover transition-all duration-300 image-div"
-      alt={img_alt}
+      alt={"Picture from project: " + project.proj_name}
     />
     </div>
     
-    <div class="mx-10 max-w-[60%] relative z-10 flex-col flex gap-1">
+    <div class="mx-10 md:max-w-[60%] relative z-10 flex-col flex gap-1">
       <!-- Separate div for text vs image (full-banner) -->
-      <p class="text-[#a478e6] font-bold">FEATURED PROJECT</p>
-      <h3 class="text-6xl font-cubano text-white">{title}</h3>
-      <p class="text-wrap text-gray-400">
-        {description}
+      <p class="text-[#a478e6] font-bold text-wrap">FEATURED PROJECT</p>
+      <h3 class="text-3xl md:text-6xl font-cubano text-white">{project.proj_name}</h3>
+      <p class="text-gray-400 truncate hidden md:block">
+        {project.proj_desc}
       </p>
     </div>
     <button
-      class="bg-[#6c3fdd] py-2 px-4 rounded-md font-medium text-[#ffffff] z-10 mx-10 flex gap-2 items-center"
+      class="bg-[#6c3fdd] py-2 px-4 rounded-md font-medium text-[#ffffff] z-10 mx-10 gap-2 items-center hidden md:flex"
+      id={"featured" + project.proj_name + id}
     >
       Explore Project
-      <img class="w-4 h-4" src="src/images/showcase/arrow-forward.png" />
+      <Icon name="tabler:arrow-right" size={20}></Icon>
     </button>
   </div>
   <!-- Shadow -->
@@ -42,7 +67,15 @@ const { title, description, img_name, img_alt } = Astro.props;
   </div>
 </div>
 
-<script is:inline>
+<script define:vars={{id, project}}>
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("featured" + project.proj_name + id);
+    container.addEventListener("click", () => {
+      console.log("hi")
+      document.dispatchEvent(new CustomEvent("showPopup", {detail: project}));
+    });
+  }); 
+  
 
 
 </script>

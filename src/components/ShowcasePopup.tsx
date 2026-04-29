@@ -34,6 +34,7 @@ const ShowcasePopup = () => {
       console.log("hi");
       setProject(e.detail);
       setShowPopup(true);
+      setImageIndex(0)
       setImageList(processImages(e.detail.img_folder));
     };
 
