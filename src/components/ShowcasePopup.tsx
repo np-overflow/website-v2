@@ -19,6 +19,7 @@ const ShowcasePopup = () => {
     github: string;
     linkedin: string;
     live_view: string;
+    workshop_tag: string | undefined;
   }
 
   let savedProject = activeProject.get();
@@ -34,7 +35,7 @@ const ShowcasePopup = () => {
       console.log("hi");
       setProject(e.detail);
       setShowPopup(true);
-      setImageIndex(0)
+      setImageIndex(0);
       setImageList(processImages(e.detail.img_folder));
     };
 
@@ -117,8 +118,10 @@ const ShowcasePopup = () => {
           </div>
           <p className="mb-2 text-3xl font-cubano"> {project.proj_name}</p>
           <p className="text-base mb-2 text-s text-gray-700 dark:text-gray-300">
-            by {" "}
-            <span className="text-gray-700 dark:text-white font-semibold">{project.username}</span>
+            by{" "}
+            <span className="text-gray-700 dark:text-white font-semibold">
+              {project.username}
+            </span>
           </p>
           <div className="flex flex-wrap gap-2 mb-2">
             {project.tags.map((tag: string) => (
@@ -126,6 +129,11 @@ const ShowcasePopup = () => {
                 {tag}
               </div>
             ))}
+            {project.workshop_tag ? (
+              <div className="text-center font-inter font-bold uppercase rounded-full py-0.5 px-3 text-[0.75rem] mb-1 bg-[#f6c198] text-[#f9f1ff] border-[#f2a229] dark:bg-[#5a360889] dark:text-[#ffd48b] dark:border-[#c68625] border-[1px]">
+                {project.workshop_tag}
+              </div>
+            ) : null}
           </div>
           <hr className="border-1 border-gray-800 my-4"></hr>
 

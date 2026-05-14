@@ -13,7 +13,7 @@ navbar:
     - name: Team
       to: /team
       icon: tabler:users
-    - name: Showcase Portal
+    - name: Our Projects
       to: /showcase
       icon: tabler:screen-share
     # - name: Handbook

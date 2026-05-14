@@ -5,6 +5,7 @@ interface Props {
   tags: string[];
   username: string;
   id: string;
+  workshop_tag: string | undefined;
   project: {
     proj_name: string;
     proj_desc: string;
@@ -14,10 +15,12 @@ interface Props {
     github: string;
     linkedin: string;
     live_view: string;
+    workshop_tag: string | undefined;
   };
 }
 
-const { proj_name, img_folder, tags, username, project, id } = Astro.props;
+const { proj_name, img_folder, tags, username, project, id, workshop_tag } =
+  Astro.props;
 import * as projectImages from "../images/showcase";
 const images = Object.entries(projectImages)
   .filter(([key]) => key.startsWith(img_folder))
@@ -30,7 +33,6 @@ const images = Object.entries(projectImages)
 ---
 
 <div
-
   id={id}
   data-project={JSON.stringify(project)}
   class="rounded-xl bg-neutral dark:bg-[#111218] min-h-80 border-gray-400 dark:border-[#16181F] border-[2px] project-container overflow-hidden hover:cursor-pointer"
@@ -53,8 +55,17 @@ const images = Object.entries(projectImages)
             ))
           : null
       }
+      {
+        workshop_tag ? (
+          <div class="text-center font-inter font-bold uppercase rounded-full py-0.5 px-3 text-[0.75rem] mb-1 bg-[#f6c198] text-[#f9f1ff] border-[#f2a229] dark:bg-[#5a360889] dark:text-[#ffd48b] dark:border-[#c68625] border-[1px]">
+            {workshop_tag}
+          </div>
+        ) : null
+      }
     </div>
-    <p class="font-cubano text-xl text-gray-800 dark:text-gray-300">{proj_name}</p>
+    <p class="font-cubano text-xl text-gray-800 dark:text-gray-300">
+      {proj_name}
+    </p>
     <p class="text-sm text-gray-800 dark:text-gray-400">by {username}</p>
   </div>
 </div>
@@ -69,8 +80,8 @@ const images = Object.entries(projectImages)
   document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById(id);
     container.addEventListener("click", () => {
-      console.log("hi")
-      document.dispatchEvent(new CustomEvent("showPopup", {detail: project}));
+      console.log("hi");
+      document.dispatchEvent(new CustomEvent("showPopup", { detail: project }));
     });
   });
 </script>

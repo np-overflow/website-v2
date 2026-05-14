@@ -1,53 +1,25 @@
 # I need to parse yaml content raw, load it to get an object and break down object into props
 
-carousel:
-  - title: Eye Can Drive
-    description: Eye Can Drive is a driving game where you control the car with your facial expressions
-    img_name: drivesim.jpg
-    img_alt: Eye can drive project image
-  - title: Digital Photobooth
-    description: 
-    img_name: digital_photobooth.jpeg
-    img_alt:
-  - title: Blaster Brawl
-    description: 
-    img_name: blaster_brawl.jpeg
-    img_alt:
-  - title: CheekyLawyer
-    description: 
-    img_name: cheekylawyer.png
-    img_alt:
+
 type:
   - title: "Featured Projects"
     projects: 
       - proj_name: Eye Can Drive
-        proj_desc: Eye can drive is bullbaababa apfjpdajfweoijfqe jweqfkwpe jfpwiejfpiewjfiwejf iwejfwej foweijfjweifjeosfnowej fiowejfiowejf weijfowejfowejfoiwejfoweofweofwjo nweojf weoif jwio 
-          dlsadpwdpefjwef  wpfkwekfmwkf mwek mfwekmfkwemfwkenf wkenfjowenfjowenfjwnfjwbnpfwekfmwekmf wekfmwkemfkowenmfowken fowenfjownfojwnf jowenfwrn fjnwrfn wrjlnfjwrnfjwrnfjwrnfkwn fljwnjfnwrjfnw
-          piwrfojwnfojwnf ojwenfjo wenej
+        proj_desc: Eye can drive is a game where you can drive with your facial expressions! It integrates computer vision from OpenCV and Unity game engine to detect your facial features
+          and measures the points on your face to determine if you are accelerating (mouth open) or decelerating (mouth closed).
         tags: 
           - IoT
           - Unity
           - Computer Vision
-        username: Koh Zihao Alexander
+        username: Software Team 1
         img_folder: EyeCanDrive
         github: github.com
         linkedin: gg.com
         live_view: gg.com
-      - proj_name: Eye Can Drive
-        proj_desc: Eye can drive is bullbaababa
-        tags: 
-          - IoT
-          - Unity
-          - Computer Vision
-        username: Koh Zihao Alexander
-        img_folder: EyeCanDrive
-        github: gg.com
-        linkedin: gg.com
-        live_view: gg.com
       - proj_name: Digital Photobooth
         proj_desc:
-        username:
-        img_folder:
+        username: Software Team 2
+        img_folder: DigitalPhotobooth
         github:
         linkedin:
         live_view:
@@ -55,10 +27,11 @@ type:
           - IoT
           - Unity
           - Computer Vision
+        workshop_tag: CV1
       - proj_name: Blaster Brawl
         proj_desc:
-        username:
-        img_folder:
+        username: Hardware Team 1
+        img_folder: BlasterBrawl
         github:
         linkedin:
         live_view:
@@ -77,7 +50,7 @@ type:
           - IoT
           - Unity
           - Computer Vision
-  - title: "Community Projects"
+  - title: "All Projects"
     projects: 
       - proj_name: Abcd
         proj_desc:

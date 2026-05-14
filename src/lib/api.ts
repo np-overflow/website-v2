@@ -112,6 +112,7 @@ export interface Showcase {
       proj_name: string;
       proj_desc: string;
       tags: string[];
+      workshop_tag: string;
       username: string;
       img_folder: string;
       github: string;
