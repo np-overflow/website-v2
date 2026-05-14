@@ -8,77 +8,32 @@ type:
         proj_desc: Eye can drive is a game where you can drive with your facial expressions! It integrates computer vision from OpenCV and Unity game engine to detect your facial features
           and measures the points on your face to determine if you are accelerating (mouth open) or decelerating (mouth closed).
         tags: 
-          - IoT
           - Unity
+          - Websockets
           - Computer Vision
-        username: Software Team 1
+        username: Software Team 1 (Alex, Jia Xuan, Keona, Kayden)
         img_folder: EyeCanDrive
-        github: github.com
-        linkedin: gg.com
-        live_view: gg.com
+        github: https://github.com/np-overflow/openhouse-ecd-cv
       - proj_name: Digital Photobooth
-        proj_desc:
-        username: Software Team 2
+        proj_desc: A digital photobooth that eliminates the need for green screens by using a background removal API, enabling quick and high-quality background swaps through code. Includes sticker and background customizations.
+        username: Software Team 2 (Hong Yi, Sairam, Jaron, Wei Kee)
         img_folder: DigitalPhotobooth
-        github:
+        github: https://github.com/np-overflow/OH-Group2-2026
         linkedin:
         live_view:
         tags: 
-          - IoT
-          - Unity
-          - Computer Vision
-        workshop_tag: CV1
+          - React
+          - FastAPI
       - proj_name: Blaster Brawl
-        proj_desc:
-        username: Hardware Team 1
+        proj_desc: Blaster Brawl is a game where you shoot, spray and snipe your opponents, and rack up points while you do so. It uses infrared signals, equipped with a server that updates scores and tracks game duration.
+        username: Hardware Team 1 (Zac, Sean, Jarell, Felix)
         img_folder: BlasterBrawl
-        github:
+        github: https://github.com/np-overflow/laser-tag-oflow
         linkedin:
         live_view:
         tags: 
           - IoT
-          - Unity
-          - Computer Vision
-      - proj_name: CheekyLawyer
-        proj_desc:
-        username:
-        img_folder:
-        github:
-        linkedin:
-        live_view:
-        tags: 
-          - IoT
-          - Unity
-          - Computer Vision
-  - title: "All Projects"
-    projects: 
-      - proj_name: Abcd
-        proj_desc:
-        username:
-        img_folder:
-        img_alts:
-        github:
-        linkedin:
-        live_view:
-        tags: 
-          - IoT
-          - Unity
-          - Computer Vision
-      - proj_name: Abcd
-        proj_desc:
-        username:
-        img_folder:
-        img_alts:
-        github:
-        linkedin:
-        live_view:
-        tags: 
-          - IoT
-          - Unity
-          - Computer Vision
-          - CV
-          - CV
-          - CV
+    
         
 # Carousel: Title, Description, Image Folder/Place, The explore more button has to link to the pop-up.
 # For actual showcase, it will be an image folder. for now do both image folders
