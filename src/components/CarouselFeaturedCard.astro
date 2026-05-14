@@ -69,9 +69,8 @@ function processImages(images: any) {
 
 <script define:vars={{id, project}}>
   document.addEventListener("DOMContentLoaded", () => {
-    const container = document.getElementById("featured" + project.proj_name + id);
-    container.addEventListener("click", () => {
-      console.log("hi")
+    const exploreButton = document.getElementById("featured" + project.proj_name + id);
+    exploreButton.addEventListener("click", () => {
       document.dispatchEvent(new CustomEvent("showPopup", {detail: project}));
     });
   }); 

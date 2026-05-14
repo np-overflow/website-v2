@@ -32,7 +32,6 @@ const ShowcasePopup = () => {
 
   useEffect(() => {
     const handler = (e: any) => {
-      console.log("hi");
       setProject(e.detail);
       setShowPopup(true);
       setImageIndex(0);
@@ -108,6 +107,7 @@ const ShowcasePopup = () => {
           >
             {imageList.map((imageSrc: string, index) => (
               <img
+              key={index}
                 onClick={handleImageIndicator}
                 className={`w-12 h-8 object-cover rounded cursor-pointer transition-transform hover:scale-110 ${index == imageIndex ? "ring-2 ring-white" : "opacity-70"}`}
                 src={imageSrc}

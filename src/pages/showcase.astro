@@ -11,8 +11,10 @@ let selected = true;
 import { getShowcase } from "../lib/api";
 import BigGradientCard from "../components/BigGradientCard.astro";
 const showcase = getShowcase();
-const featuredList = showcase.type.find((type) => type.title === "Featured Projects")
-const featuredElements = featuredList?.projects.length
+const featuredList = showcase.type.find(
+  (type) => type.title === "Featured Projects",
+);
+const featuredElements = featuredList?.projects.length;
 const submitLink = "https://form.gov.sg";
 ---
 
@@ -76,7 +78,7 @@ const submitLink = "https://form.gov.sg";
           showcase.type.map((type) => {
             if (type.title == "Featured Projects") {
               return type.projects.map((project, index) => (
-                <CarouselFeaturedCard project={project} id={index + "ver2"}/>
+                <CarouselFeaturedCard project={project} id={index + "ver2"} />
               ));
             }
             return null;
@@ -87,28 +89,61 @@ const submitLink = "https://form.gov.sg";
 
     <!-- Reuse layout -->
     <div>
-      {
-        showcase.type.map((type) => (
-          <div class="mb-12">
-            <h2 class="text-2xl font-cubano mb-4">{type.title}</h2>
-            <div class="w-full grid md:grid-cols-2 grid-cols-1 gap-12">
-              {type.projects.map((project, index) => (
+      <div class="mb-12">
+        <h2 class="text-2xl font-cubano mb-4">Featured Projects</h2>
+        <div class="w-full grid md:grid-cols-2 grid-cols-1 gap-12">
+          <!-- for every type, render -->
+          {
+            showcase.type.map((type) => {
+              if (type.title == "Featured Projects") {
+                {
+                  return type.projects.map((project, index) => (
+                    <ProjectCard
+                      id={project.proj_name + index.toString()}
+                      proj_name={project.proj_name}
+                      username={project.username}
+                      img_folder={project.img_folder}
+                      tags={project.tags}
+                      project={project}
+                      workshop_tag={
+                        project.workshop_tag ? project.workshop_tag : undefined
+                      }
+                    />
+                  ));
+                }
+              }
+            })
+          }
+        </div>
+      </div>
+
+      <div class="mb-12">
+        <h2 class="text-2xl font-cubano mb-4">All Projects</h2>
+        <div class="w-full grid md:grid-cols-2 grid-cols-1 gap-12">
+          {
+            showcase.type.map((type) => {
+              return type.projects.map((project, index) => (
                 <ProjectCard
-                  id={project.proj_name + index.toString()}
+                  id={project.proj_name + index.toString() + "all"}
                   proj_name={project.proj_name}
                   username={project.username}
                   img_folder={project.img_folder}
                   tags={project.tags}
                   project={project}
-                  workshop_tag={project.workshop_tag ? project.workshop_tag : undefined}
+                  workshop_tag={
+                    project.workshop_tag ? project.workshop_tag : undefined
+                  }
                 />
-              ))}
-            </div>
-          </div>
-        ))
-      }
+              ));
+            })
+          }
+        </div>
+      </div>
+      
     </div>
-    <div class={`mb-7 px-5 py-16 md:px-14 md:py-32 rounded-3xl bg-gradient-to-r from-violet-500 to-purple-400 bg-[#d294ff] dark:bg-purple-500`}>
+    <div
+      class={`mb-7 px-5 py-16 md:px-14 md:py-32 rounded-3xl bg-gradient-to-r from-violet-500 to-purple-400 bg-[#d294ff] dark:bg-purple-500`}
+    >
       <h3 class="font-cubano text-5xl md:text-7xl mb-2">Want to contribute?</h3>
 
       <p>
@@ -218,8 +253,8 @@ const submitLink = "https://form.gov.sg";
         index -= CAROUSEL_TRACK_CARD_LENGTH / 2;
       }
       if (index >= CAROUSEL_TRACK_CARD_LENGTH / 2) {
-        index = CAROUSEL_TRACK_CARD_LENGTH / 2 - 1
-      } 
+        index = CAROUSEL_TRACK_CARD_LENGTH / 2 - 1;
+      }
       selectedPagination.classList.remove("selected");
       PAGINATION_BUTTONS[index].classList.add("selected");
       selectedPagination = PAGINATION_BUTTONS[index];
