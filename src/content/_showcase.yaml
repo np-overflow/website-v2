@@ -1,0 +1,39 @@
+# I need to parse yaml content raw, load it to get an object and break down object into props
+
+
+type:
+  - title: "Featured Projects"
+    projects: 
+      - proj_name: Eye Can Drive
+        proj_desc: Eye can drive is a game where you can drive with your facial expressions! It integrates computer vision from OpenCV and Unity game engine to detect your facial features
+          and measures the points on your face to determine if you are accelerating (mouth open) or decelerating (mouth closed).
+        tags: 
+          - Unity
+          - Websockets
+          - Computer Vision
+        username: Software Team 1 (Alex, Jia Xuan, Keona, Kayden)
+        img_folder: EyeCanDrive
+        github: https://github.com/np-overflow/openhouse-ecd-cv
+      - proj_name: Digital Photobooth
+        proj_desc: A digital photobooth that eliminates the need for green screens by using a background removal API, enabling quick and high-quality background swaps through code. Includes sticker and background customizations.
+        username: Software Team 2 (Hong Yi, Sairam, Jaron, Wei Kee)
+        img_folder: DigitalPhotobooth
+        github: https://github.com/np-overflow/OH-Group2-2026
+        linkedin:
+        live_view:
+        tags: 
+          - React
+          - FastAPI
+      - proj_name: Blaster Brawl
+        proj_desc: Blaster Brawl is a game where you shoot, spray and snipe your opponents, and rack up points while you do so. It uses infrared signals, equipped with a server that updates scores and tracks game duration.
+        username: Hardware Team 1 (Zac, Sean, Jarell, Felix)
+        img_folder: BlasterBrawl
+        github: https://github.com/np-overflow/laser-tag-oflow
+        linkedin:
+        live_view:
+        tags: 
+          - IoT
+    
+        
+# Carousel: Title, Description, Image Folder/Place, The explore more button has to link to the pop-up.
+# For actual showcase, it will be an image folder. for now do both image folders

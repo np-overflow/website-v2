@@ -1,0 +1,80 @@
+---
+import * as showcaseImages from "../images/showcase";
+import { Icon } from "astro-icon";
+interface Project {
+    proj_name: string;
+    proj_desc: string;
+    tags: string[];
+    username: string;
+    img_folder: string;
+    github: string;
+    linkedin: string;
+    live_view: string;
+  }
+
+export interface Props {
+  project: Project;
+  id: string;
+}
+
+const { project, id } = Astro.props;
+
+function processImages(images: any) {
+    return Object.entries(showcaseImages)
+      .filter(([key]) => key.startsWith(images))
+      .sort(([a], [b]) => {
+        const numA = parseInt(a.split("_")[1]) || 0;
+        const numB = parseInt(b.split("_")[1]) || 0;
+        return numA - numB;
+      })
+      .map(([, imageModule]) => (imageModule as any).src);
+  }
+
+  const images = processImages(project.img_folder)
+---
+
+<div class="w-full h-48 min-h-[450px] flex-shrink-0 carousel-card snap-start shadow-xl overflow-hidden relative">
+  <!-- Note: items-end, and text-overflow to 2 lines for description to prevent major overflow -->
+  <div class="w-full h-full flex items-end justify-between p-10 relative">
+    <div class="inset-0 absolute w-full h-full overflow-hidden">
+      <img
+      src={`${images[0]}`}
+      class="inset-0 w-full h-full object-cover transition-all duration-300 image-div"
+      alt={"Picture from project: " + project.proj_name}
+    />
+    </div>
+    
+    <div class="mx-10 md:max-w-[60%] relative z-10 flex-col flex gap-1">
+      <!-- Separate div for text vs image (full-banner) -->
+      <p class="text-[#a478e6] font-bold text-wrap">FEATURED PROJECT</p>
+      <h3 class="text-3xl md:text-6xl font-cubano text-white">{project.proj_name}</h3>
+      <p class="text-gray-400 truncate hidden md:block">
+        {project.proj_desc}
+      </p>
+    </div>
+    <button
+      class="bg-[#6c3fdd] py-2 px-4 rounded-md font-medium text-[#ffffff] z-10 mx-10 gap-2 items-center hidden md:flex"
+      id={"featured" + project.proj_name + id}
+    >
+      Explore Project
+      <Icon name="tabler:arrow-right" size={20}></Icon>
+    </button>
+  </div>
+  <!-- Shadow -->
+  <div
+    class="absolute -left-1 -bottom-1 z-0 w-screen h-72 max-h-full bg-gradient-to-t from-[#000000f1] from-0% via-[#000000ca] via-40% to-[#00000000]"
+  >
+  </div>
+</div>
+
+<script define:vars={{id, project}}>
+  document.addEventListener("DOMContentLoaded", () => {
+    const exploreButton = document.getElementById("featured" + project.proj_name + id);
+    exploreButton.addEventListener("click", () => {
+      document.dispatchEvent(new CustomEvent("showPopup", {detail: project}));
+    });
+  }); 
+  
+
+
+</script>

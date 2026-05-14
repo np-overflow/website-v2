@@ -5,6 +5,7 @@ import rawSEO from "../content/_seo.yaml?raw";
 import rawLanding from "../content/_landing.yaml?raw";
 import rawTeam from "../content/_team.yaml?raw";
 import rawEvents from "../content/_events.yaml?raw";
+import rawShowcase from "../content/_showcase.yaml?raw";
 
 export interface Meta {
   announcement: {
@@ -96,6 +97,33 @@ export interface Landing {
 
 export function getLanding() {
   return load(rawLanding) as Landing;
+}
+
+export interface Showcase {
+  carousel: {
+    title: string;
+    description: string;
+    img_name: string;
+    img_alt: string;
+  }[];
+  type: {
+    title: string;
+    projects: {
+      proj_name: string;
+      proj_desc: string;
+      tags: string[];
+      workshop_tag: string;
+      username: string;
+      img_folder: string;
+      github: string;
+      linkedin: string;
+      live_view: string;
+    }[]
+  }[]
+}
+
+export function getShowcase() {
+  return load(rawShowcase) as Showcase;
 }
 
 export interface Team {

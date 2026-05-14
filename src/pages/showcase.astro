@@ -1,0 +1,305 @@
+---
+import { Icon } from "astro-icon";
+import CarouselFeaturedCard from "../components/CarouselFeaturedCard.astro";
+import CarouselPaginationButton from "../components/CarouselPaginationButton.astro";
+import ImagePopup from "../components/ImagePopup.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import ShowcasePopup from "../components/ShowcasePopup.tsx";
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+//  Imagine import of data for carousel
+let selected = true;
+import { getShowcase } from "../lib/api";
+import BigGradientCard from "../components/BigGradientCard.astro";
+const showcase = getShowcase();
+const featuredList = showcase.type.find(
+  (type) => type.title === "Featured Projects",
+);
+const featuredElements = featuredList?.projects.length;
+const submitLink = "https://forms.cloud.microsoft/r/xCQSH96Mz1";
+---
+
+<DefaultLayout
+  seo={{
+    title: "Our Projects | NP Overflow",
+    description:
+      "The projects created by members from the Overflow Special Interest Group",
+  }}
+>
+  <div class="w-full p-5 lg:max-w-7xl lg:mx-auto relative">
+    <ShowcasePopup client:load />
+    <div class="relative overflow-hidden snap-mandatory mb-16">
+      <button
+        class="absolute top-1/2 -translate-y-1/2 left-6 p-2 rounded-full bg-[#10101059] z-10 arrow"
+        onclick="onArrowClick(event)"
+        data-arrow="left"
+      >
+        <Icon name="tabler:arrow-left" size={32} />
+      </button>
+      <button
+        class="absolute top-1/2 -translate-y-1/2 right-6 p-2 rounded-full bg-[#10101059] z-10 arrow"
+        onclick="onArrowClick(event)"
+        data-arrow="right"
+      >
+        <Icon name="tabler:arrow-right" size={32} />
+      </button>
+
+      <div
+        class="flex gap-2 absolute bottom-4 justify-center items-center w-full z-10 snap-mandatory"
+      >
+        {
+          showcase.type.map((type) => {
+            if (type.title == "Featured Projects") {
+              return type.projects.map((project, index) => (
+                <CarouselPaginationButton index={index} />
+              ));
+              return null;
+            }
+          })
+        }
+
+        <!-- The thingy at the bottom to click to the specific featured prj -->
+      </div>
+      <div
+        class="rounded-3xl w-full shadow-md relative flex overflow-x-hidden border-[2px] border-[#16181F]"
+        id="track"
+        data-length={featuredElements}
+      >
+        {
+          showcase.type.map((type) => {
+            if (type.title == "Featured Projects") {
+              return type.projects.map((project, index) => (
+                <CarouselFeaturedCard id={index.toString()} project={project} />
+              ));
+            }
+            return null;
+          })
+        }
+        {
+          showcase.type.map((type) => {
+            if (type.title == "Featured Projects") {
+              return type.projects.map((project, index) => (
+                <CarouselFeaturedCard project={project} id={index + "ver2"} />
+              ));
+            }
+            return null;
+          })
+        }
+      </div>
+    </div>
+
+    <!-- Reuse layout -->
+    <div>
+      <div class="mb-12">
+        <h2 class="text-2xl font-cubano mb-4">Featured Projects</h2>
+        <div class="w-full grid md:grid-cols-2 grid-cols-1 gap-12">
+          <!-- for every type, render -->
+          {
+            showcase.type.map((type) => {
+              if (type.title == "Featured Projects") {
+                {
+                  return type.projects.map((project, index) => (
+                    <ProjectCard
+                      id={project.proj_name + index.toString()}
+                      proj_name={project.proj_name}
+                      username={project.username}
+                      img_folder={project.img_folder}
+                      tags={project.tags}
+                      project={project}
+                      workshop_tag={
+                        project.workshop_tag ? project.workshop_tag : undefined
+                      }
+                    />
+                  ));
+                }
+              }
+            })
+          }
+        </div>
+      </div>
+
+      <div class="mb-12">
+        <h2 class="text-2xl font-cubano mb-4">All Projects</h2>
+        <div class="w-full grid md:grid-cols-2 grid-cols-1 gap-12">
+          {
+            showcase.type.map((type) => {
+              return type.projects.map((project, index) => (
+                <ProjectCard
+                  id={project.proj_name + index.toString() + "all"}
+                  proj_name={project.proj_name}
+                  username={project.username}
+                  img_folder={project.img_folder}
+                  tags={project.tags}
+                  project={project}
+                  workshop_tag={
+                    project.workshop_tag ? project.workshop_tag : undefined
+                  }
+                />
+              ));
+            })
+          }
+        </div>
+      </div>
+      
+    </div>
+    <div
+      class={`mb-7 px-5 py-16 md:px-14 md:py-32 rounded-3xl bg-gradient-to-r from-violet-500 to-purple-400 bg-[#d294ff] dark:bg-purple-500`}
+    >
+      <h3 class="font-cubano text-5xl md:text-7xl mb-2">Want to contribute?</h3>
+
+      <p>
+        <span class="text-lg"
+          >Give your projects the stage they deserve. Showcase the cool stuff
+          you've developed with fellow Overflowers!
+        </span>
+      </p>
+      <a
+        class="cursor-pointer rounded-lg mt-2 inline-block px-4 py-3 bg-[#7a20ba] dark:bg-[#5c009e] font-inter font-bold text-lg text-white"
+        href={submitLink}
+        target="_blank"
+      >
+        Submit your project here!</a
+      >
+    </div>
+  </div>
+
+  <script is:inline>
+    // Carousel
+    const DELAY = 6000;
+    const CAROUSEL_TRACK = document.querySelector("#track");
+    const CAROUSEL_CARDS = document.querySelectorAll(".carousel-card");
+    const CAROUSEL_TRACK_CARD_LENGTH = Number(
+      CAROUSEL_TRACK.dataset.length * 2,
+    );
+    const CAROUSEL_CARD_PIXEL_LENGTH =
+      CAROUSEL_CARDS[0].getBoundingClientRect().width;
+    const CAROUSEL_TRACK_PIXEL_LENGTH =
+      CAROUSEL_CARD_PIXEL_LENGTH * CAROUSEL_TRACK_CARD_LENGTH;
+    const PAGINATION_BUTTONS = document.querySelectorAll(".pagination");
+
+    let timer;
+    let selectedPagination = document.querySelector(".selected");
+    let selectedIndex = CAROUSEL_TRACK_CARD_LENGTH / 2;
+
+    instantScroll(selectedIndex);
+    autoScroll();
+
+    function resetScroll() {
+      clearTimeout(timer);
+      autoScroll();
+    }
+
+    function checkEdge(direction) {
+      if (direction == "right") {
+        if (
+          CAROUSEL_TRACK.scrollLeft >=
+          CAROUSEL_TRACK_PIXEL_LENGTH - CAROUSEL_CARD_PIXEL_LENGTH - 2
+        ) {
+          return true;
+        }
+      } else {
+        if (CAROUSEL_TRACK.scrollLeft == 0) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    function onArrowClick(event) {
+      if (event.currentTarget.dataset.arrow == "right") {
+        selectedIndex += 1;
+
+        if (selectedIndex >= CAROUSEL_TRACK_CARD_LENGTH * 2) {
+          selectedIndex = CAROUSEL_TRACK_CARD_LENGTH * 2 - 1;
+        }
+
+        let edgeTrue = checkEdge("right");
+        if (edgeTrue) {
+          teleportEdge("right");
+        }
+        scroll(selectedIndex);
+      } else {
+        selectedIndex -= 1;
+        if (selectedIndex < 0) {
+          selectedIndex = 0;
+        }
+        let edgeTrue = checkEdge("left");
+        if (edgeTrue) {
+          teleportEdge("left");
+        }
+        scroll(selectedIndex);
+      }
+      resetScroll();
+      changePaginationStyle(selectedIndex);
+    }
+
+    function onPaginationClick(event) {
+      resetScroll();
+      paginationIndex = Number(event.currentTarget.dataset.index);
+      console.log(paginationIndex);
+      changePaginationStyle(paginationIndex);
+
+      if (selectedIndex < CAROUSEL_TRACK_CARD_LENGTH / 2) {
+        selectedIndex = paginationIndex;
+        scroll(selectedIndex);
+      } else {
+        console.log(CAROUSEL_TRACK_CARD_LENGTH / 2);
+        selectedIndex = paginationIndex + CAROUSEL_TRACK_CARD_LENGTH / 2;
+        scroll(selectedIndex);
+      }
+    }
+
+    function changePaginationStyle(index) {
+      if (index >= CAROUSEL_TRACK_CARD_LENGTH / 2) {
+        index -= CAROUSEL_TRACK_CARD_LENGTH / 2;
+      }
+      if (index >= CAROUSEL_TRACK_CARD_LENGTH / 2) {
+        index = CAROUSEL_TRACK_CARD_LENGTH / 2 - 1;
+      }
+      selectedPagination.classList.remove("selected");
+      PAGINATION_BUTTONS[index].classList.add("selected");
+      selectedPagination = PAGINATION_BUTTONS[index];
+    }
+
+    function teleportEdge(direction) {
+      if (direction == "left") {
+        selectedIndex = CAROUSEL_TRACK_CARD_LENGTH / 2;
+        instantScroll(selectedIndex);
+        selectedIndex -= 1;
+        scroll(selectedIndex);
+      } else {
+        selectedIndex = CAROUSEL_TRACK_CARD_LENGTH / 2 - 1;
+        instantScroll(selectedIndex);
+        selectedIndex += 1;
+        scroll(selectedIndex);
+      }
+    }
+
+    function scroll(index) {
+      CAROUSEL_TRACK.scrollTo({
+        left: index * CAROUSEL_CARD_PIXEL_LENGTH,
+        behavior: "smooth",
+      });
+    }
+
+    function instantScroll(index) {
+      CAROUSEL_TRACK.scrollTo({
+        left: index * CAROUSEL_CARD_PIXEL_LENGTH,
+        behavior: "instant",
+      });
+    }
+
+    function autoScroll() {
+      timer = setTimeout(() => {
+        let edgeTrue = checkEdge("right");
+        if (edgeTrue) {
+          teleportEdge("right");
+        } else {
+          selectedIndex += 1;
+          scroll(selectedIndex);
+        }
+        changePaginationStyle(selectedIndex);
+        resetScroll();
+      }, DELAY);
+    }
+  </script>
+</DefaultLayout>

@@ -1,0 +1,86 @@
+---
+interface Props {
+  proj_name: string;
+  img_folder: string;
+  tags: string[];
+  username: string;
+  id: string;
+  workshop_tag: string | undefined;
+  project: {
+    proj_name: string;
+    proj_desc: string;
+    tags: string[];
+    username: string;
+    img_folder: string;
+    github: string;
+    linkedin: string;
+    live_view: string;
+    workshop_tag: string | undefined;
+  };
+}
+
+const { proj_name, img_folder, tags, username, project, id, workshop_tag } =
+  Astro.props;
+import * as projectImages from "../images/showcase";
+const images = Object.entries(projectImages)
+  .filter(([key]) => key.startsWith(img_folder))
+  .sort(([a], [b]) => {
+    const numA = parseInt(a.split("_")[1]) || 0;
+    const numB = parseInt(b.split("_")[1]) || 0;
+    return numA - numB;
+  })
+  .map(([, imageModule]) => (imageModule as any).src);
+---
+
+<div
+  id={id}
+  data-project={JSON.stringify(project)}
+  class="rounded-xl bg-neutral dark:bg-[#111218] min-h-80 border-gray-400 dark:border-[#16181F] border-[2px] project-container overflow-hidden hover:cursor-pointer"
+>
+  <div class="h-52 overflow-hidden">
+    <img
+      class="w-full object-cover rounded-t-xl h-52 transition-all duration-300 relative z-0"
+      src={`${images[0]}`}
+    />
+  </div>
+
+  <div class="p-4 flex-col gap-1 relative z-10">
+    <div class="flex gap-2 flex-wrap">
+      {
+        tags
+          ? tags.map((tag) => (
+              <div class="text-center font-inter font-bold uppercase rounded-full py-0.5 px-3 text-[0.75rem] mb-1 bg-[#cf98f6] text-[#f9f1ff] border-[#bf29f2] dark:bg-[#2b085a89] dark:text-[#bf8bff] dark:border-[#6b25c6] border-[1px]">
+                {tag}
+              </div>
+            ))
+          : null
+      }
+      {
+        workshop_tag ? (
+          <div class="text-center font-inter font-bold uppercase rounded-full py-0.5 px-3 text-[0.75rem] mb-1 bg-[#f6c198] text-[#f9f1ff] border-[#f2a229] dark:bg-[#5a360889] dark:text-[#ffd48b] dark:border-[#c68625] border-[1px]">
+            {workshop_tag}
+          </div>
+        ) : null
+      }
+    </div>
+    <p class="font-cubano text-xl text-gray-800 dark:text-gray-300">
+      {proj_name}
+    </p>
+    <p class="text-sm text-gray-800 dark:text-gray-400">by {username}</p>
+  </div>
+</div>
+
+<style>
+  .project-container:hover img {
+    transform: scale(1.1);
+  }
+</style>
+
+<script define:vars={{ id, project }}>
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById(id);
+    container.addEventListener("click", () => {
+      document.dispatchEvent(new CustomEvent("showPopup", { detail: project }));
+    });
+  });
+</script>
