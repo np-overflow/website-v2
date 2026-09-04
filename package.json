@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^5.0.4",
-    "@nanostores/react": "^1.1.0",
+    "@nanostores/react": "^2.0.0",
     "@tabler/icons-react": "^3.41.1",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
